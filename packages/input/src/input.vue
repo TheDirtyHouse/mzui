@@ -60,7 +60,7 @@ mz-input
   <section :class="{'nolabel':!label}">
     <div class="field">
       <div class="border flex-row">
-        <label for="" v-if="label">{{label}}</label>
+        <label for="" v-if="label" v-html="label"></label>
         <textarea class="flex-auto" 
           v-if="wrap"
           :value="value" 
@@ -90,18 +90,15 @@ mz-input
         </div>
       </div>
     </div>
-    <transition>
-      <div class="tip" :class="{'tip-label':label}" v-if="tipContent || tipright">
-        <div class="flex-row flex-main-between flex-cross-center">
-            <div class="flex-row flex-auto" :class="{'tip-normal':tipType == 'normal'}">
-              <i v-if="tipType == 'error' && tipContent.length>0">!</i>
-              <p class="flex-auto msg">{{tipContent}}</p>
-            </div>
-          
-          <p class="tips-right" @click="clickTips()">{{tipright}}</p>
+    <div class="tips flex-row  flex-cross-center" :class="{'flex-main-end': !tipContent, 'flex-main-between': tipContent}">
+      <transition>
+        <div class="flex-row flex-auto" :class="{'tip-normal':tipType == 'normal', 'tip-label':label && tipContent}" v-if="tipContent">
+          <i v-if="tipType == 'error' && tipContent">!</i>
+          <p class="flex-auto msg">{{tipContent}}</p>
         </div>
-      </div>
-    </transition>
+      </transition>
+      <p class="tips-right" @click="clickTips()" v-if="tipright">{{tipright}}</p>
+    </div>
   </section>
 </template>
 <script>
@@ -192,11 +189,10 @@ module.exports = {
       this.$emit('clicktips');
     },
     onInput: function(value) {
-      var self = this;
       this.isFocused = true;
       this.$emit('input', value);
-      if(value != self.value){
-        self.tipContent = '';
+      if(this.tipContent && value.length < this.value.length){
+        this.tipContent = '';
       }
     },
     clear: function() {
@@ -209,7 +205,6 @@ module.exports = {
     validateInput: function(pattern, value){
       pattern = eval(this.pattern);
       if(pattern.test(value)){
-
         this.$emit('onpattern', true);
       } else {
         this.tipType = 'error';
@@ -259,6 +254,7 @@ section{
 @-webkit-keyframes errorOut{
   0%{
     opacity: 1;
+    max-height: 1000px;
   }
   100%{
     opacity: 0;
@@ -300,16 +296,6 @@ section{
     }
   }
 }
-.margin-small{
-  .field{
-    margin: 0 16px;
-  }
-  .tips{
-    .flex-row{
-      padding: 15px 16px;
-    }
-  }
-}
 label {
   width: 80px;
   text-align: left;
@@ -325,15 +311,29 @@ label {
   animation: errorOut .3s ease;
   -webkit-animation: errorOut .3s ease;
 }
-.tip {
+.tips {
   font-size: 14px;
   line-height: 16px;
   color: $errorColor;
+  &.flex-main-between{
+    background-color: $gray;
+    &::before {
+      position: absolute;
+      top: -7px;
+      left: 16px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid $gray;
+    }
+  }
   >.flex-row{
     padding: 14px 24px;
-    .tip-normal{
-      color: #757575;
-    }
+  }
+  .tip-normal{
+    color: #757575;
   }
   i {
     display: block;
@@ -352,30 +352,47 @@ label {
     padding-left: 4px;
   }
 }
-.tip-label {
-  background-color: $gray;
-  &::before {
-    position: absolute;
-    top: -7px;
-    left: 16px;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid $gray;
-  }
-}
 .nolabel{
   padding-bottom: 44px;
-  .tip{
+  .tips{
     position: absolute;
     width: 100%;
+    padding: 14px 24px;
+    &.flex-main-between{
+      background-color: #fff;
+      &::before{
+        display: none;
+      }
+    }
+    >.flex-row{
+      padding: 0;
+    }
   }
 }
 .tips-right{
   font-size: 12px;
   color: #757575;
   text-align: right;
+  min-width: 50px;
+}
+.margin-small{
+  .field{
+    margin: 0 16px;
+  }
+  .tips{
+    &.flex-main-between{
+      &::before {
+        left: 10px;
+      }
+    }
+    >.flex-row{
+      padding: 14px 16px;
+    }
+  }
+  .nolabel {
+    .tips{
+      padding: 0 16px;
+    }
+  }
 }
 </style>

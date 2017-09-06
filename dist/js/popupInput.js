@@ -151,8 +151,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.label) ? _c('label', {
     attrs: {
       "for": ""
+    },
+    domProps: {
+      "innerHTML": _vm._s(_vm.label)
     }
-  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e(), _vm._v(" "), (_vm.wrap) ? _c('textarea', {
+  }) : _vm._e(), _vm._v(" "), (_vm.wrap) ? _c('textarea', {
     staticClass: "flex-auto",
     domProps: {
       "value": _vm.value
@@ -212,28 +215,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.toggleType()
       }
     }
-  }) : _vm._e(), _vm._v(" "), _vm._t("default")], 2)])]), _vm._v(" "), _c('transition', [(_vm.tipContent || _vm.tipright) ? _c('div', {
-    staticClass: "tip",
+  }) : _vm._e(), _vm._v(" "), _vm._t("default")], 2)])]), _vm._v(" "), _c('div', {
+    staticClass: "tips flex-row  flex-cross-center",
     class: {
-      'tip-label': _vm.label
+      'flex-main-end': !_vm.tipContent, 'flex-main-between': _vm.tipContent
     }
-  }, [_c('div', {
-    staticClass: "flex-row flex-main-between flex-cross-center"
-  }, [_c('div', {
+  }, [_c('transition', [(_vm.tipContent) ? _c('div', {
     staticClass: "flex-row flex-auto",
     class: {
-      'tip-normal': _vm.tipType == 'normal'
+      'tip-normal': _vm.tipType == 'normal', 'tip-label': _vm.label && _vm.tipContent
     }
-  }, [(_vm.tipType == 'error' && _vm.tipContent.length > 0) ? _c('i', [_vm._v("!")]) : _vm._e(), _vm._v(" "), _c('p', {
+  }, [(_vm.tipType == 'error' && _vm.tipContent) ? _c('i', [_vm._v("!")]) : _vm._e(), _vm._v(" "), _c('p', {
     staticClass: "flex-auto msg"
-  }, [_vm._v(_vm._s(_vm.tipContent))])]), _vm._v(" "), _c('p', {
+  }, [_vm._v(_vm._s(_vm.tipContent))])]) : _vm._e()]), _vm._v(" "), (_vm.tipright) ? _c('p', {
     staticClass: "tips-right",
     on: {
       "click": function($event) {
         _vm.clickTips()
       }
     }
-  }, [_vm._v(_vm._s(_vm.tipright))])])]) : _vm._e()])], 1)
+  }, [_vm._v(_vm._s(_vm.tipright))]) : _vm._e()], 1)])
 },staticRenderFns: []}
 
 /***/ }),
@@ -779,9 +780,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 module.exports = {
   name: 'mz-input',
@@ -870,11 +868,10 @@ module.exports = {
       this.$emit('clicktips');
     },
     onInput: function (value) {
-      var self = this;
       this.isFocused = true;
       this.$emit('input', value);
-      if (value != self.value) {
-        self.tipContent = '';
+      if (this.tipContent && value.length < this.value.length) {
+        this.tipContent = '';
       }
     },
     clear: function () {
@@ -887,7 +884,6 @@ module.exports = {
     validateInput: function (pattern, value) {
       pattern = eval(this.pattern);
       if (pattern.test(value)) {
-
         this.$emit('onpattern', true);
       } else {
         this.tipType = 'error';
