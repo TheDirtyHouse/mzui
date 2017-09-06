@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>actionSheet</title>
+    <link rel="stylesheet" type="text/css" href="css/commonCss.css">
+    <style>
+      *[mgb]{
+        margin-bottom: 15px;
+        margin-top:30px;
+      }
+    </style>
+  <link href="css/actionSheet.css" rel="stylesheet"></head>
+  <body>
+    <div id='app'>
+
+      <div class="flex-col flex-main-center flex-cross-center">
+        <div style="width:80%;">
+        	test
+
+         
+        </div>
+      </div>
+    </div>
+
+<script src="plugins/_vue.js"></script>
+<script>
+  window.onload=function(){
+    var ActionSheet = mzui.actionSheet.default;
+    var app = new Vue({
+      el: '#app',
+      data:{
+      },
+      methods:{
+      },
+      components:{
+      },
+    });
+    ActionSheet.show({
+      title:'信息还未提交,真的要离开',
+      cancelText:'再想想',
+      actions:[
+      {
+        text:'操作1',
+        action:function(){
+          alert('操作1');
+        },
+      },
+      {
+        text:'操作2',
+        action:function(){
+          alert('操作2');
+        }
+      }
+      ]
+      });
+
+    
+
+  };
+      
+</script>
+  <script type="text/javascript" src="js/actionSheet.js"></script></body>
+</html>

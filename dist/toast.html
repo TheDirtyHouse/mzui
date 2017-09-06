@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>toast</title>
+    <link rel="stylesheet" type="text/css" href="css/commonCss.css">
+    <style>
+      *[mgb]{
+        margin-bottom: 15px;
+        margin-top:30px;
+      }
+    </style>
+  <link href="css/toast.css" rel="stylesheet"></head>
+  <body>
+    <div id='app'>
+
+      <div class="flex-col flex-main-center flex-cross-center">
+        <div style="width:80%;">
+        	test
+
+         
+        </div>
+      </div>
+    </div>
+
+<script src="plugins/_vue.js"></script>
+<script>
+  window.onload=function(){
+    var Toast = mzui.toast.default;
+    var app = new Vue({
+      el: '#app',
+      data:{
+      },
+      methods:{
+      },
+      components:{
+      },
+    });
+    
+    Toast.success({
+      message: 'test',
+      duration: 20000,
+    });
+
+    
+
+  };
+      
+</script>
+  <script type="text/javascript" src="js/toast.js"></script></body>
+</html>

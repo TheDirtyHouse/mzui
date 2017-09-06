@@ -1,14 +1,10 @@
 {
   "name": "vue-mzui",
-  "version": "1.0.10",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/js/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --env dev",
-    "devIndex": "webpack-dev-server --env devIndex",
-    "package": "webpack --progress --env package",
-    "package-prd": "webpack --progress -p --env package"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
     "dist"

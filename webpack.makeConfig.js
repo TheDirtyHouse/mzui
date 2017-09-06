@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require("path");
 var fs = require("fs");
-var minimist = require('minimist');//获取管道符
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");// 默认的webpack 会将require("style.css")文件嵌入js文件中，使用该插件会将css从js中提取出来
 var CleanWebpackPlugin = require('clean-webpack-plugin'); // 删除文件
