@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>index</title>
+   <!--  <link rel="stylesheet" type="text/css" href="../dist/css/commonCss.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/bundle.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/popupInput.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/addressPicker.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/selectList.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/header.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/page.css"> -->
+    <style type="text/css">
+      *[mgb]{margin-bottom:20px;}
+      #app,html,body{width:100%;height:100%;}
+      .view-full{width:100%;height:100%;}
+      .view-root{
+        position:absolute;
+        left:0;
+        top:0;
+        height:100%;width:100%;
+        overflow-y:scroll;
+        overflow-x:hidden;
+      }
+      #view-index{
+        z-index:0;
+      }
+      #view-select-list{
+        z-index: 2;
+      }
+      hgroup{
+        width:100%;
+      }
+      .icon-good,.icon-feedback,.icon-wxshare,.icon-service,.icon-qcone,.icon-go,
+      .icon-jie,.icon-desc{
+        background-size:100% 100%;
+        width:24px;height:24px;
+        display:block;
+      }
+      .icon-go{
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAxRJREFUaAXtl01oE0EUx7v5MsFIehEx5BAj5uglhwSSmI9LqyJYFOLnwR6UFvTYU+ldhEr1ZhHbmxpBEZGCkO+DSURyMXjIQYkoCUqJMcR8+5+SQggtzmRnNwR2YdjZ5c3M7//evNm3Qq/XU09N8KWaYPYddEXAuCOoRECJgEgPKFtIpANFD1ciINqFIifgHoFYLHYjk8lMi+SiHs5VQDwev9PtdtdrtdqbfD5voKYQYchVgF6vDwuC8AUFoqtUKoULhYJGBBvVUK4CnE7nD51ON4uVyxAxWywWN9EXqEhGNOIqgDC43e4CRJxB9zdEhKLR6NqIbFTDuAsgq3o8npxarT6P7fQXIhYhYoWKZgQjSQQQDp/Pl1CpVFfQ7UDEChJ8cQS+/w6RTABZGSJeIwo3SR+n0xoiESJ9npekAghoIBDYhIglRIEk80YikZiZKAF9EasQcQ8itO12O5xMJl28RAiYVLafemyhR1hvHmK2NRqN3+v1fhIrRFYBgFVFIpFnuM+hfcdx68WJ9VWMCMlzYAiua7fbr+JdFM3cbDa3stns4SEbpke5BUxZLJamyWQiEfiIdqJarb7N5XKHmKgHjGUX0F+7hTz40+8fbDQaBwaYmLqSF1vDNKhS1ZVK5Snen4KIbwaDYQY11M9hO9pn2SNQLpcfA+4c2i9S+LlcriIt7F52skYAx+h9HKPXyPbRarVnUfh93guK5Z1sEcCf2jLgbwOuAQFzOD4/sIDuZyvLdwDwC6iFHgKiA8+H8AF7tR8Q63vJIwD4S/D8AwKG6vQWT/idOVkVs9gD/jTgn6Bh1whLfr9/g2U8ja1kSYyq0w3w52haeP4u4FdpgFhtJMkBwJ/sdDoRwE/D8+soqRdYwWjtuQtIpVLHUeMkAHAE7UUwGLyMe48WiNWOaxKn0+mjrVZrCxAE/p3NZruOu2TwRCzXHKjX6xexbY5h27w3m80XrFZriywi5cV9C+Hnfd5oNL50OBzbUoLvzs1dwO7Ect255oBc0IPrKAIGvTGOvhKBcXh9cE0lAoPeGEd/4iPwDzg3DOK6GPfxAAAAAElFTkSuQmCC");
+}
+      .icon-service{
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABXpJREFUaAXtWFtsVEUY/uZs2V5CCxQTb9BWEDQFEqWWKDFSfSBU25AoFW00UalI27QItKuAqCgF0i2VQi8IShRjrfTFKvHB+EB9wChUH5BIjRegNRaUll6w9zP+U7pzzume3XN2u27TpJvsnv8+/zf/zD+zh3HOHZjEH2US5z6S+hSAia7gVAWmKjDOGZj0SyjCcgLK8nPAVTc4Yk1tGWtBpDMbhfu/NdWX5vaAsWuka6HnD2BoxKzEE3jB9a+pfYBC6wpwXuozeTEY53PRP7Ddz7hRZHMLfVOhqi9hWK3FP3+0oSz/XdRsTfTjZ0tlDQCYZiPSHBs2epMYArMOPdfOE5BtekWgtDUAjh7LoJzP9mnDlE9o2Yjl9Rc9ucGO0+So6ltw536OwztnGXQ2GWZ5F3LnNtOw8y3iDcBVE2NhAxx+9XZ09rwIqLSvaFnpP4xdRFT0ahTs+0kvtqKtKwB2ySoI6Z04tHWupd36vX+iuPJNLM5MgkPZTBUZlD6cJ6KvtyHQSlgDYOwXOYg/orvrIX9qgy49fQhbqg5Q90ojeavUCRCdbR9K3gZhAwCabcQRJitM7dy5P8Od9yX25e/GAdc8g01hxXeYGb+MZDoQeDSQjW0NwBll3t8NmRDD+d1jRSM8xwLSraT26UJ/dzMlV4dj22ZK2/UlVxDlXGtcTuoOuy3WGsDy7CY6gLrkgL4IhZ3ypZJyTmmq6hq0dZxBxcuLpFxUQlFekbzoTte7bLVXawApKSoFbpTBzQjGvsB9qTvMVAT+a5JfHqNLQn9/g6ESyRnVZNsm7VT1aRwttexs1gBERIV9KgOPJUTyqcueRNpzWkfR2xRXr0LGIwnUdZ6h+W/XqZJwpfOQ5MXGhvKe5IEYdFzM0PGmpD0ACYsaaPBurwhWyXsckrOGqevUITL2fgMIrj5h2Ngzph8hvXbYcR+NwROXnvYAZOX1gil1Oj9Qub/yO/MG41GmsPR3WuuFUiX2xOD1HMmLc4JDW0acL5U6H4Q9AMI5OrqEfvu0OPwmxC4Z1nibVHpaPVlqe0Ll9xg8GS7oeMvD0T6A/LJW2gsHZXCOpTh5NE/ydgmxnBg7q5nzOzRaUMoFyXOutVspNBLWdyG9/fs7Z+Dq5V+p6d+4eIn2GhufjA27tLLr7cNA26+ASGbdG520hvfIvDiPQ3d7jeQngAgMgEgwcX4lbb3fZK6cZ9LpulfyYSYCB5C1aQDOyMcJhNZWVbWIQGjdJIwgAgcgktu4/xwinM9SLxWn9I2PyitRXvCYhw3XM7BNPDarsjwXVL5bE7MhOBwF2HLwiCYzoU5+MA1nTr9NvsupI50ni0bExn2DDXtaTKz9isYHQIQuyztGiWQbRlEc5ShaQ5ezNO1U9RiI5E9/X083VO9rAmP9JG8nUFfJvJX+L5T4fNsxGi+4JeRJRjwTF+TQKf2xXgR1eDNKj3+G6tduM8j9JS8MOY+k31vpuZi+q+htR63B34QZfwU8QUeWE3ZRFtqkiI3OHK/j4eer0H3WQTN/nBLL9LjYerpqIvzZhQ6AGOWdjRkYGviI7jNjXoKxH6lr/U3Jr/SXjKnOAoA2W6beAQo3VZygFvug4ZwYCcHvDSp5G8OHFoAYULTYpIVLoDhc1GY7bOQwLpPQAxDpiMOuqLIcs2++ky6AbpLobrHjytfLObR7wCv8qKCqaA56e7fTS+KnvPeHL6dRucUeCA8AT4711dG4dG41nRtrSbSC9kWcR2X6FLfd4up4U92oMLwA9Jk0NSk4VZuCgb4HqCp3EZiF1IITwFkcNYHpZDpIB5oLRVX6/8n6CCP0xAHwSiU4wf+ziYPLJSivKQBBTVsInaYqEMLJDCrUVAWCmrYQOv0HLNWvCRDV5lUAAAAASUVORK5CYII=");
+}
+    </style>
+  </head>
+  <body>
+    <div id='app' >
+      <mz-page ref="mainPage" 
+      v-bind:nn-view-switch="nnViewSwitch" 
+      v-bind:nav="nav"
+      v-on:onleft="navLeftBtn"
+      v-on:onright="navRightBtn">
+
+        <mz-popup-input 
+          placeholder="提示文字" 
+          btn-name="提交" 
+          title="标题" 
+          :show="popupInput.show"
+          maxlength="11"
+          tip-right="右下角tip"
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          need-length="11"
+          trace="input"
+          type="imgcode"
+          :img-src="popupInput.imgsrc"
+
+          @btnok="btnPopupInputOk"
+          @btnclose="btnPopupInputClose"
+          @btnimgcode="btnPopupInputImg">
+            
+        </mz-popup-input>
+
+        <transition name="normal">
+
+          <section id="view-index" v-show="nnViewSwitch.index" class="view-root" style="display:none;">
+            <div class="flex-col flex-main-center flex-cross-center">
+              <div style="width:98%;">
+          
+                <!-- Cell -->
+                <mz-cell mgb><p slot="header">Cell</p> </mz-cell>
+                <hgroup class="flex-col flex-main-center flex-cross-center">
+                  <mz-cell mgb>
+                    <i slot="header" class="icon-service"></i>
+                    <p slot="title">带header-icon和右箭头的cell</p>
+                    <p slot="end"></p>
+                    <i slot="footer" class="icon-go"></i>
+                  </mz-cell>
+                  <mz-cell mgb>
+                    <i slot="header" class="icon-service"></i>
+                    <p slot="title">带尾部标题的cell</p>
+                    <p slot="end">标题3</p>
+                    <i slot="footer" class="icon-go"></i>
+                  </mz-cell>
+                </hgroup>
+
+                <!-- toast -->
+                <mz-cell mgb><p slot="header">Toast</p> </mz-cell>
+                <hgroup class="flex-row flex-main-center flex-cross-center">
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnToast" data-type="info">info</mz-button>
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnToast" data-type="success">success</mz-button>
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnToast" data-type="error">error</mz-button>
+                </hgroup>
+              
+                <!-- MessageBox -->
+                <mz-cell mgb><p slot="header">MessageBox</p> </mz-cell>
+                <hgroup class="flex-row flex-main-center flex-cross-center flex-auto">
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnMessageBox" data-type="alert">alert</mz-button>
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnMessageBox" data-type="confirm">confirm</mz-button>
+                </hgroup>
+                
+
+  
+                
+
+                <!-- Button -->
+                <mz-cell mgb><p slot="header">Button</p> </mz-cell>
+                <hgroup class="flex-col flex-main-center flex-cross-center">
+                  <mz-button mgb >normal</mz-button>
+                  <mz-button mgb btn-style="hollow">hollow button</mz-button>
+                  <mz-button mgb :btn-loading="isLoading">loading</mz-button>
+                  <mz-button mgb :btn-disabled="isDisabled">button disabled</mz-button>
+                </hgroup>
+
+                <!-- Input -->
+                <mz-cell mgb><p slot="header">Input</p> </mz-cell>
+                <hgroup class="flex-col flex-main-center flex-cross-center">
+                  <mz-input mgb placeholder="试试看输入手机号" 
+                  type="tel" 
+                  v-model="inputPhone" 
+                  pattern="/^1[3456789]\d{9}$/" 
+                  error-msg="手机号输入出错" 
+                  trace="input" 
+                  need-length="11" 
+                  max-length="11" 
+                  ref="inputPhone">
+                  </mz-input>
+                </hgroup>
+
+                <!-- Others -->
+                <mz-cell mgb><p slot="header">Others</p> </mz-cell>
+                <hgroup class="flex-col flex-main-center flex-cross-center">
+  
+                  <hgroup class="flex-row flex-main-center flex-cross-center flex-auto">
+                    <mz-button class="flex-auto" mgb v-on:onclick="btnMask" data-type="normal">Mask</mz-button>
+                    <mz-button class="flex-auto" mgb v-on:onclick="btnMask" data-type="transparent">TransparentMask</mz-button>
+                  </hgroup>
+                  
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnActionSheet">ActionSheet</mz-button>
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnLoading">Loading</mz-button>
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnAddressPicker" data-type="normal">AddressPicker</mz-button>
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnSelectList">SelectList</mz-button>
+                  <mz-button class="flex-auto" mgb v-on:onclick="btnPopupInput" data-type="normal">PopupInput</mz-button>
+                </hgroup>
+
+              </div>
+            </div>
+          </section>
+
+        </transition>
+
+
+        <transition name="up">
+          <section id="view-select-list" v-show="nnViewSwitch.selectList" class="view-root" style="background:white;display:none;">
+            <mz-select-list :lists="companyList" v-on:clickitem="btnSelectListItem"></mz-select-list>
+          </section>
+        </transition>
+      </mz-page>
+        
+
+
+    </div>
+
+  <script src="../dist/plugins/_vue.js"></script>
+  <!-- <script src="../dist/js/bundle.js"></script>
+  <script src="../dist/js/popupInput.js"></script>
+  <script src="../dist/js/addressPicker.js"></script>
+  <script src="../dist/js/selectList.js"></script>
+  <script src="../dist/js/header.js"></script>
+  <script src="../dist/js/page.js"></script> -->
+  </body>
+</html>

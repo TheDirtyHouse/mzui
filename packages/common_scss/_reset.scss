@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+// @font-face{
+// 	font-family:myDefault;
+// 	src:url("../resource/PingFang.ttc");
+// }
+
+*{
+		// font-family: "Helvetica","PingFang SC","微软雅黑",arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
+		// font-family:myDefault;
+		font-family:"PingFangSC-Regular";
+		
+		font-size: 14px;//=12px
+		// font-weight:lighter;
+		
+		position: relative;
+
+		-webkit-tap-highlight-color:rgba(0,0,0,0);//关闭点击元素时半透明高亮效果（iphone ipad)
+
+		-webkit-text-size-adjust:none;//关闭字体大小自动调整功能.（iphone横竖屏会自动改变字体大小）
+		
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin:0; padding:0;border: 0;
+    border-spacing:0;//主要用于表格之间的间距
+    outline: none;//元素默认的边框
+}
+//输入框默认提示文字的
+::-moz-placeholder{color:#b3b3b3;font-size: 1em;}
+:-ms-input-placeholder{color:#b3b3b3;font-size: 1em}
+::-webkit-input-placeholder{color:#b3b3b3;font-size: 1em}
+
+img {
+	 -webkit-touch-callout: none;//防止长按屏幕出现系统菜单，下载图片
+	 display: block;
+}
+i{
+	font-style:normal;
+}
+textarea {
+	resize:none;//用户不能调整textarea尺寸大小
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;//取消默认样式，如箭头
+}
+
+ul,li {
+	list-style: none;//li有序列表前不带符号
+}
+a {
+	text-decoration:none;//不显示文本修饰符：如a标签的下划线
+}
+
+
+.no-select {
+	//设置为无法选择文本
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+
+.touch-scroll {
+	overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.text-auto-return {//自动换行
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	word-break:break-all;
+}
+.text-no-return {//取消自动换行
+	white-space:nowrap;
+}
+.text-out-ellipsis {//超出部分省略号显示
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space:nowrap;
+}
+
