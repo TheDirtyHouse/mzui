@@ -10,6 +10,6 @@ import input from '../input/src/input.js';
 import toast from '../toast/src/toast.js';
 
 
-export {
+export default{
 	button,input,toast,actionSheet,cell,loading,mask,messageBox
 };

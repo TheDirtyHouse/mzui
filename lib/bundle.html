@@ -41,22 +41,7 @@
             
           </mz-input>
 
-          <mz-popup-input 
-          placeholder="提示文字" 
-          btn-name="提交" 
-          title="标题" 
-          :show="show"
-          maxlength="11"
-          tip-right="右下角tip"
-          pattern="/^1[3456789]\d{9}$/" 
-          error-msg="手机号输入出错" 
-          need-length="11"
-          trace="input"
-          type="imgcode"
-          :img-src="imgsrc"
-          @btnclose="btnClose">
-            
-          </mz-popup-input>
+
 
         </div>
       </div>
@@ -67,7 +52,8 @@
 
 <script>
   window.onload=function(){
-    var mzui=window.mzui.bundle;
+    debugger;
+    var mzui=window.mzui.bundle.default;
     var app = new Vue({
       el: '#app',
       data:{
@@ -87,7 +73,6 @@
       components:{
         mzButton: mzui.button,
         mzInput: mzui.input,
-        mzPopupInput: mzui.popupInput,
       },
     });
   };

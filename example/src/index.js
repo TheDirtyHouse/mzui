@@ -1,5 +1,5 @@
 
-import * as mzui from '../../lib/bundle';
+import mzui from '../../lib/bundle';
 import popInput from '../../lib/popupInput';
 import addressPicker from '../../lib/addressPicker';
 import selectList from '../../lib/selectList';

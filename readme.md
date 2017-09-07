@@ -1,7 +1,9 @@
 
 
+
 ## 环境要求
 * node:v7.4.0
+
 
 ## 编码调试
 
@@ -12,6 +14,9 @@
 * sh package.sh
 * npm version patch
 * npm publish
+
+## 安装使用
+* npm install vue-mzui -D
 
 
 
@@ -66,13 +71,26 @@ new Vue({
 
 
 #### import引入
+#### .babelrc文件内增加插件配置
+
+```
+{
+  "plugins": [
+      [ "component", 
+        [
+          { "libraryName": "vue-mzui", "style": true }
+        ]
+      ]
+    ],
+}
+```
 
 ##### 以input组件为例
 * 引入：首先引用组件文件js和css样式，以及公共样式库commonCss.css
 ```
 //index.js
-  import   'node_modules/mzui/dist/css/input.css';
-  import input from 'node_modules/mzui/dist/js/input.js';
+  import 'vue-mzui/lib/commonCss/style.css';//引用公共样式文件
+  import {input} from 'vue-mzui';
 ```
 * 初始化
 ```
@@ -93,8 +111,8 @@ new Vue({
 * 引入：首先引用组件文件js和css样式，以及公共样式库commonCss.css
 ```
 //index.js
-  import   'node_modules/mzui/dist/css/bundle.css';
-  import * as mzui from 'node_modules/mzui/dist/js/bundle.js';
+  import 'vue-mzui/lib/commonCss/style.css';//引用公共样式文件
+  import {bundle} from 'vue-mzui';
 ```
 * 初始化
 ```
@@ -105,7 +123,7 @@ new Vue({
 new Vue({
   el:"#app",
   components:{
-      mzInput: mzui.input,//注意这里单组件的形式引入和集合包引入编码是不一样的
+      mzInput: bundle.input,//注意这里单组件的形式引入和集合包引入编码是不一样的
   },
  });
 ```
