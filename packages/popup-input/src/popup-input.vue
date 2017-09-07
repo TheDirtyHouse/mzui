@@ -93,7 +93,7 @@ ref可调用方法
 import vueButton from '../../button/src/button.js';
 import vueInput from '../../input/src/input.js';
 
-module.exports={
+export default {
 	name:'mz-pop-input',
 	methods:{
 		onTips:function(){

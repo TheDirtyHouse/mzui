@@ -69,7 +69,7 @@
 
 <script>
 import vueHeader from '../../header/src/header.js';
-module.exports={
+export default{
 	name:'mz-page',
 	methods:{
 		btnLeftMenu:function(e){

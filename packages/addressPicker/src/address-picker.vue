@@ -36,21 +36,20 @@ export default {
         city:[],
         provinceList:dataAddress.area,
         cityList: [
-        {
-          "areaCode": "",
-          "parentCode": "",
-          "areaName": "",
-          "level":""
-        }
-
-      ],
+          {
+            "areaCode": "",
+            "parentCode": "",
+            "areaName": "",
+            "level":""
+          }
+        ],
       }
     },
-    computed: {
-      cityList:function  () {     
-        return this.province;
-      }
-    },
+    // computed: {
+    //   cityList:function  () {     
+    //     return this.province;
+    //   }
+    // },
     watch:{
         province: function(val, oldVal) {
                    this.cityList = val.city;

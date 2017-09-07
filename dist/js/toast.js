@@ -259,34 +259,18 @@ const Toast = {
 
 
 /* styles */
-__webpack_require__(36)
+__webpack_require__(35)
 
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(31),
   /* template */
-  __webpack_require__(43),
+  __webpack_require__(42),
   /* scopeId */
   "data-v-321b8c3c",
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/changxu/Documents/github/TheDirtyHouse/mzui/packages/toast/src/toast.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] toast.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-321b8c3c", Component.options)
-  } else {
-    hotAPI.reload("data-v-321b8c3c", Component.options)
-  }
-})()}
 
 module.exports = Component.exports
 
@@ -478,15 +462,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 36:
+/***/ 35:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 43:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 42:
+/***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -541,15 +525,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])])], 1)
 },staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-321b8c3c", module.exports)
-  }
-}
 
 /***/ })
 
 /******/ });
 });
+//# sourceMappingURL=../maps/js/toast.js.map
