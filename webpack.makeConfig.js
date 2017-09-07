@@ -35,7 +35,7 @@ function makeConfig(cfg){
       library:["mzui","[name]"],//["mzui","[name]"],//定义库的名字
       umdNamedDefine: true,
       path: package_config.outputRoot,//输出的目录
-      filename: package_config.file_add_hash?'js/[name]-[chunkhash:8].js':'js/[name].js'//输出的文件名
+      filename: package_config.file_add_hash?'[name]/index-[chunkhash:8].js':'[name]/index.js'//输出的文件名
      // publicPath: "./maps/",
     },
     devServer:{//配置web服务器
@@ -72,7 +72,7 @@ function makeConfig(cfg){
           }),
       new ExtractTextPlugin(/*是否将分散的css文件合并成一个文件*/
       {
-        filename:package_config.file_add_hash?"css/[name]-[contenthash:8].css":"css/[name].css",
+        filename:package_config.file_add_hash?"[name/style-[contenthash:8].css":"[name]/style.css",
         allChunks:false
       }),
       new CopyWebpackPlugin([

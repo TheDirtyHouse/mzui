@@ -1,18 +1,18 @@
 
-import * as mzui from '../../dist/js/bundle.js';
-import popInput from '../../dist/js/popupInput.js';
-import addressPicker from '../../dist/js/addressPicker.js';
-import selectList from '../../dist/js/selectList.js';
-import header from '../../dist/js/header.js';
-import page from '../../dist/js/page.js';
+import * as mzui from '../../lib/bundle';
+import popInput from '../../lib/popupInput';
+import addressPicker from '../../lib/addressPicker';
+import selectList from '../../lib/selectList';
+import header from '../../lib/header';
+import page from '../../lib/page';
 
-import   '../../dist/css/commonCss.css';
-import   '../../dist/css/bundle.css';
-import   '../../dist/css/popupInput.css';
-import   '../../dist/css/addressPicker.css';
-import   '../../dist/css/selectList.css';
-import   '../../dist/css/header.css';
-import   '../../dist/css/page.css';
+import   '../../lib/commonCss/style.css';
+import   '../../lib/bundle/style.css';
+import   '../../lib/popupInput/style.css';
+import   '../../lib/addressPicker/style.css';
+import   '../../lib/selectList/style.css';
+import   '../../lib/header/style.css';
+import   '../../lib/page/style.css';
 
 mzui.popupInput = popInput;
 mzui.addressPicker = addressPicker;

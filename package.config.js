@@ -97,7 +97,7 @@ var htmlConfig={
  * 工程打包后输出的目标根目录
  * @type {[type]}
  */
-var output = __dirname+'/dist';
+var output = __dirname+'/lib';
 
 
 var package_config={
