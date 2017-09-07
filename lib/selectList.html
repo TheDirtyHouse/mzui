@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>cell</title>
+    <link rel="stylesheet" type="text/css" href="commonCss/style.css">
+    <style>
+      *[mgb]{
+        margin-bottom: 15px;
+        margin-top:30px;
+      }
+    </style>
+  <link href="selectList/style.css" rel="stylesheet"></head>
+  <body>
+    <div id='app'>
+
+      <div class="flex-col flex-main-center flex-cross-center">
+        <div style="width:100%;">
+
+        	 <mz-select-list :lists="companyList" v-on:clickitem="clickItem"></mz-select-list>
+
+
+        </div>
+      </div>
+    </div>
+
+<script src="plugins/_vue.js"></script>
+<script>
+  window.onload=function(){
+    var app = new Vue({
+      el: '#app',
+      data:{
+        companyList:[{
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "picc",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }]
+      },
+      methods:{
+        clickItem: function(index) {
+          alert(index);
+        },
+      },
+      components:{
+          mzSelectList: window.mzui.selectList.default,
+      },
+    });
+  };
+      
+</script>
+  <script type="text/javascript" src="selectList/index.js"></script></body>
+</html>
