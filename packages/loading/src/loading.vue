@@ -52,6 +52,9 @@
 					this.showTimes = 0;
 					return;
 				}
+				if(this.showTimes <= 0){
+					return;
+				}
 				this.showTimes--;
 			}
 		}
