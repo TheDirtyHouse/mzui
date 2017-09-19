@@ -15,54 +15,161 @@
         margin-bottom: 15px;
         margin-top:30px;
       }
+      body,html,#app{
+        width:100%;height:100%;
+      }
+
+      .v-enter {}
+      .v-leave {}
+      .v-enter-to {}
+      .v-leave-to {}
+      
+
+.normal-enter-active {
+  animation: normal-in .4s;
+}
+.normal-leave-active {
+  animation: normal-out .4s;
+}
+
+@keyframes normal-in {
+  0% {
+    // box-shadow:0 0 12px rgba(0,0,0,.5);
+    transform: translate3d(750px,0,0);
+  }
+  100% {
+    // box-shadow:0 0 0px rgba(0,0,0,.5);
+    transform: translate3d(0,0,0);
+  }
+}
+@keyframes normal-out {
+  0% {
+    opacity:.6;
+    transform: translate3d(0,0,0);
+  }
+  100% {
+    opacity:.5;
+    transform: translate3d(-225px,0,0);
+  }
+}
+
+
+
+.alpha-enter-active {
+  animation: alpha-in .3s linear;
+}
+.alpha-leave-active {
+   animation: alpha-out .3s linear;
+}
+.alpha-leave {
+  opacity:1;
+}
+@keyframes alpha-in {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@keyframes alpha-out {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+
+
     </style>
   </head>
   <body>
 
     <div id='app'>
-      <mz-page ref="mainPage" v-bind:nn-view-switch="nnViewSwitch" v-bind:nav="nav">
-        <transition>
-          <section class="view-root">test</section>
-        </transition>
+
+      <mz-page 
+        ref="mzPage" 
+        v-bind:nn-view-switch="nnViewSwitch" 
+        v-bind:nav-config="navConfig"
+        v-on:btn-nav-left="btnNavLeft"
+        v-on:btn-nav-right="btnNavRight"
+        v-bind:view-config="viewConfig"
+      >
+
+
+      <mz-view v-bind:config="viewConfig">
+        <section v-show="nnViewSwitch.view1" class="view-root" style="display: none;">test1</section>
+      </mz-view>
+      
+      <mz-view v-bind:config="viewConfig">
+        <section v-show="nnViewSwitch.view2" class="view-root" style="display: none;">test2</section>
+      </mz-view>
+
+  
+
       </mz-page>
+
     </div>
 
 <script src="plugins/_vue.js"></script>
 <script>
   window.onload=function(){
+    var test_step=1;
     var app = new Vue({
       el: '#app',
       data:{
-        nav: {
-          leftTitle: "",
-          rightTitle: "",
-          title: "标题栏3",
-          leftBtn: "back",
-          rightBtn: "service",
+        viewConfig:{
+          appear:false,
+          transName:"alpha",
+        },
+        navConfig:{
+          mask:{show:0,shadow:0,},
+          title:"中间标题2",
+          leftBtn:{type:"close",title:"左标题"},
+          rightBtn:{type:"service",title:"右标题"}
         },
         nnViewSwitch: {
           curPage: "loading",
-          view_start_time:{
+          index:false,
+          view2:false,
+          view1:false,
 
-          },
-          all: false,
-          nav: false,
-          content: false,
-          loading: true,
-          navmask:0,
-          index: false, //默认的首页都叫index
+          pageMask:false,
+          navmask:false,
+          all:false,
+          nav:false,
+          content:false,
+          loading:false
+
         }
       },
       methods:{
+
+        btnNavLeft:function(){
+          switch(test_step)
+          {
+            case 1:{this.$refs.mzPage.showPageLoading();}break;
+            case 2:{this.$refs.mzPage.openView("view1",{transName:"normal"});}break;
+            case 3:{this.$refs.mzPage.openView("view2",{transName:"normal"});}break;
+            case 4:{this.$refs.mzPage.openView(null,{transName:"alpha"});}break;
+          }
+          test_step++;
+        },
+        btnNavRight:function(){
+          this.$refs.mzPage.openNavMask(true);          
+        }
       },
       mounted:function(){
+        console.log("vue mounted index.html");
         var self=this;
-        setTimeout(function(){
-          self.$refs.mainPage.openPage();
-        },3000);
+        self.$refs.mzPage.initPage();
+       
       },
       components:{
-          mzPage: window.mzui.page.default,
+        mzPage: window.mzui.page.default,
+        mzView: window.mzui.page.view,
       },
     });
     

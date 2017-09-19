@@ -1,47 +1,68 @@
 
 /**
 数据属性
-	left-btn:"title"	左上角按钮的模式[title:文字模式,close:关闭icon，back:返回icon]
-	right-btn:"title"	右上角按钮的模式[title:文字模式,service:客服icon]
-	right-menu-title:"添加优惠券"		导航栏右上角菜单标题（如果是文字模式的话）
-	left-menu-title:"取消"		导航栏左上角菜单标题（如果是文字模式的话）
-	title:"标题"	导航栏中间标题
+	v-bind:nav-config="objectName" //导航栏的基本配置，对象属性如下
+	
+	objectName:
+	{
+		leftBtn:{
+			type:"title",//左上角按钮的模式[title:文字模式,close:关闭icon，back:返回icon],
+			title::"添加优惠券",//导航栏右上角菜单标题（如果是文字模式的话）
+		},
+		rightBtn:{
+			type:"title",//右上角按钮的模式[title:文字模式,service:客服icon]
+			title::"添加优惠券",//导航栏右上角菜单标题（如果是文字模式的话）
+		},
+		title:"标题",//导航栏中间标题,
+		mask:{
+      show:false,//是否打开遮罩层，打开后将无法点击导航栏
+      shadow:false,//是否显示遮罩层阴影
+		}
+	}
+
 事件属性
-	v-bind:btnleftmenu="btnLeft":导航栏左边按钮的事件
-	v-bind:btnrightmenu="btnLeft":导航栏右边按钮的事件
+	v-on:btn-left  / v-bind:btn-left="btnLeft":导航栏左边按钮的事件
+	v-on:btn-right / v-bind:btn-right="btnLeft":导航栏右边按钮的事件
+
+方法
+	给组件添加  ref="navHeader" 属性后，通过$refs来直接操作方法
+	app.$refs.navHeader.openMask:打开遮罩
+	app.$refs.navHeader.closeMask:打开遮罩
  */
 <template>
 		<div id="nn-header" v-bind:nopad="nopad" class="flex-row flex-main-center flex-cross-center">
 			
+			<div id="navMask" v-show="navConfig.mask.show>0" v-bind:shadow="navConfig.mask.shadow>0" style="display: none;"></div>
+
 			<div v-on:click="btnLeftMenu" id="nav-left-btn" left class="flex-row flex-main-center flex-cross-center">
 				
-				<i v-if="leftBtn=='close'">
+				<i v-if="navConfig.leftBtn.type=='close'">
 					<svg id="icon-close" viewBox="0 0 10 10" width="20" height="20" xmlns="http://www.w3.org/2000/svg" version="1.1">
 						<line x1="1" y1="1" x2="8" y2="8"/>
 						<line x1="1" y1="8" x2="8" y2="1"/>
 					</svg>
 				</i>
 
-				<i v-if="leftBtn=='back'">
+				<i v-if="navConfig.leftBtn.type=='back'">
 					<svg id="icon-left" viewBox="0 0 10.63 18.42" width="10.63" height="18.42" xmlns="http://www.w3.org/2000/svg" version="1.1">
 						<line x1="1" y1="9.71" x2="10.63" y2="1"/>
 						<line x1="1" y1="9.21" x2="10.63" y2="18.42"/>
 					</svg>
 				</i>
 
-				<i v-if="leftBtn=='title'">
-					{{leftMenuTitle}}
+				<i v-if="navConfig.leftBtn.type=='title'">
+					{{navConfig.leftBtn.title}}
 				</i>
 
 			</div>
 			
-			<span id="title">{{title}}</span>
+			<span id="title">{{navConfig.title}}</span>
 			
 			<div v-on:click="btnRightMenu" id="nav-right-btn" right class="flex-row flex-main-center flex-cross-center">
-				<i v-if="rightBtn=='service'" service>
+				<i v-if="navConfig.rightBtn.type=='service'" service>
 				</i>
-				<i id="rightTitle" v-if="rightBtn=='title'">
-					{{rightMenuTitle}}
+				<i id="rightTitle" v-if="navConfig.leftBtn.type=='title'">
+					{{navConfig.rightBtn.title}}
 				</i>
 			</div>
 
@@ -53,16 +74,28 @@ module.exports={
 	methods:{
 		btnLeftMenu:function(e){
 			console.log('click header left menu');
-			this.$emit('btnleftmenu', e);
+			this.$emit('btn-nav-left', e);
 		},
 		btnRightMenu:function(e){
 			console.log('click header right menu');
-			this.$emit('btnrightmenu', e);
+			this.$emit('btn-nav-right', e);
 		},
+		openMask:function(showShadow){
+			this.navConfig.mask.show++;
+			if(showShadow)this.navConfig.mask.shadow++;
+		},
+		closeMask:function(){
+			this.navConfig.mask.show--;
+			this.navConfig.mask.show=this.navConfig.mask.show<0?0:this.navConfig.mask.show;
+			if(this.navConfig.mask.show<=0){
+				this.navConfig.mask.shadow=0;
+			}
+		}
 	},
 	data:function(){
 			return {
-				nopad:false
+				nopad:false,//导航栏头部没有20像素间隙
+
 			};
 		},
 	mounted:function(){
@@ -71,11 +104,18 @@ module.exports={
 		}
 	},
 	props:{
-			rightMenuTitle:{default:"",type:String},
-			leftMenuTitle:{default:"",type:String},
-			leftBtn:{default:"close",type:String},
-			rightBtn:{default:"service",type:String},
-			title:{default:"标题",type:String},
+			navConfig:{
+				default:{
+					mask:{
+						show:0,
+						shadow:0,
+					},
+					title:"中间标题",
+					leftBtn:{type:"close",title:"左标题"},
+					rightBtn:{type:"service",title:"右标题"}
+				},
+				type:Object
+			}
 		},
 };
 </script>
@@ -87,6 +127,8 @@ $fontSize:17px;
 $fontSize2:14px;
 $colorTitle:#424242;
 $colorTitle2:#77747e;
+$maskAlpha:.7;
+
 #nn-header{
 	padding-top:$barMarginTop;
 
@@ -146,5 +188,21 @@ div[right]{
 		padding-top:0;
 	}
 }
+
+
+
+#navMask{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;height:100%;
+  /*background:rgba(0,0,0,0.1);*/
+  -webkit-box-shadow: 0 0px 1px rgba(0,0,0,$maskAlpha);
+  z-index:2;
+}
+#navMask[shadow]{
+	background:rgba(0,0,0,$maskAlpha);
+}
+
 
 </style>

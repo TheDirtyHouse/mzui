@@ -35,16 +35,15 @@
 						<div id="navmask" v-show="nnViewSwitch.navmask" style="display: none;">
 						</div>
 					</transition>
-					<my-header 
-						v-on:btnleftmenu="btnLeftMenu" 
-						v-on:btnrightmenu="btnRightMenu" 
-						v-bind:title="nav.title" 
-						v-bind:left-btn="nav.leftBtn" 
-						v-bind:right-btn="nav.rightBtn" 
-						v-bind:right-menu-title="nav.rightTitle"
-						v-bind:left-menu-title="nav.leftTitle"
-						>
-					</my-header>
+
+
+					<mz-header 
+					  ref="mzNavHeader"
+      			:nav-config="navConfig"
+						v-on:btn-nav-left="btnNavLeft" 
+						v-on:btn-nav-right="btnNavRight" 
+					>
+					</mz-header>
 				</div>
 			</transition>
 
@@ -52,11 +51,11 @@
 			<div id="content-background" v-show="nnViewSwitch.content">
 					<div id="content" class="touch-scroll">
 			
-						<transition appear name="alpha" v-on:after-leave="afterLeave">
+						<mz-view v-bind:config="viewConfig">
 							<section id="viewLoading" v-show="nnViewSwitch.loading" style="width:100%;height:100%;" class="flex-row flex-main-center flex-cross-center">
 							<iframe src="resource/loading.svg" style="width:30px;height:30px;"></iframe>
 							</section>
-						</transition>
+						</mz-view>
 
 						<slot></slot>
 
@@ -69,31 +68,105 @@
 
 <script>
 import vueHeader from '../../header/src/header.js';
-export default{
+import vueView from '../../view/src/view.js';
+// var vuePage = {
+export default {
 	name:'mz-page',
 	methods:{
-		btnLeftMenu:function(e){
-			this.$emit('onleft', e);
+		afterTransEnter:function(e){if (this.openView_callback) { this.openView_callback(e); } },
+		afterTransLeave:function(e){if (this.closeView_callback) { this.closeView_callback(e); } },
+		btnNavLeft:function(e){
+			this.$emit('btn-nav-left', e);
 		},
-		btnRightMenu:function(e){
-			this.$emit('onright', e);
+		btnNavRight:function(e){
+			this.$emit('btn-nav-right', e);
 		},
 		afterLeave:function(e){	
 			this.$emit('onleave', e);
 		},
-		openPage:function(){
+		initPage:function(){
+
+			this.nnViewSwitch.loading=false;
+			this.nnViewSwitch.navmask=false;
+
 			this.nnViewSwitch.all=true;
 			this.nnViewSwitch.nav=true;
 			this.nnViewSwitch.content=true;
-			this.nnViewSwitch.loading=true;
 			this.nnViewSwitch.pageMask =false;
-		}
+		},
+		showPageLoading:function(){
+			this.openView("loading",{transName:"alpha"});
+		},
+		openNavMask:function(showShadow){
+			this.$refs.mzNavHeader.openMask(showShadow);
+		},
+		closeNavMask:function(){
+			this.$refs.mzNavHeader.closeMask();
+		},
+		openPopView:function(){
+			
+		},
+		changeView:function(name,options){//切换view
+			options=options||{};
+			let self=this;
+			let curView = this.nnViewSwitch.curView;
+			if(curView){//当前是否有展示的view
+				self.closeView(curView,options);
+				setTimeout(function(){
+          self.openView(name,options);
+        },1);
+			}else{
+				self.openView(name,options);
+			}
+		},
+		openView:function(name,options){//打开view
+			options=options||{};
+			let self=this;
+
+			if(!name){
+				self.nnViewSwitch.curView=null;
+				if(options.open_callback){options.open_callback();}
+				return;
+			}else{
+				if(options.open_callback){
+					this.openView_callback=function(){
+						self.openView_callback=null;
+						options.open_callback();
+					};
+				}
+				self.nnViewSwitch.curView=name;
+				self.viewConfig.transName=options.transName||"normal";//页面切换的动画名称
+				self.nnViewSwitch[name] = true;
+			}
+		},
+		closeView:function(curView,options){//关闭view
+			options=options||{};
+			let self=this;
+			curView = curView || this.nnViewSwitch.curView;
+			if(curView){//当前是否有展示的view
+				if(options.close_callback){
+					this.closeView_callback=function(){
+						self.closeView_callback=null;
+						options.close_callback();
+					};
+				}
+				this.viewConfig.transName=options.transName||"normal";//页面切换的动画名称
+				this.nnViewSwitch[curView] = false;//关闭页面
+			}else{
+				if(options.close_callback)options.close_callback();
+			}
+		},
+		openPage:function(){}
 	},
 	data:function(){
-			return {};
+			return {
+			};
 		},
 	mounted:function(){
+		console.log("vue mounted mzPage");
 		var self=this;
+		this.viewConfig.afterTransEnter = this.afterTransEnter;
+		this.viewConfig.afterTransLeave = this.afterTransLeave;
 		// self.nnViewSwitch.loading=false;
 		// this.nnViewSwitch.pageMask =true;
 		
@@ -105,37 +178,43 @@ export default{
 
 	},
 	components:{
-		myHeader:vueHeader,
+		mzHeader:vueHeader,
+		mzView:vueView,
 	},
 	props:{
-		nav:{
-			default:function(){
-				return {
-					leftBtn:"back",
-					rightBtn:"service",
-					title:"标题栏",
-					leftTitle:"",
-					rightTitle:"",
-				};
-			}
+		viewConfig:{default:null,type:Object},
+		navConfig:{
+			default:{
+				mask:{
+					show:0,
+					shadow:0,
+				},
+				title:"中间标题",
+				leftBtn:{type:"close",title:"左标题"},
+				rightBtn:{type:"service",title:"右标题"}
+			},
+			type:Object
 		},
 		
 		nnViewSwitch:{
-			default:function(){
-				return{
-					pageMask:false,
-					navmask:false,
-					all:false,
-					nav:false,
-					content:false,
-					loading:true
-				};
+			default:{
+				curView:null,//当前展示的页面名称
+
+				pageMask:false,
+				navmask:false,
+				all:false,
+				nav:false,
+				content:false,
+				loading:false
 			},
 			type:Object
 		},
 
 	},
 };
+
+// export { vueView as view ,vuePage as page};
+
 </script>
 
 <style scoped lang="sass">
