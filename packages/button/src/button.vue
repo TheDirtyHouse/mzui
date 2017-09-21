@@ -19,7 +19,7 @@
 			<p v-show="!btnLoading"><slot></slot></p>
 			
 			<div v-show="btnLoading">
-				<iframe src="resource/loading-white.svg" style="width:30px;height:30px;"></iframe>
+				<img src="../../../resource/loading-white.svg" style="width:30px;height:30px;display:inline-block;">
  			</div>
 
 		</button>
@@ -53,6 +53,7 @@ $btnColorLoading:#ccc;
 $btnColorDisabled:#ccc;
 $btnHeight:44;
 
+
 button[loading]{
 	opacity:.5;
 }
@@ -65,7 +66,7 @@ button{
 	line-height:0;
 	background: $btnColor;
 	background:  -webkit-linear-gradient(right, rgb(255,99,97), rgb(255,160,109)); 
-	-webkit-box-shadow: 0 4px 9px rgba(255,81,99,.3);
+	box-shadow: 0 4px 9px rgba(255,81,99,.3);
 
 	border-radius:$btnHeight/2+px;
 	width:100%;

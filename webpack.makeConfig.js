@@ -58,7 +58,7 @@ function makeConfig(cfg){
         },
         {test: /\.css$/, loader: 'style-loader!css-loader'},
         {test: /\.scss$/, loader: ExtractTextPlugin.extract( {fallback:"style-loader", use:"css-loader!postcss-loader!sass-loader"})},//publicPath:"/build/css"
-        {test: /\.(jpg|png)$/, loader: "url-loader",options:{
+        {test: /\.(jpg|png|svg)$/, loader: "url-loader",options:{
           limit:"5120",
           name:"../resource/[name].[ext]",
         }}//小于8192字节的将转换成base64

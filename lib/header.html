@@ -21,28 +21,31 @@
 
     <div id='app'>
       <mz-header 
-      :left-btn="leftType"
-      :right-btn="rightType"
-      :title="title"
-      :left-menu-title="leftBtnTitle"
-      :right-menu-title="rightBtnTitle"
-      @btnleftmenu="btnLeft"
-      @btnrightmenu="btnRight">
+      ref="navHeader"
+      :nav-config="navConfig"
+      @btn-left="btnLeft"
+      @btn-right="btnRight">
         
       </mz-header>
+
+      
     </div>
+
 
 <script src="plugins/_vue.js"></script>
 <script>
   window.onload=function(){
+
+
     var app = new Vue({
       el: '#app',
       data:{
-        leftType:"back",
-        rightType:"title",
-        leftBtnTitle:"左标题",
-        rightBtnTitle:"右标题",
-        title:"标题",
+        navConfig:{
+          mask:{show:0,shadow:0,},
+          title:"中间标题2",
+          leftBtn:{type:"close",title:"左标题"},
+          rightBtn:{type:"service",title:"右标题"}
+        }
       },
       methods:{
         btnLeft:function(e){
@@ -50,12 +53,17 @@
         },
         btnRight:function(e){
           alert("btnRight");
+          app.$refs.navHeader.openMask(true);
+          setTimeout(function(){
+            app.$refs.navHeader.closeMask();
+          },5000);
         },
       },
       components:{
           mzHeader: window.mzui.header.default,
       },
     });
+    
   };
       
 </script>

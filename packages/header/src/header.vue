@@ -30,9 +30,11 @@
 	app.$refs.navHeader.closeMask:打开遮罩
  */
 <template>
-		<div id="nn-header" v-bind:nopad="nopad" class="flex-row flex-main-center flex-cross-center">
+		<div id="nn-header" v-bind:nopad="nopad" v-bind:noshadow="navConfig.mask.shadow>0&&navConfig.mask.show>0" class="flex-row flex-main-center flex-cross-center">
 			
-			<div id="navMask" v-show="navConfig.mask.show>0" v-bind:shadow="navConfig.mask.shadow>0" style="display: none;"></div>
+			<transition name="alpha">
+				<div id="navMask" v-show="navConfig.mask.show>0" v-bind:shadow="navConfig.mask.shadow>0" style="display: none;"></div>
+			</transition>
 
 			<div v-on:click="btnLeftMenu" id="nav-left-btn" left class="flex-row flex-main-center flex-cross-center">
 				
@@ -61,7 +63,7 @@
 			<div v-on:click="btnRightMenu" id="nav-right-btn" right class="flex-row flex-main-center flex-cross-center">
 				<i v-if="navConfig.rightBtn.type=='service'" service>
 				</i>
-				<i id="rightTitle" v-if="navConfig.leftBtn.type=='title'">
+				<i id="rightTitle" v-if="navConfig.rightBtn.type=='title'">
 					{{navConfig.rightBtn.title}}
 				</i>
 			</div>
@@ -129,13 +131,17 @@ $colorTitle:#424242;
 $colorTitle2:#77747e;
 $maskAlpha:.7;
 
+
 #nn-header{
 	padding-top:$barMarginTop;
 
-	-webkit-box-shadow: 0 1px 0px #E5E5E5;
+	box-shadow: 0 1px 0px #E5E5E5;
 	background:white;
 	width:100%;
 	height:$barHeight;
+}
+#nn-header[noshadow]{
+	box-shadow: 0 0 0;
 }
 
 #rightTitle{
@@ -197,7 +203,7 @@ div[right]{
   left:0;
   width:100%;height:100%;
   /*background:rgba(0,0,0,0.1);*/
-  -webkit-box-shadow: 0 0px 1px rgba(0,0,0,$maskAlpha);
+  box-shadow: 0 0px 1px rgba(0,0,0,$maskAlpha);
   z-index:2;
 }
 #navMask[shadow]{
