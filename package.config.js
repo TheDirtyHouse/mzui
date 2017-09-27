@@ -8,8 +8,10 @@ var entryList={
   button:"./packages/button/src/button.js",
   input:"./packages/input/src/input.js",
   popupInput:"./packages/popup-input/src/popup-input.js",
+  popupInputPassword:"./packages/popup-input-password/src/popup-input-password.js",
   cell:"./packages/cell/src/cell.js",
   selectList:"./packages/selectList/src/selectList.js",
+  keyboard:"./packages/keyboard/src/keyboard.js",
 
   header:"./packages/header/src/header.js",
   page:"./packages/page/src/page.js",
@@ -58,39 +60,47 @@ var htmlConfig={
 	cell:{
 		html_outname:"cell.html",
 		html_file:__dirname + "/example/cell.html",
-	 },
+	},
 	button:{
 		html_outname:"button.html",
 		html_file:__dirname + "/example/button.html",
-	 },
+	},
 	input:{
 		html_outname:"input.html",
 		html_file:__dirname + "/example/input.html",
-	 },
+	},
 	popupInput:{
 		html_outname:"popupInput.html",
 		html_file:__dirname + "/example/popupInput.html",
-	 },
+	},
+	popupInputPassword:{
+		html_outname:"popupInputPassword.html",
+		html_file:__dirname + "/example/popupInputPassword.html",
+	},
 	actionSheet:{
 		html_outname:"actionSheet.html",
 		html_file:__dirname + "/example/actionSheet.html",
-	 },
+	},
 	toast:{
 		html_outname:"toast.html",
 		html_file:__dirname + "/example/toast.html",
-	 },
+	},
 	loading:{
 		html_outname:"loading.html",
 		html_file:__dirname + "/example/loading.html",
-	 },
+	},
 	messageBox:{
 		html_outname:"messageBox.html",
 		html_file:__dirname + "/example/messageBox.html",
-	 },
+	},
 	addressPicker:{
 		html_outname:"addressPicker.html",
 		html_file:__dirname + "/example/addressPicker.html",
-	 },
+	},
+	keyboard:{
+		html_outname:"keyboard.html",
+		html_file:__dirname + "/example/keyboard.html",
+	},
 };
 
 /**
