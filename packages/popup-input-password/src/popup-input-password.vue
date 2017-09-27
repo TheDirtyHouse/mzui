@@ -17,9 +17,11 @@
 事件属性
 	v-on:btnok="btnOk":绑定点击提交按钮事件对象 触发事件时会将input内的内容带出来
 	v-on:btnclose="btnClose":绑定点击关闭按钮事件对象 触发事件时会将input内的内容带出来	
-
+	v-on:reset="reset":重新发送请求，提示旁边文案点击事件
+	
 ref可调用方法
 	showTips(msg) 错误提示
+	clearInput() 清空输入值
 */
 <template>
 	<transition name="mask" enter-active-class="">
@@ -121,11 +123,19 @@ export default {
 				}
 			}, 0);
 		},
+		clearInput:function(){
+			this.inputvalue = [];
+			this.active = 0;
+		},
+		reset: function(){
+			this.$emit('reset');
+		},
 		btnClose:function(e){
 			this.callkey = false;
 			this.$emit('btnclose', e,this.inputvalue);
 		},
 		inputNum: function(value){
+			this.tipContent = '';
 			var length = this.inputvalue.length
 			if(length >= this.inputLength){
 				this.active = length - 1;
