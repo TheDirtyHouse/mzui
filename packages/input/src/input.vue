@@ -276,7 +276,7 @@ section{
   textarea, input {
     width: 0;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 1.14rem;
   }
   .icon {
     display: block;
@@ -300,7 +300,7 @@ label {
   width: 80px;
   text-align: left;
   line-height: 32px;
-  font-size: 16px;
+  font-size: 1.14rem;
   margin-right: 16px;
 }
 .v-enter-active{
@@ -312,7 +312,7 @@ label {
   -webkit-animation: errorOut .3s ease;
 }
 .tips {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 16px;
   color: $errorColor;
   &.flex-main-between{
@@ -347,8 +347,7 @@ label {
     text-align: center;
   }
   .msg {
-    width: 100%;
-    font-size: 14px;
+    //width: 100%;
     padding-left: 4px;
   }
 }
@@ -370,7 +369,7 @@ label {
   }
 }
 .tips-right{
-  font-size: 12px;
+  font-size: .86rem;
   color: #757575;
   text-align: right;
   min-width: 50px;
