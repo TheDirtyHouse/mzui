@@ -164,6 +164,7 @@ module.exports = {
   .icon-close{
     position: relative;
     width: 20px;
+    height: 20px;
     background-color: rgba(#37484e, .7);
     border-radius: 0 2px 2px 0; 
     &:before{
