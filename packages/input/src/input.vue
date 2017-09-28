@@ -376,7 +376,7 @@ label {
 }
 .margin-small{
   .field{
-    margin: 0 16px;
+    padding: 0 16px;
   }
   .tips{
     &.flex-main-between{
@@ -384,13 +384,13 @@ label {
         left: 10px;
       }
     }
-    >.flex-row{
+    .tip-label{
       padding: 14px 16px;
     }
   }
-  .nolabel {
+  &.nolabel {
     .tips{
-      padding: 0 16px;
+      padding: 14px 16px;
     }
   }
 }
