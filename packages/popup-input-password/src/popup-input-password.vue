@@ -22,6 +22,8 @@
 ref可调用方法
 	showTips(msg) 错误提示
 	clearInput() 清空输入值
+	callKeyboard(callback) 呼叫键盘
+	closeKeyboard(callback) 关闭键盘
 */
 <template>
 	<transition name="mask" enter-active-class="">
@@ -98,6 +100,7 @@ export default {
 		},
 		handleClick:function(e){
 			this.active = -1;
+			this.closeKeyboard();
 			var value = this.inputvalue.join('');
 			this.$emit('btnok', e, value);
 		},
@@ -106,8 +109,24 @@ export default {
 			if(this.callkey){
 				return;
 			}
+			this.callKeyboard(function(){
+				self.active = self.inputvalue.length;
+			});
+		},
+		closeKeyboard: function(callback){
+			this.callkey = false;
+			var popDom=document.getElementById('pop-box');
+			popDom.style.webkitTransform = "translate3d(0,0,0)";
+			popDom.style.transition = "-webkit-transform .3s";
+			if(callback){
+				setTimeout(function(){
+					callback()
+				}, 300);
+			}
+		},
+		callKeyboard: function(callback){
+			var self = this;
 			this.callkey = true;
-			this.active = 0;
 			setTimeout(function(){
 				var popDom=document.getElementById('pop-box');
 				var keyboard = document.getElementById('keyboard');
@@ -116,11 +135,12 @@ export default {
 				var keyboradBottom = keyboard.offsetTop;
 				var offsetY = popBottom - keyboradBottom;
 
-				if(offsetY > 0) {
+				if(offsetY >= -10) {
 					var trans = self.offsetTransformY(popDom, -(offsetY + 10), 'px');
 					popDom.style.webkitTransform = trans;
 					popDom.style.transition = "-webkit-transform .3s"
 				}
+				callback && callback();
 			}, 0);
 		},
 		clearInput:function(){
@@ -132,14 +152,11 @@ export default {
 		},
 		btnClose:function(e){
 			var self = this;
-			this.callkey = false;
-			
-			var popDom=document.getElementById('pop-box');
-			popDom.style.webkitTransform = "translate3d(0,0,0)";
-			popDom.style.transition = "-webkit-transform .3s";
-			setTimeout(function(){
-				self.$emit('btnclose', e,this.inputvalue);
-			}, 300);
+			this.closeKeyboard(function(){
+				self.inputvalue = [];
+				self.active = 0;
+				self.$emit('btnclose', e);
+			});
 		},
 		inputNum: function(value){
 			this.tipContent = '';
