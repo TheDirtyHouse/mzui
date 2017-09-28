@@ -30,7 +30,7 @@
           <li class="flex-auto">{{configKey}}</li>
           <li class="flex-auto" @click="onClick(0)">0</li>
           <li class="flex-auto close flex-row flex-main-center flex-cross-center" @click="delNum($event)">
-            <div class="icon-close" v-if="!hasEnter">
+            <div class="icon-close flex-row flex-main-center flex-cross-center" v-if="!hasEnter">
               <svg viewBox="0 0 10 10" width="10" height="10" xmlns="http://www.w3.org/2000/svg" version="1.1" stroke="#fff">
                 <line x1="0" y1="0" x2="10" y2="10" stroke-width="2"/>
                 <line x1="0" y1="10" x2="10" y2="0" stroke-width="2"/>
