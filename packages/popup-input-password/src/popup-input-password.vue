@@ -18,7 +18,7 @@
 	v-on:btnok="btnOk":绑定点击提交按钮事件对象 触发事件时会将input内的内容带出来
 	v-on:btnclose="btnClose":绑定点击关闭按钮事件对象 触发事件时会将input内的内容带出来	
 	v-on:reset="reset":重新发送请求，提示旁边文案点击事件
-	
+
 ref可调用方法
 	showTips(msg) 错误提示
 	clearInput() 清空输入值
@@ -131,8 +131,15 @@ export default {
 			this.$emit('reset');
 		},
 		btnClose:function(e){
+			var self = this;
 			this.callkey = false;
-			this.$emit('btnclose', e,this.inputvalue);
+			
+			var popDom=document.getElementById('pop-box');
+			popDom.style.webkitTransform = "translate3d(0,0,0)";
+			popDom.style.transition = "-webkit-transform .3s";
+			setTimeout(function(){
+				self.$emit('btnclose', e,this.inputvalue);
+			}, 300);
 		},
 		inputNum: function(value){
 			this.tipContent = '';
@@ -285,6 +292,7 @@ $errorColor: #dd191d;
 			height: 100%;
 			font-size: 1.71rem;
 			text-align: center;
+			line-height: 34px;
 			&.active{
 				&:after{
 					content: '';
