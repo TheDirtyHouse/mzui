@@ -199,10 +199,12 @@ module.exports = {
   }
   @-webkit-keyframes upout {
     0% {
-      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
     }
     100% {
-      opacity: 0;
+      transform: translate3d(0, 216px, 0);
+      -webkit-transform: translate3d(0, 216px, 0);
     }
   }
 
