@@ -49,15 +49,15 @@ function makeConfig(cfg){
         {
           test:/\.vue$/,loader:'vue-loader',options:{
             loaders:{
-              scss:ExtractTextPlugin.extract( {fallback:"vue-style-loader", use:"css-loader!postcss-loader!sass-loader"}),
-              sass:ExtractTextPlugin.extract( {fallback:"vue-style-loader", use:"css-loader!postcss-loader!sass-loader"})
+              scss:ExtractTextPlugin.extract( {fallback:"vue-style-loader", use:"postcss-loader!sass-loader"}),
+              sass:ExtractTextPlugin.extract( {fallback:"vue-style-loader", use:"postcss-loader!sass-loader"})
               // 'scss': ['vue-style-loader','css-loader','postcss-loader','sass-loader'].join('!'),
               // 'sass': ['vue-style-loader','css-loader','postcss-loader','sass-loader'].join('!'),
             }
           }
         },
-        {test: /\.css$/, loader: 'style-loader!css-loader'},
-        {test: /\.scss$/, loader: ExtractTextPlugin.extract( {fallback:"style-loader", use:"css-loader!postcss-loader!sass-loader"})},//publicPath:"/build/css"
+        {test: /\.css$/, loader: ExtractTextPlugin.extract( {fallback:"style-loader", use:"postcss-loader!sass-loader"})},
+        {test: /\.scss$/, loader: ExtractTextPlugin.extract( {fallback:"style-loader", use:"postcss-loader!sass-loader"})},//publicPath:"/build/css"
         {test: /\.(jpg|png|svg)$/, loader: "url-loader",options:{
           limit:"5120",
           name:"../resource/[name].[ext]",
@@ -73,7 +73,8 @@ function makeConfig(cfg){
       new ExtractTextPlugin(/*是否将分散的css文件合并成一个文件*/
       {
         filename:package_config.file_add_hash?"[name/style-[contenthash:8].css":"[name]/style.css",
-        allChunks:false
+        allChunks:false,
+        // disable:true
       }),
       new CopyWebpackPlugin([
         {
