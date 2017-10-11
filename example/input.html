@@ -23,8 +23,9 @@
       <div class="flex-col flex-main-center flex-cross-center">
         <div style="width:100%;">
         	<mz-input placeholder="提示内容" 
-          label="测试"
           class="margin-small"
+          tip-right="右侧提示"
+          label="测试"
           type="tel" 
           v-model="phone" 
           pattern="/^1[3456789]\d{9}$/" 
@@ -33,7 +34,39 @@
           need-length="1" 
           max-length="11" 
           ref="inputPhone">
-            
+          </mz-input>
+          <mz-input placeholder="提示内容" 
+          label="测试"
+          type="tel" 
+          v-model="phone" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          trace="input" 
+          need-length="1" 
+          max-length="11" 
+          ref="inputPhone">
+          </mz-input>
+          <mz-input placeholder="提示内容" 
+          class="margin-small"
+          tip-right="右侧提示"
+          type="tel" 
+          v-model="phone" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          trace="input" 
+          need-length="1" 
+          max-length="11" 
+          ref="inputPhone">
+          </mz-input>
+          <mz-input placeholder="提示内容" 
+          type="tel" 
+          v-model="phone" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          trace="input" 
+          need-length="1" 
+          max-length="11" 
+          ref="inputPhone">
           </mz-input>
         </div>
       </div>

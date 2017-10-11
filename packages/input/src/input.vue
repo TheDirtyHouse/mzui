@@ -90,7 +90,7 @@ mz-input
         </div>
       </div>
     </div>
-    <div class="tips flex-row  flex-cross-center" :class="{'flex-main-end': !tipContent, 'flex-main-between': tipContent}">
+    <div class="tips flex-row  flex-cross-center" :class="{'flex-main-end': !tipContent, 'flex-main-between': tipContent}" v-if="tipContent || tipright">
       <transition>
         <div class="flex-row flex-auto" :class="{'tip-normal':tipType == 'normal', 'tip-label':label && tipContent}" v-if="tipContent">
           <i v-if="tipType == 'error' && tipContent">!</i>
@@ -315,6 +315,7 @@ label {
   font-size: 1rem;
   line-height: 16px;
   color: $errorColor;
+  padding: 14px 24px;
   &.flex-main-between{
     background-color: $gray;
     &::before {
@@ -330,7 +331,7 @@ label {
     }
   }
   >.flex-row{
-    padding: 14px 24px;
+    //padding: 14px 24px;
   }
   .tip-normal{
     color: #757575;
@@ -356,7 +357,7 @@ label {
   .tips{
     position: absolute;
     width: 100%;
-    padding: 14px 24px;
+    //padding: 14px 24px;
     &.flex-main-between{
       background-color: #fff;
       &::before{
@@ -379,18 +380,11 @@ label {
     padding: 0 16px;
   }
   .tips{
+    padding: 14px 16px;
     &.flex-main-between{
       &::before {
         left: 10px;
       }
-    }
-    .tip-label{
-      padding: 14px 16px;
-    }
-  }
-  &.nolabel {
-    .tips{
-      padding: 14px 16px;
     }
   }
 }
