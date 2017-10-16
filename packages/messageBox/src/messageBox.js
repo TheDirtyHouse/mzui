@@ -33,6 +33,9 @@ import messageboxComponent from './messagebox.vue';
       instance.btnCancel=options.btnCancel;
       instance.cancelButtonText=options.cancelButtonText||'取消';
       instance.confirmButtonText=options.confirmButtonText||'确认';
+      instance.showDelete=options.showDelete||false;
+      instance.showCancelButton=options.showCancelButton||true;
+      instance.showConfirmButton=options.showConfirmButton||true;
 
       switch (instance.type) {
         case 'alert':
