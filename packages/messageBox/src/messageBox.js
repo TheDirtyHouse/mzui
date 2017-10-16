@@ -26,7 +26,7 @@ import messageboxComponent from './messagebox.vue';
     const show = (options) => {
       instance = getInstance();
       instance.message = options.message || '';
-      instance.title = options.title || '';
+      instance.title = options.title || '标题';
       instance.type = options.type || 'alert';
       instance.showTitle=options.showTitle||true;
       instance.btnOk=options.btnOk;
@@ -34,8 +34,8 @@ import messageboxComponent from './messagebox.vue';
       instance.cancelButtonText=options.cancelButtonText||'取消';
       instance.confirmButtonText=options.confirmButtonText||'确认';
       instance.showDelete=options.showDelete||false;
-      instance.showCancelButton=options.showCancelButton||true;
-      instance.showConfirmButton=options.showConfirmButton||true;
+      instance.showCancelButton=options.showCancelButton||false;
+      instance.showConfirmButton=options.showConfirmButton||false;
 
       switch (instance.type) {
         case 'alert':
@@ -46,7 +46,7 @@ import messageboxComponent from './messagebox.vue';
           instance.showCancelButton=true;
           instance.showConfirmButton=true;
           break;
-        default:
+          default:;
       };
       instance.shown = true;
       document.body.appendChild(instance.$el);
@@ -65,9 +65,15 @@ import messageboxComponent from './messagebox.vue';
       return show(options);
     }
 
+const pop = function(options) {
+    options = setOptions(options);
+    options = Object.assign({ type: 'pop' }, options);
+    return show(options);
+}
     const Messagebox = {
       alert: alert,
       confirm: confirm,
+      pop:pop,
     };
 
 
