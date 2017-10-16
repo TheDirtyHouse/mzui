@@ -5,7 +5,7 @@ module.exports = function(file, options, env ){
   
   var ret = {
   	plugins: [
-	  	require('autoprefixer')({browsers: ['last 5 version']}),	    
+	  	require('autoprefixer')({browsers: ['>= 5%','Firefox < 20','ie 6-8','last 2 versions']}),	    
 	  ]
 	};
 
