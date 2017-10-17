@@ -78,6 +78,7 @@ mz-input
           @focus="onfocus($event)"
           v-focus="focused"
           :disabled="disabled"
+          :mz-mon-input="mzMonInput"
           >
         <div class="icons flex-row flex-cross-center">
           <i class="icon icon-clear" v-if="!wrap && isFocused && value" @mousedown="clear()"></i>
@@ -154,7 +155,8 @@ module.exports = {
     required: String, //是否必填
     value: String,  //用于v-model绑定输入的值
     tipMsg: String,  //输入框左下侧的提示信息
-    tipRight: String  //输入框右下侧的提示信息
+    tipRight: String,  //输入框右下侧的提示信息
+    mzMonInput:{type:String,default:''}
   },
   watch: {
     value: function(val, oldVal) {
