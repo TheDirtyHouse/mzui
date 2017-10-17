@@ -1,6 +1,6 @@
 {
   "name": "vue-mzui",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "main": "lib/bundle/index.js",
   "scripts": {
