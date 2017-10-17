@@ -26,6 +26,7 @@ import messageboxComponent from './messagebox.vue';
     const show = (options) => {
       instance = getInstance();
       instance.message = options.message || '';
+      instance.className = options.className||'';
       instance.title = options.title || '标题';
       instance.type = options.type || 'alert';
       instance.showTitle=options.showTitle||true;
