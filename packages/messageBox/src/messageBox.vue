@@ -1,6 +1,6 @@
 <template>
  <transition name="fade">
-  <div v-show="shown" class="messagebox-mask" >
+  <div v-show="shown" class="messagebox-mask" :class="className">
   <transition >
       <div v-show="shown" class="toast" :class="messageClass" >
        <div class="title " v-show="showTitle" v-html="title"></div>
@@ -140,6 +140,7 @@ export default {
         showConfirmButton:false,
         btnOk:null,
         btnCancel:null,
+        className:'',
 
       };
     },
@@ -150,14 +151,6 @@ export default {
         show:function(){
          this.shown=true;
       },
-      // closeOnClickModal: function(e) {
-
-      //   var target=e.target.className;
-      //    if(target=='messagebox-mask'){
-      //     this.shown=false;
-      //    }
-
-      // },
         handleCancel: function (event) { 
           console.log('confirmEvent');
           if(this.btnCancel){
