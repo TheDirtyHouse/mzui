@@ -35,6 +35,7 @@ ref='name': 父组件调用子组件方法, name相当于该组件的别名（�
 
 3、方法
 showTips('XXXX'/{left: "XXX", right: "XXX"}, 'normal'/'error')  
+clearTips() 强制清除输入框下方提示
 v-on:onpattern: 校验完指定的正则返回给父组件的事件，第一个参数为校验结果true/false
 v-on:onblur: 获取输入框失焦状态（给父组件监听失焦事件）
 v-on:onfocus: 获取输入框聚焦状态（给父组件监听失焦事件）
@@ -184,6 +185,9 @@ module.exports = {
           }
           break;
       }
+    },
+    clearTips: function(){
+      this.tipContent = '';
     },
     clickTips: function(){
       this.$emit('clicktips');
