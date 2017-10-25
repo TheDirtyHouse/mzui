@@ -188,6 +188,7 @@ module.exports = {
     },
     clearTips: function(){
       this.tipContent = '';
+      this.tipright = '';
     },
     clickTips: function(){
       this.$emit('clicktips');
