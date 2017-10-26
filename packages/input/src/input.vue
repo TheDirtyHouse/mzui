@@ -35,6 +35,7 @@ ref='name': 父组件调用子组件方法, name相当于该组件的别名（�
 
 3、方法
 showTips('XXXX'/{left: "XXX", right: "XXX"}, 'normal'/'error')  
+clearTips() 强制清除输入框下方提示
 v-on:onpattern: 校验完指定的正则返回给父组件的事件，第一个参数为校验结果true/false
 v-on:onblur: 获取输入框失焦状态（给父组件监听失焦事件）
 v-on:onfocus: 获取输入框聚焦状态（给父组件监听失焦事件）
@@ -91,7 +92,7 @@ mz-input
         </div>
       </div>
     </div>
-    <div class="tips flex-row  flex-cross-center" :class="{'flex-main-end': !tipContent, 'flex-main-between': tipContent}">
+    <div class="tips flex-row  flex-cross-center" :class="{'flex-main-end': !tipContent, 'flex-main-between': tipContent}" v-if="tipContent || tipright">
       <transition>
         <div class="flex-row flex-auto" :class="{'tip-normal':tipType == 'normal', 'tip-label':label && tipContent}" v-if="tipContent">
           <i v-if="tipType == 'error' && tipContent">!</i>
@@ -187,6 +188,10 @@ module.exports = {
           break;
       }
     },
+    clearTips: function(){
+      this.tipContent = '';
+      this.tipright = '';
+    },
     clickTips: function(){
       this.$emit('clicktips');
     },
@@ -278,7 +283,7 @@ section{
   textarea, input {
     width: 0;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 1.14rem;
   }
   .icon {
     display: block;
@@ -302,7 +307,7 @@ label {
   width: 80px;
   text-align: left;
   line-height: 32px;
-  font-size: 16px;
+  font-size: 1.14rem;
   margin-right: 16px;
 }
 .v-enter-active{
@@ -314,9 +319,10 @@ label {
   -webkit-animation: errorOut .3s ease;
 }
 .tips {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 16px;
   color: $errorColor;
+  padding: 14px 24px;
   &.flex-main-between{
     background-color: $gray;
     &::before {
@@ -332,7 +338,7 @@ label {
     }
   }
   >.flex-row{
-    padding: 14px 24px;
+    //padding: 14px 24px;
   }
   .tip-normal{
     color: #757575;
@@ -349,8 +355,7 @@ label {
     text-align: center;
   }
   .msg {
-    width: 100%;
-    font-size: 14px;
+    //width: 100%;
     padding-left: 4px;
   }
 }
@@ -359,7 +364,7 @@ label {
   .tips{
     position: absolute;
     width: 100%;
-    padding: 14px 24px;
+    //padding: 14px 24px;
     &.flex-main-between{
       background-color: #fff;
       &::before{
@@ -372,28 +377,21 @@ label {
   }
 }
 .tips-right{
-  font-size: 12px;
+  font-size: .86rem;
   color: #757575;
   text-align: right;
   min-width: 50px;
 }
 .margin-small{
   .field{
-    margin: 0 16px;
+    padding: 0 16px;
   }
   .tips{
+    padding: 14px 16px;
     &.flex-main-between{
       &::before {
         left: 10px;
       }
-    }
-    >.flex-row{
-      padding: 14px 16px;
-    }
-  }
-  .nolabel {
-    .tips{
-      padding: 0 16px;
     }
   }
 }
