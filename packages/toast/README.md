@@ -13,7 +13,14 @@ mzUI.Toast.info({
   message: 'test',
   duration: 20000,
   className: 'my-toast',
-  type: 'info'
+  type: 'alert',
+    btnClose:function () {//关闭按钮回调函数
+          alert('btnClose')
+        }
+     maskClose:"1",//点击阴影部分是够关闭
+     btnMaskClose:function () {//点击阴影部分关闭回调（仅在maskClose为1的时候有效）
+      alert('handleMaskClose')
+     }
 })
 
 ```
@@ -24,7 +31,7 @@ mzUI.Toast.info({
 |-----------           |---------------------------------------|-----------------------|----------|----------|
 | message              | message of the toast                  |  String             |    支持html标签     |          |
 | duration             | 显示时间                               |  Number               |          | 3000     |
-| type                 | toast图标类型                   |  String               |  info/success|
+| type                 | toast图标类型                   |  String                     |  info/success|
 | className            | 自定义类名                              |  String              |           |
 | position             | toast位置                              |  String           |   "middle/top" | 'middle'|
 
