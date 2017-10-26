@@ -112,6 +112,8 @@ export default {
 			this.callKeyboard(function(){
 				self.active = self.inputvalue.length;
 			});
+
+			this.$emit('oninput');
 		},
 		closeKeyboard: function(callback){
 			this.callkey = false;
