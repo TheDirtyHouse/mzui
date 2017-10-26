@@ -3,3 +3,4 @@ node_modules
 maps
 npm-debug.log
 lib
+.idea

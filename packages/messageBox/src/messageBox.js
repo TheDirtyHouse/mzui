@@ -26,11 +26,13 @@ import messageboxComponent from './messagebox.vue';
     const show = (options) => {
       instance = getInstance();
       instance.message = options.message || '';
-      instance.title = options.title || '';
+      instance.title = options.title || '标题';
       instance.type = options.type || 'alert';
       instance.showTitle=options.showTitle||true;
       instance.btnOk=options.btnOk;
       instance.btnCancel=options.btnCancel;
+      instance.handleClose=options.handleClose;
+
       instance.cancelButtonText=options.cancelButtonText||'取消';
       instance.confirmButtonText=options.confirmButtonText||'确认';
 

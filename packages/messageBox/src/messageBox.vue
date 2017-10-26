@@ -140,6 +140,7 @@ export default {
         showConfirmButton:false,
         btnOk:null,
         btnCancel:null,
+        handleClose:null
 
       };
     },

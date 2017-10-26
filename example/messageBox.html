@@ -40,7 +40,14 @@
       },
     });
     
-    MessageBox.alert("info");
+    MessageBox.alert({
+      content:"info",
+      showDelete:true,
+      handleClose:function () {
+        alert('close')
+
+      }
+    });
 
     
 
