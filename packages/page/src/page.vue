@@ -53,10 +53,10 @@ export default {
 	    },
 	    views:{
 				showViews:[],
-				all:{show:false},
-				nav:{show:false},
-				content:{show:false},
-				loading:{show:false},
+				all:{show:true},
+				nav:{show:true},
+				content:{show:true},
+				loading:{show:true},
 				// index:{
 				// 	show:false,
 				// 	setNav:{

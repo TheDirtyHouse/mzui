@@ -1,6 +1,6 @@
 <template>
  <transition name="fade">
-  <div v-show="shown" class="messagebox-mask" :class="className">
+  <div v-show="shown" class="messagebox-mask" :class="className" @click="handleMaskClose()">
   <transition >
       <div v-show="shown" class="toast" :class="messageClass" >
        <div class="title " v-show="showTitle" v-html="title"></div>
@@ -140,6 +140,8 @@ export default {
         showConfirmButton:false,
         btnOk:null,
         btnCancel:null,
+        btnClose:null,
+        btnMaskClose:null,
         className:'',
 
       };
@@ -170,9 +172,31 @@ export default {
           }
         },
         handleClose:function(){
-           this.shown=false;
-        }  
+          if(this.btnClose){
+            this.hide();
+            this.btnClose();
+          }else{
+            this.shown=false;
+          }
+        },
+       handleMaskClose:function () {
+          var obj = event.srcElement ? event.srcElement : event.target;
+          if(obj.className=="messagebox-mask"){
+            if(this.maskClose=='1'){
+              if(this.btnMaskClose){
+                this.hide();
+                this.btnMaskClose();
+              }else{
+                this.shown=false;
+              }
+            }else{
+              return;
+            }
+          }else{
+            return;
+          }
 
+       }
       },
     props: {
   

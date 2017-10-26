@@ -40,13 +40,16 @@
       },
     });
     
-    MessageBox.pop({
-        message:'dd',
-        showCancelButton:false,
-        showConfirmButton:false,
-        showDelete:true,
-      className:'de'
-
+    MessageBox.alert({
+      content:"info",
+      showDelete:true,
+      btnClose:function () {
+        alert('btnClose')
+      }
+//      maskClose:"1",
+//      btnMaskClose:function () {
+//        alert('handleMaskClose')
+//      }
     });
 
     
