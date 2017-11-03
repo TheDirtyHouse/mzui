@@ -62,33 +62,33 @@ mz-input
     <div class="field">
       <div class="border flex-row">
         <label for="" v-if="label" v-html="label"></label>
-        <textarea class="flex-auto" 
-          v-if="wrap"
-          :value="value" 
-          @input="onInput($event.target.value)">
-        </textarea>
-        <input class="flex-auto" 
-          v-if="!wrap"
-          :type="innerType" 
-          :placeholder="placeholder" 
-          :maxlength="maxlength" 
-          :value="value" 
-          @input="onInput($event.target.value)" 
-          @blur="onblur($event)"
-          @keyup="onkeyUp($event.target.value)"
-          @focus="onfocus($event)"
-          v-focus="focused"
-          :disabled="disabled"
-          :mz-mon-input="mzMonInput"
+        <div class="flex-auto">
+          <textarea v-if="wrap"
+            :value="value" 
+            @input="onInput($event.target.value)">
+          </textarea>
+          <input v-if="!wrap"
+            :type="innerType" 
+            :placeholder="placeholder" 
+            :maxlength="maxlength" 
+            :value="value" 
+            @input="onInput($event.target.value)" 
+            @blur="onblur($event)"
+            @keyup="onkeyUp($event.target.value)"
+            @focus="onfocus($event)"
+            v-focus="focused"
+            :disabled="disabled"
+            :mz-mon-input="mzMonInput"
           >
-        <div class="icons flex-row flex-cross-center">
-          <i class="icon icon-clear" v-if="!wrap && isFocused && value" @mousedown="clear()"></i>
-          <i class="icon icon-eye" 
-            :class="{'icon-eye-close': innerType != 'password'}" 
-            v-if="isPassword" 
-            @click="toggleType()">
-          </i>
-          <slot></slot>
+          <div class="icons flex-row flex-cross-center">
+            <i class="icon icon-clear" v-if="!wrap && isFocused && value" @mousedown="clear()"></i>
+            <i class="icon icon-eye" 
+              :class="{'icon-eye-close': innerType != 'password'}" 
+              v-if="isPassword" 
+              @click="toggleType()">
+            </i>
+            <slot></slot>
+          </div>
         </div>
       </div>
     </div>
@@ -281,9 +281,16 @@ section{
     padding: 12px 0;
   }
   textarea, input {
-    width: 0;
+    width: 100%;
     line-height: 30px;
     font-size: 1.14rem;
+  }
+  .icons{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
   }
   .icon {
     display: block;
