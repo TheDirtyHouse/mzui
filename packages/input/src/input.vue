@@ -99,7 +99,7 @@ mz-input
           <p class="flex-auto msg">{{tipContent}}</p>
         </div>
       </transition>
-      <p class="tips-right" @click="clickTips()" v-if="tipright">{{tipright}}</p>
+      <p class="tips-right" @click="clickTips()" :mz-mon-click="mzMonInputTips" v-if="tipright">{{tipright}}</p>
     </div>
   </section>
 </template>
@@ -113,7 +113,8 @@ module.exports = {
       tipContent: this.tipMsg || '',
       isFocused: this.focused,
       tipType: 'normal',
-      tipright: this.tipRight || ''
+      tipright: this.tipRight || '',
+      mzMonInputTips:"",
     };
   },
   directives: {
@@ -169,6 +170,11 @@ module.exports = {
           this.$emit('onpattern', false);
         }
       }
+    }
+  },
+  mounted:function(){
+    if(this.mzMonInput.length>0){
+      this.mzMonInputTips=this.mzMonInput+"-tip";
     }
   },
   methods: {

@@ -9,6 +9,7 @@
  */
 <template>
 		<button 
+			v-bind:mz-mon-click="mzMonClick"
 			v-on:click="handleClick" 
 			v-bind:btnColor="btnColor" 
 			v-bind:btnStyle="btnStyle" 
@@ -41,7 +42,8 @@ module.exports={
 		btnDisabled:{default:false,type:Boolean},
 		btnColor:{default:"",type:String},
 		btnStyle:{default:"",type:String},
-		btnLoading:{default:false,type:Boolean}
+		btnLoading:{default:false,type:Boolean},
+		mzMonClick:{default:"",type:String},
 	},
 };
 </script>

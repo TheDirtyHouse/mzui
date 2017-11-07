@@ -46,7 +46,7 @@ ref可调用方法
 				<transition name="alert">
 					
 					<section id="pop-box" v-show="show" class="flex-col flex-main-center flex-cross-center">
-						<i v-on:click="btnClose" class="group-close">
+						<i v-on:click="btnClose" class="group-close" :mz-mon-click="mzMonClickClose">
 							<svg id="icon-close" viewBox="0 0 10 10" width="20" height="20" xmlns="http://www.w3.org/2000/svg" version="1.1" stroke="#C1ABAB">
 								<line x1="1" y1="1" x2="8" y2="8"/>
 								<line x1="1" y1="8" x2="8" y2="1"/>
@@ -58,7 +58,7 @@ ref可调用方法
 						</hgroup>
 
 						<hgroup class="group-input flex-auto flex-col flex-cross-center">
-							<div id="imgCode" v-on:click="handleClickImgCode" v-show="type==='imgcode'"><img :src="imgSrc" /></div>
+							<div id="imgCode" v-on:click="handleClickImgCode" :mz-mon-click="mzMonClickImgCode" v-show="type==='imgcode'"><img :src="imgSrc" /></div>
 							<div v-show="type==='normal'" style="height:20px;width:100%;"></div>
 							<mz-input
 								ref="inputref"
@@ -75,11 +75,12 @@ ref可调用方法
 								v-on:onfocus="onFocus"
 								:tip-right="tipRight" 
 								v-on:clicktips="onTips"
+								:mz-mon-input="mzMonInput"
 								>
 							</mz-input>
 						</hgroup>
 						<hgroup class="group-btn">	
-							<mz-button v-on:onclick="handleClick" :btn-disabled="inputvalue.length<=0||(pattern&&!patternPass)||btnDisabled" :btn-loading="btnLoading">{{btnName}}</mz-button>
+							<mz-button v-on:onclick="handleClick" :btn-disabled="inputvalue.length<=0||(pattern&&!patternPass)||btnDisabled" :btn-loading="btnLoading" :mz-mon-click="mzMonClick">{{btnName}}</mz-button>
 						</hgroup>
 					</section>
 
@@ -128,6 +129,12 @@ export default {
 			this.$refs.inputref.showTips(msg,type); 
 		}
 	},
+	mounted:function(){
+		if(this.mzMonClick.length>0){
+			this.mzMonClickClose=this.mzMonClick+"-close";
+			this.mzMonClickImgCode=this.mzMonClick+"-imgcode";
+		}
+	},
 	components:{
       mzButton: vueButton,
       mzInput: vueInput,
@@ -137,6 +144,8 @@ export default {
 				patternPass:false,
 				inputvalue:"",
 				show2:false,
+				mzMonClickImgCode:"",
+				mzMonClickClose:""
 			};
 		},
 	props:{
@@ -155,7 +164,9 @@ export default {
 		type:{default:"normal",type:String},
 		btnName:{default:"name",type:String},
 		show:{default:false,type:Boolean},
-		tipRight: String  //输入框右下侧的提示信息
+		tipRight: String,  //输入框右下侧的提示信息
+		mzMonInput:{type:String,default:''},
+		mzMonClick:{default:"",type:String},
 		
 	},
 };
