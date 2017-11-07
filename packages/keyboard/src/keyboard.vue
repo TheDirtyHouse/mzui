@@ -15,7 +15,7 @@
 
 <template>
   <transition name="up">  
-    <section id="keyboard" class="flex-row keyboard" style="display:none;" v-show="callkeyboard">
+    <section id="keyboard" class="flex-row keyboard" v-show="callkeyboard">
       <div class="flex-auto number">
         <ul class="flex-row">
           <li v-for="n in 3" class="flex-auto" @click="onClick(n)">{{n}}</li>
