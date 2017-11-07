@@ -114,7 +114,6 @@ module.exports = {
       isFocused: this.focused,
       tipType: 'normal',
       tipright: this.tipRight || '',
-      mzMonInputTips:"",
     };
   },
   directives: {
@@ -172,10 +171,12 @@ module.exports = {
       }
     }
   },
-  mounted:function(){
-    if(this.mzMonInput.length>0){
-      this.mzMonInputTips=this.mzMonInput+"-tip";
+  computed:{
+    mzMonInputTips:function(){
+      return this.mzMonInput.length > 0 ? this.mzMonInput+"-tip":"";
     }
+  },
+  mounted:function(){
   },
   methods: {
     showTips: function(msg, type) {
