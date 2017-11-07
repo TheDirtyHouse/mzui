@@ -173,10 +173,8 @@ module.exports = {
   },
   computed:{
     mzMonInputTips:function(){
-      return this.mzMonInput.length > 0 ? this.mzMonInput+"-tip":"";
+      return this.mzMonInput.length > 0 ? this.mzMonInput+"-rightTip":"";
     }
-  },
-  mounted:function(){
   },
   methods: {
     showTips: function(msg, type) {

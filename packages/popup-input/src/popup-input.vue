@@ -80,7 +80,7 @@ ref可调用方法
 							</mz-input>
 						</hgroup>
 						<hgroup class="group-btn">	
-							<mz-button v-on:onclick="handleClick" :btn-disabled="inputvalue.length<=0||(pattern&&!patternPass)||btnDisabled" :btn-loading="btnLoading" :mz-mon-click="mzMonClick">{{btnName}}</mz-button>
+							<mz-button v-on:onclick="handleClick" :btn-disabled="inputvalue.length<=0||(pattern&&!patternPass)||btnDisabled" :btn-loading="btnLoading" :mz-mon-click="mzMonClickOk">{{btnName}}</mz-button>
 						</hgroup>
 					</section>
 
@@ -129,11 +129,16 @@ export default {
 			this.$refs.inputref.showTips(msg,type); 
 		}
 	},
-	mounted:function(){
-		if(this.mzMonClick.length>0){
-			this.mzMonClickClose=this.mzMonClick+"-close";
-			this.mzMonClickImgCode=this.mzMonClick+"-imgcode";
-		}
+	computed:{
+		mzMonClickOk:function(){
+	    return this.mzMonInput.length > 0 ? this.mzMonInput+"-btn-ok":"";
+	  },
+		mzMonClickClose:function(){
+	    return this.mzMonInput.length > 0 ? this.mzMonInput+"-btn-close":"";
+	  },
+	  mzMonClickImgCode:function(){
+	    return this.mzMonInput.length > 0 ? this.mzMonInput+"-btn-imgcode":"";
+	  }
 	},
 	components:{
       mzButton: vueButton,
@@ -144,8 +149,6 @@ export default {
 				patternPass:false,
 				inputvalue:"",
 				show2:false,
-				mzMonClickImgCode:"",
-				mzMonClickClose:""
 			};
 		},
 	props:{
@@ -166,7 +169,6 @@ export default {
 		show:{default:false,type:Boolean},
 		tipRight: String,  //输入框右下侧的提示信息
 		mzMonInput:{type:String,default:''},
-		mzMonClick:{default:"",type:String},
 		
 	},
 };
