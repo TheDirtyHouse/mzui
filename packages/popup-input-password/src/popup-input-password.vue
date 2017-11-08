@@ -33,7 +33,7 @@ ref可调用方法
 			</transition>
 			<transition name="alert">
 				<section id="pop-box" v-show="show" class="flex-col flex-main-center flex-cross-center">
-					<i v-on:click="btnClose" class="group-close">
+					<i v-on:click="btnClose" :mz-mon-click="mzMonClickClose" class="group-close">
 						<svg id="icon-close" viewBox="0 0 10 10" width="20" height="20" xmlns="http://www.w3.org/2000/svg" version="1.1" stroke="#C1ABAB">
 							<line x1="1" y1="1" x2="8" y2="8"/>
 							<line x1="1" y1="8" x2="8" y2="1"/>
@@ -44,7 +44,7 @@ ref可调用方法
 					</hgroup>
 					<hgroup class="group-subtitle flex-row flex-main-center flex-cross-center">
 						<p class="subtitle">{{subtitle}}</p>
-						<i class="reset" @click="reset()">{{resetTips}}</i>
+						<i class="reset" @click="reset()" :mz-mon-click="mzMonClickReset">{{resetTips}}</i>
 					</hgroup>
 					<hgroup class="group-input flex-auto flex-col">
 						<ul class="flex-auto flex-row flex-cross-center" @click="onInput()">
@@ -62,7 +62,7 @@ ref可调用方法
 			      </transition>
 					</hgroup>
 					<hgroup class="group-btn">	
-						<mz-button v-on:onclick="handleClick" :btn-disabled="inputvalue.length < inputLength || btnDisabled" :btn-loading="btnLoading">{{btnName}}</mz-button>
+						<mz-button v-on:onclick="handleClick" :btn-disabled="inputvalue.length < inputLength || btnDisabled" :mz-mon-click="mzMonClick" :btn-loading="btnLoading">{{btnName}}</mz-button>
 					</hgroup>
 				</section>
 			</transition>
@@ -85,6 +85,14 @@ export default {
 			callkey: false,
 			tipContent:''
 		};
+	},
+	computed:{
+		mzMonClickReset:function(){
+	    return this.mzMonClick.length > 0 ? this.mzMonClick+"-btn-reset":"";
+	  },
+		mzMonClickClose:function(){
+	    return this.mzMonClick.length > 0 ? this.mzMonClick+"-btn-close":"";
+	  },
 	},
 	methods:{
 		showTips:function(msg){
@@ -236,6 +244,7 @@ export default {
 		btnLoading:{default:false,type:Boolean},
 		btnName:{default:"name",type:String},
 		show:{default:false,type:Boolean},
+		mzMonClick:{default:"",type:String},
 	},
 };
 </script>

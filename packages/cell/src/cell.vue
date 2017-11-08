@@ -7,7 +7,7 @@
  * header、title、end、footer分别代表4个位置的内容
  */
 <template>
-		<div v-on:click="handleClick" class="cell flex-row flex-main-center flex-cross-center">
+		<div v-on:click="handleClick" v-bind:mz-mon-click="mzMonClick" class="cell flex-row flex-main-center flex-cross-center">
 			<div class="icon-box flex-col flex-main-center">
 				<slot name="header"></slot>
 			</div>
@@ -36,6 +36,7 @@ module.exports={
 			};
 		},
 	props:{
+		mzMonClick:{default:"",type:String},
 	},
 };
 </script>

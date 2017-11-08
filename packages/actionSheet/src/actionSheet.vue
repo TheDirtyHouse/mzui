@@ -16,9 +16,6 @@
  </transition >
 </template>
 <style scoped lang="scss">
-* {
-  box-sizing: border-box;
-}
 .actionSheet-mask {
   position: absolute;
   top: 0;
@@ -27,8 +24,7 @@
   bottom: 0;
   background-color:rgba(0,0,0,.7) ;
   z-index: 140;
-
-
+  min-height:480px;
 }
 
 .toast {
@@ -155,7 +151,13 @@ export default {
       },
     },
     props: {
-  
+      actions:{
+        type:Object
+      },
+      toastClass: {
+        type: String,
+        default: ''
+      },
     },
 
 };
