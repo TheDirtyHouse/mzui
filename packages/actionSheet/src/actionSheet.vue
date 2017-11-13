@@ -6,7 +6,7 @@
    
         <div class="title" v-html="title"></div>
         <div class="action"  v-for="(item, index) in actions">
-          <div class="" @click.stop="handleAction(index)">{{item.text}}</div>
+          <div class="" @click.stop="handleAction(index)" v-html="item.text"></div>
           <!-- <div class="">{{item.action}}</div> -->
         </div>
         <div class="cancel" @click.stop="shown=!shown" v-html="cancelText" v-if='cancelText!=""'></div>
