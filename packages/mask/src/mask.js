@@ -1,4 +1,5 @@
 'use strict';
+import Vue from 'vue';
 import component from './mask.vue';
 let mask = null;
 
