@@ -316,7 +316,7 @@ section{
   }
 }
 label {
-  width: 80px;
+  width: 6rem;
   text-align: left;
   line-height: 32px;
   font-size: 1.14rem;
@@ -350,7 +350,13 @@ label {
     }
   }
   >.flex-row{
-    //padding: 14px 24px;
+    color: inherit;
+    font-size: inherit;
+    .msg {
+      padding-left: 4px;
+      color: inherit;
+      font-size: inherit;
+    }
   }
   .tip-normal{
     color: #757575;
@@ -365,10 +371,6 @@ label {
     line-height: 12px;
     border-radius: 50%;
     text-align: center;
-  }
-  .msg {
-    //width: 100%;
-    padding-left: 4px;
   }
 }
 .nolabel{
