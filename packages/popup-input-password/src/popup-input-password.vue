@@ -44,10 +44,10 @@ ref可调用方法
 					</hgroup>
 					<hgroup class="group-subtitle flex-row flex-main-center flex-cross-center">
 						<p class="subtitle">{{subtitle}}</p>
-						<i class="reset" @click="reset()" :mz-mon-click="mzMonClickReset">{{resetTips}}</i>
+						<i class="reset" @click="reset" :mz-mon-click="mzMonClickReset">{{resetTips}}</i>
 					</hgroup>
 					<hgroup class="group-input flex-auto flex-col">
-						<ul class="flex-auto flex-row flex-cross-center" @click="onInput()">
+						<ul class="flex-auto flex-row flex-cross-center" @click="onInput">
 							<li v-for="n in +inputLength" class="flex-auto">
 								<span class="input" :class="{'active': active == n - 1}">
 									{{(inputType=="password" && inputvalue[n-1]) ? "●" : inputvalue[n-1]}}
@@ -112,7 +112,7 @@ export default {
 			var value = this.inputvalue.join('');
 			this.$emit('btnok', e, value);
 		},
-		onInput: function(){
+		onInput: function(e){
 			var self = this;
 			if(this.callkey){
 				return;
@@ -121,7 +121,7 @@ export default {
 				self.active = self.inputvalue.length;
 			});
 
-			this.$emit('oninput');
+			this.$emit('oninput', e);
 		},
 		closeKeyboard: function(callback){
 			this.callkey = false;
@@ -157,8 +157,8 @@ export default {
 			this.inputvalue = [];
 			this.active = 0;
 		},
-		reset: function(){
-			this.$emit('reset');
+		reset: function(e){
+			this.$emit('reset', e);
 		},
 		btnClose:function(e){
 			var self = this;
