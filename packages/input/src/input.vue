@@ -99,7 +99,7 @@ mz-input
           <p class="flex-auto msg">{{tipContent}}</p>
         </div>
       </transition>
-      <p class="tips-right" @click="clickTips()" :mz-mon-click="mzMonInputTips" v-if="tipright">{{tipright}}</p>
+      <p class="tips-right" @click="clickTips" :mz-mon-click="mzMonInputTips" v-if="tipright">{{tipright}}</p>
     </div>
   </section>
 </template>
@@ -197,8 +197,8 @@ module.exports = {
       this.tipContent = '';
       this.tipright = '';
     },
-    clickTips: function(){
-      this.$emit('clicktips');
+    clickTips: function(e){
+      this.$emit('clicktips', e);
     },
     onInput: function(value) {
       this.isFocused = true;
