@@ -20,7 +20,7 @@
         <ul class="flex-row">
           <li v-for="n in 3" class="flex-auto" @click="onClick(n)">{{n}}</li>
         </ul>
-        <ul class="flex-row" :class="{'second': !hasEnter}">
+        <ul class="flex-row">
           <li v-for="n in [4,5,6]" class="flex-auto" @click="onClick(n)">{{n}}</li>
         </ul>
         <ul class="flex-row">
@@ -130,11 +130,9 @@ module.exports = {
         &:last-child{
           border-right: none;
         }
-      }
-    }
-    .second{
-      li:nth-child(2){
-        background-color: #eee;
+        &:active{
+          background: #eee;
+        }
       }
     }
     .close{
