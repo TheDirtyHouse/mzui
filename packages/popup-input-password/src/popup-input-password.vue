@@ -139,18 +139,20 @@ export default {
 			this.callkey = true;
 			setTimeout(function(){
 				var popDom=document.getElementById('pop-box');
-				var keyboard = document.getElementById('keyboard');
-
 				var popBottom = self.getOffsetTop(popDom) + popDom.offsetHeight;
-				var keyboradBottom = keyboard.offsetTop;
-				var offsetY = popBottom - keyboradBottom;
+				
+				setTimeout(function(){
+					var keyboard = document.getElementById('keyboard');
+					var keyboradBottom = keyboard.offsetTop;
+					var offsetY = popBottom - keyboradBottom;
 
-				if(offsetY >= -10) {
-					var trans = self.offsetTransformY(popDom, -(offsetY + 10), 'px');
-					popDom.style.webkitTransform = trans;
-					popDom.style.transition = "-webkit-transform .3s"
-				}
-				callback && callback();
+					if(offsetY >= -10) {
+						var trans = self.offsetTransformY(popDom, -(offsetY + 10), 'px');
+						popDom.style.webkitTransform = trans;
+						popDom.style.transition = "-webkit-transform .3s"
+					}
+					callback && callback();
+				}, 300);
 			}, 0);
 		},
 		clearInput:function(){
