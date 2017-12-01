@@ -17,19 +17,28 @@
   <transition name="up">  
     <section id="keyboard" class="flex-row keyboard" v-show="callkeyboard">
       <div class="flex-auto number">
-        <ul class="flex-row">
-          <li v-for="n in 3" class="flex-auto" @click="onClick(n)">{{n}}</li>
+        <ul v-for="key in keys" class="flex-row">
+          <li v-for="(n, index) in key" class="flex-auto" :class="{'active': n.active}" @click="onClick(n.num)" @touchstart="touchStart(n)" @touchend="touchEnd(n)" v-html="n.num"></li>
         </ul>
         <ul class="flex-row">
-          <li v-for="n in [4,5,6]" class="flex-auto" @click="onClick(n)">{{n}}</li>
-        </ul>
-        <ul class="flex-row">
-          <li v-for="n in [7,8,9]" class="flex-auto" @click="onClick(n)">{{n}}</li>
-        </ul>
-        <ul class="flex-row">
-          <li class="flex-auto">{{configKey}}</li>
-          <li class="flex-auto" @click="onClick(0)">0</li>
-          <li class="flex-auto close flex-row flex-main-center flex-cross-center" @click="delNum($event)">
+          <li class="flex-auto" 
+            :class="{'active': funKeys[0].active}" 
+            @touchstart="touchStart(funKeys[0])" 
+            @touchend="touchEnd(funKeys[0])">
+            {{funKeys[0].num}}
+          </li>
+          <li class="flex-auto" 
+            :class="{'active': funKeys[1].active}" 
+            @click="onClick(0)" 
+            @touchstart="touchStart(funKeys[1])" 
+            @touchend="touchEnd(funKeys[1])">
+            0
+          </li>
+          <li class="flex-auto close flex-row flex-main-center flex-cross-center" 
+            :class="{'active': funKeys[2].active}" 
+            @click="delNum($event)" 
+            @touchstart="touchStart(funKeys[2])" 
+            @touchend="touchEnd(funKeys[2])">
             <div class="icon-close flex-row flex-main-center flex-cross-center" v-if="!hasEnter">
               <svg viewBox="0 0 10 10" width="10" height="10" xmlns="http://www.w3.org/2000/svg" version="1.1" stroke="#fff">
                 <line x1="0" y1="0" x2="10" y2="10" stroke-width="2"/>
@@ -70,7 +79,12 @@ module.exports = {
       break;  
     }
     return {
-      configKey: configKey
+      keys: [
+        [{num: 1, active: false},{num: 2, active: false},{num: 3, active: false}],
+        [{num: 4, active: false},{num: 5, active: false},{num: 6, active: false}],
+        [{num: 7, active: false},{num: 8, active: false},{num: 9, active: false}]
+      ],
+      funKeys: [{num: configKey, active: false},{num: 0, active: false},{num: -1, active: false}]
     };
   },
   props: {
@@ -88,11 +102,20 @@ module.exports = {
     }
   },
   methods: {
-    onClick: function(n){
-      this.$emit('inputnum', n);
+    onClick(num){
+      this.$emit('inputnum', num);
     },
-    delNum: function(event){
+    delNum(event){
       this.$emit('delnum', event);
+    },
+    touchStart(n){
+      if(typeof n.num == 'string'){
+        return;
+      }
+      n.active = true;
+    },
+    touchEnd(n){
+      n.active = false;
     }
   }
 };
@@ -127,10 +150,12 @@ module.exports = {
         width: 33%;
         line-height: 53px;
         color: rgba(52, 73, 94, 1);
+        transition: background .3s ease-out;
         &:last-child{
           border-right: none;
         }
-        &:active{
+        &.active{
+          transition: none;
           background: #eee;
         }
       }
@@ -196,6 +221,18 @@ module.exports = {
       -webkit-transform: translate3d(0, 0, 0);
     }
   }
+  @keyframes upin {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 216px, 0);
+      -webkit-transform: translate3d(0, 216px, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+  }
   @-webkit-keyframes upout {
     0% {
       transform: translate3d(0, 0, 0);
@@ -206,5 +243,30 @@ module.exports = {
       -webkit-transform: translate3d(0, 216px, 0);
     }
   }
-
+  @keyframes upout {
+    0% {
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 216px, 0);
+      -webkit-transform: translate3d(0, 216px, 0);
+    }
+  }
+  @-webkit-keyframes pressout {
+    0% {
+      background: #eee;
+    }
+    100% {
+      background: #fff;
+    }
+  }
+  @keyframes pressout {
+    0% {
+      background: #eee;
+    }
+    100% {
+      background: #fff;
+    }
+  }
 </style>
