@@ -157,7 +157,8 @@ module.exports = {
     value: String,  //用于v-model绑定输入的值
     tipMsg: String,  //输入框左下侧的提示信息
     tipRight: String,  //输入框右下侧的提示信息
-    mzMonInput:{type:String,default:''}
+    mzMonInput:{type:String,default:''},
+    canRequired:{type:Boolean,default:false}
   },
   watch: {
     value: function(val, oldVal) {
@@ -202,6 +203,11 @@ module.exports = {
     },
     onInput: function(value) {
       this.isFocused = true;
+
+      //不允许一个不可见字符都没有
+      if(/\S+/.test(value)===false && this.canRequired === false){
+        value = value.replace(/\s/g,"");
+      }
       this.$emit('input', value);
       if(this.tipContent && value.length < this.value.length){
         this.tipContent = '';
