@@ -23,6 +23,8 @@ var entryList={
   addressPicker:"./packages/addressPicker/src/address-picker.js",
   actionSheet:"./packages/actionSheet/src/actionSheet.js",
 
+  logSystem:"./packages/logSystem/src/logSystem.js",
+
   commonCss:"./packages/common_scss/common-css.js",
   bundle:"./packages/bundle/bundle.js",
 
@@ -100,6 +102,10 @@ var htmlConfig={
 	keyboard:{
 		html_outname:"keyboard.html",
 		html_file:__dirname + "/example/keyboard.html",
+	},
+	logSystem:{
+		html_outname:"logSystem.html",
+		html_file:__dirname + "/example/logSystem.html",
 	},
 };
 
