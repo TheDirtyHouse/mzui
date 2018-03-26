@@ -15,6 +15,9 @@
         margin-bottom: 15px;
         margin-top:30px;
       }
+      html,body{
+        height:100%;
+      }
     </style>
   </head>
   <body>
@@ -44,10 +47,12 @@
     });
     
     loading.show({       //显示loading
-      text: '正在加载',
+      text: '5秒后隐藏',
       className: 'c1, c2'    
     }, 'log信息');
-
+    setTimeout(function(){
+      loading.hide();
+    },5000);
     
 
   };
