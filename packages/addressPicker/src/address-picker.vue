@@ -64,7 +64,12 @@ export default {
             this.options.title = opts;
             break;
           case 'object':
-            Object.assign(this.options, opts);
+            if(Object.assign){Object.assign(this.options, opts);}
+            else{
+              for( var key in opts ){
+                this.options[key] = opts[key];
+              }
+            }
             break;      
         }
       },

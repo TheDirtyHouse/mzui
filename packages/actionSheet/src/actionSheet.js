@@ -51,7 +51,11 @@ import actionSheetComponent from './actionSheet.vue';
 
     const show = (options) => {
       options = setOptions(options);
-      options = Object.assign({ type: 'info' }, options);
+
+      if( !options.type ){
+        options.type='info';
+      }
+
 
       let instance = getInstance();
       instance.shown = true;

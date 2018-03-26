@@ -59,19 +59,25 @@ import messageboxComponent from './messagebox.vue';
 
     const alert = function(options) {
       options = setOptions(options);
-      options = Object.assign({ type: 'alert' }, options);
+      if( !options.type ){
+        options.type='alert';
+      }
       return show(options);
     }
 
     const confirm = function(options) {
       options = setOptions(options);
-      options = Object.assign({ type: 'confirm' }, options);
+      if( !options.type ){
+        options.type='confirm';
+      }
       return show(options);
     }
 
 const pop = function(options) {
     options = setOptions(options);
-    options = Object.assign({ type: 'pop' }, options);
+    if( !options.type ){
+        options.type='pop';
+      }
     return show(options);
 }
     const Messagebox = {

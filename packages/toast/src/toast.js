@@ -78,17 +78,28 @@ const show = (options) => {
 
 const info = function(options) {
   options = setOptions(options);
-  options = Object.assign({ type: 'info' }, options);
+  if( !options.type ){
+    options.type='info';
+  }
   return show(options);
 }
 const success = function(options) {
   options = setOptions(options);
-  options = Object.assign({ type: 'success', position: 'top' }, options);
+  if( !options.type ){
+    options.type='success';
+  }
+  if( !options.position ){
+    options.position='top';
+  }
+
   return show(options);
 }
 const error = function(options) {
   options = setOptions(options);
   options = Object.assign({ type: 'error' }, options);
+  if( !options.type ){
+    options.type='error';
+  }
   return show(options);
 }
 

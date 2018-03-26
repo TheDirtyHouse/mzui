@@ -58,7 +58,7 @@ function makeConfig(cfg){
         },
         {test: /\.css$/, loader: ExtractTextPlugin.extract( {fallback:"style-loader", use:"css-loader!postcss-loader!sass-loader"})},
         {test: /\.scss$/, loader: ExtractTextPlugin.extract( {fallback:"style-loader", use:"css-loader!postcss-loader!sass-loader"})},//publicPath:"/build/css"
-        {test: /\.(jpg|png|svg)$/, loader: "url-loader",options:{
+        {test: /\.(jpg|png|svg|gif)$/, loader: "url-loader",options:{
           limit:8192,
           name:"../resource/[name].[ext]",//会统一替换成引用这个目录下的文件，所以请将资源放入resource下
         }}//小于8192字节的将转换成base64
