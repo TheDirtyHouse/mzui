@@ -88,10 +88,11 @@ export default {
 	overflow: scroll;
   -webkit-overflow-scrolling: touch;
   p{
+    font-size:14px;
   	color:white;
   	white-space:nowrap;
   	line-height:2.2rem;
-  	div,p,span{line-height:1.2rem;color:white;}
+  	div,p,span{font-size:inherit;line-height:1.2rem;color:white;}
 
   }
 }
