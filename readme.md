@@ -47,7 +47,7 @@
 ## 使用方法
 
 #### import引入
-#### .babelrc文件内增加插件配置
+#### .babelrc文件内增加插件配置 npm安装 `babel-plugin-component` 插件
 
 ```
 {
