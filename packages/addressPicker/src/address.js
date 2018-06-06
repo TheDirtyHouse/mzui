@@ -17,6 +17,102 @@ module.exports = {
           "parentCode": "110000",
           "areaName": "北京市",
           "level": 2
+        },
+        {
+          "areaCode": "110101",
+          "parentCode": "110000",
+          "areaName": "东城区",
+          "level": 3
+        },
+        {
+          "areaCode": "110102",
+          "parentCode": "110000",
+          "areaName": "西城区",
+          "level": 3
+        },
+        {
+          "areaCode": "110105",
+          "parentCode": "110000",
+          "areaName": "朝阳区",
+          "level": 3
+        },
+        {
+          "areaCode": "110106",
+          "parentCode": "110000",
+          "areaName": "丰台区",
+          "level": 3
+        },
+        {
+          "areaCode": "110107",
+          "parentCode": "110000",
+          "areaName": "石景山区",
+          "level": 3
+        },
+        {
+          "areaCode": "110108",
+          "parentCode": "110000",
+          "areaName": "海淀区",
+          "level": 3
+        },
+        {
+          "areaCode": "110109",
+          "parentCode": "110000",
+          "areaName": "门头沟区",
+          "level": 3
+        },
+        {
+          "areaCode": "110111",
+          "parentCode": "110000",
+          "areaName": "房山区",
+          "level": 3
+        },
+        {
+          "areaCode": "110112",
+          "parentCode": "110000",
+          "areaName": "通州区",
+          "level": 3
+        },
+        {
+          "areaCode": "110113",
+          "parentCode": "110000",
+          "areaName": "顺义区",
+          "level": 3
+        },
+        {
+          "areaCode": "110114",
+          "parentCode": "110000",
+          "areaName": "昌平区",
+          "level": 3
+        },
+        {
+          "areaCode": "110115",
+          "parentCode": "110000",
+          "areaName": "大兴区",
+          "level": 3
+        },
+        {
+          "areaCode": "110116",
+          "parentCode": "110000",
+          "areaName": "怀柔区",
+          "level": 3
+        },
+        {
+          "areaCode": "110117",
+          "parentCode": "110000",
+          "areaName": "平谷区",
+          "level": 3
+        },
+        {
+          "areaCode": "110228",
+          "parentCode": "110000",
+          "areaName": "密云县",
+          "level": 3
+        },
+        {
+          "areaCode": "110229",
+          "parentCode": "110000",
+          "areaName": "延庆县",
+          "level": 3
         }
       ]
     },
@@ -31,6 +127,102 @@ module.exports = {
           "parentCode": "120000",
           "areaName": "天津市",
           "level": 2
+        },
+        {
+          "areaCode": "120101",
+          "parentCode": "120000",
+          "areaName": "和平区",
+          "level": 3
+        },
+        {
+          "areaCode": "120102",
+          "parentCode": "120000",
+          "areaName": "河东区",
+          "level": 3
+        },
+        {
+          "areaCode": "120103",
+          "parentCode": "120000",
+          "areaName": "河西区",
+          "level": 3
+        },
+        {
+          "areaCode": "120104",
+          "parentCode": "120000",
+          "areaName": "南开区",
+          "level": 3
+        },
+        {
+          "areaCode": "120105",
+          "parentCode": "120000",
+          "areaName": "河北区",
+          "level": 3
+        },
+        {
+          "areaCode": "120106",
+          "parentCode": "120000",
+          "areaName": "红桥区",
+          "level": 3
+        },
+        {
+          "areaCode": "120110",
+          "parentCode": "120000",
+          "areaName": "东丽区",
+          "level": 3
+        },
+        {
+          "areaCode": "120111",
+          "parentCode": "120000",
+          "areaName": "西青区",
+          "level": 3
+        },
+        {
+          "areaCode": "120112",
+          "parentCode": "120000",
+          "areaName": "津南区",
+          "level": 3
+        },
+        {
+          "areaCode": "120113",
+          "parentCode": "120000",
+          "areaName": "北辰区",
+          "level": 3
+        },
+        {
+          "areaCode": "120114",
+          "parentCode": "120000",
+          "areaName": "武清区",
+          "level": 3
+        },
+        {
+          "areaCode": "120115",
+          "parentCode": "120000",
+          "areaName": "宝坻区",
+          "level": 3
+        },
+        {
+          "areaCode": "120116",
+          "parentCode": "120000",
+          "areaName": "滨海新区",
+          "level": 3
+        },
+        {
+          "areaCode": "120221",
+          "parentCode": "120000",
+          "areaName": "宁河县",
+          "level": 3
+        },
+        {
+          "areaCode": "120223",
+          "parentCode": "120000",
+          "areaName": "静海县",
+          "level": 3
+        },
+        {
+          "areaCode": "120225",
+          "parentCode": "120000",
+          "areaName": "蓟县",
+          "level": 3
         }
       ]
     },
@@ -513,6 +705,108 @@ module.exports = {
           "parentCode": "310000",
           "areaName": "上海市",
           "level": 2
+        },
+        {
+          "areaCode": "310101",
+          "parentCode": "310000",
+          "areaName": "黄浦区",
+          "level": 3
+        },
+        {
+          "areaCode": "310104",
+          "parentCode": "310000",
+          "areaName": "徐汇区",
+          "level": 3
+        },
+        {
+          "areaCode": "310105",
+          "parentCode": "310000",
+          "areaName": "长宁区",
+          "level": 3
+        },
+        {
+          "areaCode": "310106",
+          "parentCode": "310000",
+          "areaName": "静安区",
+          "level": 3
+        },
+        {
+          "areaCode": "310107",
+          "parentCode": "310000",
+          "areaName": "普陀区",
+          "level": 3
+        },
+        {
+          "areaCode": "310108",
+          "parentCode": "310000",
+          "areaName": "闸北区",
+          "level": 3
+        },
+        {
+          "areaCode": "310109",
+          "parentCode": "310000",
+          "areaName": "虹口区",
+          "level": 3
+        },
+        {
+          "areaCode": "310110",
+          "parentCode": "310000",
+          "areaName": "杨浦区",
+          "level": 3
+        },
+        {
+          "areaCode": "310112",
+          "parentCode": "310000",
+          "areaName": "闵行区",
+          "level": 3
+        },
+        {
+          "areaCode": "310113",
+          "parentCode": "310000",
+          "areaName": "宝山区",
+          "level": 3
+        },
+        {
+          "areaCode": "310114",
+          "parentCode": "310000",
+          "areaName": "嘉定区",
+          "level": 3
+        },
+        {
+          "areaCode": "310115",
+          "parentCode": "310000",
+          "areaName": "浦东新区",
+          "level": 3
+        },
+        {
+          "areaCode": "310116",
+          "parentCode": "310000",
+          "areaName": "金山区",
+          "level": 3
+        },
+        {
+          "areaCode": "310117",
+          "parentCode": "310000",
+          "areaName": "松江区",
+          "level": 3
+        },
+        {
+          "areaCode": "310118",
+          "parentCode": "310000",
+          "areaName": "青浦区",
+          "level": 3
+        },
+        {
+          "areaCode": "310120",
+          "parentCode": "310000",
+          "areaName": "奉贤区",
+          "level": 3
+        },
+        {
+          "areaCode": "310230",
+          "parentCode": "310000",
+          "areaName": "崇明县",
+          "level": 3
         }
       ]
     },
@@ -686,6 +980,12 @@ module.exports = {
           "areaCode": "340100",
           "parentCode": "340000",
           "areaName": "合肥市",
+          "level": 2
+        },
+        {
+          "areaCode": "340181",
+          "parentCode": "340100",
+          "areaName": "巢湖市",
           "level": 2
         },
         {
@@ -1023,7 +1323,13 @@ module.exports = {
           "parentCode": "370000",
           "areaName": "菏泽市",
           "level": 2
-        }
+        },
+        {
+          "areaCode": "371700",
+          "parentCode": "370000",
+          "areaName": "荷泽市",
+          "level": 2
+        },
       ]
     },
     {
@@ -1703,6 +2009,234 @@ module.exports = {
           "parentCode": "500000",
           "areaName": "重庆市",
           "level": 2
+        },
+        {
+          "areaCode": "500101",
+          "parentCode": "500000",
+          "areaName": "万州区",
+          "level": 3
+        },
+        {
+          "areaCode": "500102",
+          "parentCode": "500000",
+          "areaName": "涪陵区",
+          "level": 3
+        },
+        {
+          "areaCode": "500103",
+          "parentCode": "500000",
+          "areaName": "渝中区",
+          "level": 3
+        },
+        {
+          "areaCode": "500104",
+          "parentCode": "500000",
+          "areaName": "大渡口区",
+          "level": 3
+        },
+        {
+          "areaCode": "500105",
+          "parentCode": "500000",
+          "areaName": "江北区",
+          "level": 3
+        },
+        {
+          "areaCode": "500106",
+          "parentCode": "500000",
+          "areaName": "沙坪坝区",
+          "level": 3
+        },
+        {
+          "areaCode": "500107",
+          "parentCode": "500000",
+          "areaName": "九龙坡区",
+          "level": 3
+        },
+        {
+          "areaCode": "500108",
+          "parentCode": "500000",
+          "areaName": "南岸区",
+          "level": 3
+        },
+        {
+          "areaCode": "500109",
+          "parentCode": "500000",
+          "areaName": "北碚区",
+          "level": 3
+        },
+        {
+          "areaCode": "500110",
+          "parentCode": "500000",
+          "areaName": "綦江区",
+          "level": 3
+        },
+        {
+          "areaCode": "500111",
+          "parentCode": "500000",
+          "areaName": "大足区",
+          "level": 3
+        },
+        {
+          "areaCode": "500112",
+          "parentCode": "500000",
+          "areaName": "渝北区",
+          "level": 3
+        },
+        {
+          "areaCode": "500113",
+          "parentCode": "500000",
+          "areaName": "巴南区",
+          "level": 3
+        },
+        {
+          "areaCode": "500114",
+          "parentCode": "500000",
+          "areaName": "黔江区",
+          "level": 3
+        },
+        {
+          "areaCode": "500115",
+          "parentCode": "500000",
+          "areaName": "长寿区",
+          "level": 3
+        },
+        {
+          "areaCode": "500116",
+          "parentCode": "500000",
+          "areaName": "江津区",
+          "level": 3
+        },
+        {
+          "areaCode": "500117",
+          "parentCode": "500000",
+          "areaName": "合川区",
+          "level": 3
+        },
+        {
+          "areaCode": "500118",
+          "parentCode": "500000",
+          "areaName": "永川区",
+          "level": 3
+        },
+        {
+          "areaCode": "500119",
+          "parentCode": "500000",
+          "areaName": "南川区",
+          "level": 3
+        },
+        {
+          "areaCode": "500223",
+          "parentCode": "500000",
+          "areaName": "潼南县",
+          "level": 3
+        },
+        {
+          "areaCode": "500224",
+          "parentCode": "500000",
+          "areaName": "铜梁县",
+          "level": 3
+        },
+        {
+          "areaCode": "500226",
+          "parentCode": "500000",
+          "areaName": "荣昌县",
+          "level": 3
+        },
+        {
+          "areaCode": "500227",
+          "parentCode": "500000",
+          "areaName": "璧山县",
+          "level": 3
+        },
+        {
+          "areaCode": "500228",
+          "parentCode": "500000",
+          "areaName": "梁平县",
+          "level": 3
+        },
+        {
+          "areaCode": "500229",
+          "parentCode": "500000",
+          "areaName": "城口县",
+          "level": 3
+        },
+        {
+          "areaCode": "500230",
+          "parentCode": "500000",
+          "areaName": "丰都县",
+          "level": 3
+        },
+        {
+          "areaCode": "500231",
+          "parentCode": "500000",
+          "areaName": "垫江县",
+          "level": 3
+        },
+        {
+          "areaCode": "500232",
+          "parentCode": "500000",
+          "areaName": "武隆县",
+          "level": 3
+        },
+        {
+          "areaCode": "500233",
+          "parentCode": "500000",
+          "areaName": "忠县",
+          "level": 3
+        },
+        {
+          "areaCode": "500234",
+          "parentCode": "500000",
+          "areaName": "开县",
+          "level": 3
+        },
+        {
+          "areaCode": "500235",
+          "parentCode": "500000",
+          "areaName": "云阳县",
+          "level": 3
+        },
+        {
+          "areaCode": "500236",
+          "parentCode": "500000",
+          "areaName": "奉节县",
+          "level": 3
+        },
+        {
+          "areaCode": "500237",
+          "parentCode": "500000",
+          "areaName": "巫山县",
+          "level": 3
+        },
+        {
+          "areaCode": "500238",
+          "parentCode": "500000",
+          "areaName": "巫溪县",
+          "level": 3
+        },
+        {
+          "areaCode": "500240",
+          "parentCode": "500000",
+          "areaName": "石柱土家族自治县",
+          "level": 3
+        },
+        {
+          "areaCode": "500241",
+          "parentCode": "500000",
+          "areaName": "秀山土家族苗族自治县",
+          "level": 3
+        },
+        {
+          "areaCode": "500242",
+          "parentCode": "500000",
+          "areaName": "酉阳土家族苗族自治县",
+          "level": 3
+        },
+        {
+          "areaCode": "500243",
+          "parentCode": "500000",
+          "areaName": "彭水苗族土家族自治县",
+          "level": 3
         }
       ]
     },
@@ -1874,12 +2408,14 @@ module.exports = {
           "areaCode": "520500",
           "parentCode": "520000",
           "areaName": "毕节市",
+          "otherName":["毕节地区"],
           "level": 2
         },
         {
           "areaCode": "520600",
           "parentCode": "520000",
           "areaName": "铜仁市",
+          "otherName":["铜仁地区"],
           "level": 2
         },
         {
@@ -2407,6 +2943,24 @@ module.exports = {
           "level": 2
         }
       ]
+    },
+    {
+      "areaCode": "710000",
+      "parentCode": "0",
+      "areaName": "台湾省",
+      "level": 3
+    },
+    {
+      "areaCode": "810000",
+      "parentCode": "0",
+      "areaName": "香港特别行政区",
+      "level": 3
+    },
+    {
+      "areaCode": "820000",
+      "parentCode": "0",
+      "areaName": "澳门特别行政区",
+      "level": 3
     }
-  ]
+  ],
 };

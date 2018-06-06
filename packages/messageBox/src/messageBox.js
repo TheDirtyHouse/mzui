@@ -29,7 +29,11 @@ import messageboxComponent from './messagebox.vue';
       instance.className = options.className||'';
       instance.title = options.title || '标题';
       instance.type = options.type || 'alert';
-      instance.showTitle=options.showTitle||true;
+
+      
+      
+      instance.showTitle=options.showTitle==false?false:true;
+
       instance.btnOk=options.btnOk;
       instance.btnCancel=options.btnCancel;
       instance.maskClose=options.maskClose||'0';
@@ -37,9 +41,9 @@ import messageboxComponent from './messagebox.vue';
       instance.btnClose=options.btnClose;
       instance.cancelButtonText=options.cancelButtonText||'取消';
       instance.confirmButtonText=options.confirmButtonText||'确认';
-      instance.showDelete=options.showDelete||false;
-      instance.showCancelButton=options.showCancelButton||false;
-      instance.showConfirmButton=options.showConfirmButton||false;
+      instance.showDelete=!!options.showDelete;// options.showDelete||false;
+      instance.showCancelButton=!!options.showCancelButton;//||false;
+      instance.showConfirmButton=!!options.showConfirmButton;//||false;
 
       switch (instance.type) {
         case 'alert':

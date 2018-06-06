@@ -43,10 +43,10 @@
     addressPicker.show({
       title:'自定义',
       btnCancel:function(provice,city){
-         // alert("provice是"+provice+"   city是"+city);
+         alert("provice是"+provice+"   city是"+city);
       },
        btnSure:function(provice,city){
-         // alert("provice是"+provice+"   city是"+city);
+         alert("provice是"+provice.areaName+"("+provice.areaCode+")"+"   city是"+city.areaName+"("+city.areaCode+")");
       }
     });
 
