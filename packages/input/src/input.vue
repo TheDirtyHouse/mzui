@@ -40,6 +40,7 @@ v-on:onpattern: 校验完指定的正则返回给父组件的事件，第一个�
 v-on:onblur: 获取输入框失焦状态（给父组件监听失焦事件）
 v-on:onfocus: 获取输入框聚焦状态（给父组件监听失焦事件）
 v-on:clicktips: 点击输入框右下侧提示信息
+v-on:click: 当用户点击输入框区域时触发
 
 eg:
 mz-input 
