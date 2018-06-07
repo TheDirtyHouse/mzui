@@ -62,7 +62,7 @@ mz-input
     <div class="field">
       <div class="border flex-row">
         <label for="" v-if="label" v-html="label"></label>
-        <div class="flex-auto">
+        <div class="flex-auto" v-on:click="handleClick" v-bind:mz-mon-click="mzMonClick">
           <textarea v-if="wrap"
             :value="value" 
             @input="onInput($event.target.value)">
@@ -158,7 +158,8 @@ module.exports = {
     tipMsg: String,  //输入框左下侧的提示信息
     tipRight: String,  //输入框右下侧的提示信息
     mzMonInput:{type:String,default:''},
-    canRequired:{type:Boolean,default:false}
+    canRequired:{type:Boolean,default:false},
+    mzMonClick:{default:"",type:String},
   },
   watch: {
     value: function(val, oldVal) {
@@ -178,6 +179,9 @@ module.exports = {
     }
   },
   methods: {
+    handleClick:function(e){
+      this.$emit('onclick', e);
+    },
     showTips: function(msg, type) {
       this.tipType = type || 'error';
       switch(typeof msg){

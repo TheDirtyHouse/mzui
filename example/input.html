@@ -23,6 +23,8 @@
       <div class="flex-col flex-main-center flex-cross-center">
         <div style="width:100%;">
         	<mz-input placeholder="提示内容" 
+          @onclick="btnClick"
+          mz-on-click="input-click"
           class="margin-small"
           tip-right="右侧提示"
           label="测试"
@@ -82,6 +84,9 @@
         phone:"",
       },
       methods:{
+        btnClick:function(e){
+          debugger;
+        }
       },
       components:{
           mzInput: window.mzui.input.default,
