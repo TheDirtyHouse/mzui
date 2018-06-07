@@ -159,7 +159,6 @@ module.exports = {
     tipRight: String,  //输入框右下侧的提示信息
     mzMonInput:{type:String,default:''},
     canRequired:{type:Boolean,default:false},
-    mzMonClick:{default:"",type:String},
   },
   watch: {
     value: function(val, oldVal) {
@@ -176,6 +175,9 @@ module.exports = {
   computed:{
     mzMonInputTips:function(){
       return this.mzMonInput.length > 0 ? this.mzMonInput+"-rightTip":"";
+    },
+    mzMonClick:function(){
+      return this.mzMonInput.length > 0 ? this.mzMonInput+"-click":"";
     }
   },
   methods: {
