@@ -11,6 +11,11 @@ function show(transparent){
 	mask.show(transparent);
 }
 function hide(){
+	if(!mask){
+		mask=new (Vue.extend(component))();
+		document.getElementById('app').appendChild(mask.$mount().$el);
+	}
+
 	mask.hide();
 }
 
