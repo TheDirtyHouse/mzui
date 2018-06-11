@@ -2484,7 +2484,7 @@ module.exports = {
           "areaCode": "530800",
           "parentCode": "530000",
           "areaName": "普洱市",
-          "otherName":["思茅"],
+          "otherName":["思茅市"],
           "level": 2
         },
         {
