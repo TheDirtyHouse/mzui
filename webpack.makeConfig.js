@@ -5,6 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");// 默认的webpack 会将require("style.css")文件嵌入js文件中，使用该插件会将css从js中提取出来
 var CleanWebpackPlugin = require('clean-webpack-plugin'); // 删除文件
 var CopyWebpackPlugin = require('copy-webpack-plugin'); // 拷贝文件
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 var now = {
@@ -22,10 +23,10 @@ var now = {
 };
 
 
-
 function makeConfig(cfg){
   var package_config = cfg.packageConfig;
   var isRelease = cfg.isRelease;
+  var isReport = cfg.report;
 
   var config={
     entry: package_config.entryList,//所有入口js列表
@@ -134,6 +135,12 @@ function makeConfig(cfg){
     config.plugins.push(
       new webpack.optimize.UglifyJsPlugin({sourceMap:true})
     );
+    if(isReport){
+      config.plugins.push(
+        new BundleAnalyzerPlugin()
+      );
+    }
+    
   }
 
 

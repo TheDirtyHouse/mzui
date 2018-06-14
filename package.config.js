@@ -28,6 +28,8 @@ var entryList={
   commonCss:"./packages/common_scss/common-css.js",
   bundle:"./packages/bundle/bundle.js",
 
+  // test:"./packages/test/entry.js"
+
 };
 
 /**
@@ -107,6 +109,10 @@ var htmlConfig={
 		html_outname:"logSystem.html",
 		html_file:__dirname + "/example/logSystem.html",
 	},
+	// test:{
+	// 	html_outname:"test.html",
+	// 	html_file:__dirname + "/example/test.html",
+	// },
 };
 
 /**

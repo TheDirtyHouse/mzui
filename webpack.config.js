@@ -16,9 +16,9 @@ for (var i in process.argv) {
   }
 }
 
-module.exports = function(env){
+module.exports = function(env,report){
+  var report=false;
 	console.log( ("=================打包配置为:"+env + ",isRelease:" + isRelease).developerWarm);
-
   switch(env){
     case "devIndex":{
       package_config = require('./package.index.config.js')({isRelease:isRelease});
@@ -30,7 +30,11 @@ module.exports = function(env){
     case "package":{
       package_config = require('./package.config.js')({isRelease:isRelease});
     }break;
+    case "report":{
+      report=true;
+      package_config = require('./package.config.js')({isRelease:isRelease});
+    }break;
   }
 
-	return require('./webpack.makeConfig.js')({packageConfig:package_config,isRelease:isRelease}); //通用配置文件
+	return require('./webpack.makeConfig.js')({packageConfig:package_config,isRelease:isRelease,report:report}); //通用配置文件
 };
