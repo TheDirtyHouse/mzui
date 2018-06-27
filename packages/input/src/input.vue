@@ -347,11 +347,10 @@ section{
   }
 }
 label {
-  width: 6rem;
+  width: 6+16/14+rem;
   text-align: left;
   line-height: 32px;
   font-size: 1.14rem;
-  margin-right: 16px;
 }
 .v-enter-active{
   animation: errorIn .3s ease;
