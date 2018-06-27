@@ -65,7 +65,7 @@ mz-input
 <template>
   <section :class="{'nolabel':!label}">
     <div class="field">
-      <div class="flex-row" :class="{'border':noBottomLine===false}">
+      <div class="border flex-row flex-cross-center" :class="{'no-bottom-line':noBottomLine===true}">
         <label for="" v-if="label" v-html="label"></label>
         <div class="flex-auto" v-on:click="handleClick" v-bind:mz-mon-click="mzMonClick">
           <textarea v-if="wrap"
@@ -439,5 +439,8 @@ label {
       }
     }
   }
+}
+.no-bottom-line{
+  border-bottom: 0;
 }
 </style>
