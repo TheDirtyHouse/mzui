@@ -125,8 +125,8 @@ module.exports={
 <style scoped lang="sass">
 $barHeight:64px;
 $barMarginTop:20px;
-$fontSize:17px;
-$fontSize2:14px;
+$fontSize:17/14+rem;
+$fontSize2:1rem;
 $colorTitle:#424242;
 $colorTitle2:#77747e;
 $maskAlpha:.7;

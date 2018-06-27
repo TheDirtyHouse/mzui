@@ -351,7 +351,7 @@ $errorColor: #dd191d;
 	position: absolute;
   bottom: 7px;
   left: 0;
-	font-size: 14px;
+	font-size: 1rem;
   line-height: 16px;
   color: $errorColor;
   i {

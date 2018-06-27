@@ -39,7 +39,7 @@
   text-align: center;
   overflow: hidden;
   color:#757575;
-  font-size: 18px;
+  font-size: 18/14+rem;
   box-shadow: 0 0 15px rgb(0,0,0); 
 }
 

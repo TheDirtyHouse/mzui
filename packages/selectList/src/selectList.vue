@@ -37,7 +37,7 @@ module.exports={
 <style scoped lang="sass">
 $imgRoot: '../../../resource/';
 p{
-  font-size:20px;
+  font-size:20/14+rem;
   color:Red;
 }
 .item-right{

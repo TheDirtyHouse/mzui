@@ -45,14 +45,14 @@
 }
 .action div{
   color:#009ae8;
-  font-size:18px;
+  font-size:18/14+rem;
   border-top:1px solid #DDD;
   background-color:#fff;
   padding:17px 0px;
 }
 .cancel{
   color:#c1abab;
-  font-size:16px;
+  font-size:16/14+rem;
   border-top:1px solid #DDD;
   background-color:#fff;
   padding:17px 0px;
@@ -103,7 +103,7 @@
 
 .title{
   background-color:#fff;
-  font-size: 14px;
+  font-size: 1rem;
   text-align: middle;
   color:#9B9B9B;
   padding:7px 0px 

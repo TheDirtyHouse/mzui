@@ -96,7 +96,7 @@
 }
 
 .toast-message {
-    font-size: 14px;
+    font-size: 1rem;
     text-align: left;
     word-break: break-all;
 }

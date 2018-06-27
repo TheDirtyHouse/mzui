@@ -88,7 +88,7 @@ export default {
 	overflow: scroll;
   -webkit-overflow-scrolling: touch;
   p{
-    font-size:14px;
+    font-size:1rem;
   	color:white;
   	white-space:nowrap;
   	line-height:2.2rem;

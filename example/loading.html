@@ -34,6 +34,10 @@
 
 <script src="plugins/_vue.js"></script>
 <script>
+      let defaultFontSize = Math.floor(window.screen.width/26.785);
+  defaultFontSize = defaultFontSize > 16 ? 16 : defaultFontSize;
+  document.getElementsByTagName('html')[0].style.fontSize=defaultFontSize+'px';
+  document.getElementsByTagName('body')[0].style.fontSize=defaultFontSize+'px';
   window.onload=function(){
     var loading = mzui.loading.default;
     var app = new Vue({

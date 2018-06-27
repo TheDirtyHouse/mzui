@@ -272,7 +272,7 @@ module.exports = {
         overflow: hidden;
         text-overflow: ellipsis;
         line-height: 43px;
-        font-size: 18px;
+        font-size: 18/14+rem;
         color: $color-text-main;
         &.hidden {
           visibility: hidden;

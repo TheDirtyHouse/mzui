@@ -157,7 +157,7 @@
 		}
 		.text{
 			color: #fff;
-			font-size: 14px;
+			font-size: 1rem;
 			padding: 16px 0 0;
 		}
 	}

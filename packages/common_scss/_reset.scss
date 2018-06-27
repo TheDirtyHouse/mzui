@@ -4,13 +4,15 @@
 // 	font-family:myDefault;
 // 	src:url("../resource/PingFang.ttc");
 // }
-
+html,body{
+	font-size:14px;
+}
 *{
 		// font-family: "Helvetica","PingFang SC","微软雅黑",arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
 		// font-family:myDefault;
 		font-family:"PingFangSC-Regular";
 		
-		font-size: 14px;//=12px
+		font-size: 1rem;//=12px
 		// font-weight:lighter;
 		
 		position: relative;

@@ -122,7 +122,7 @@ module.exports = {
 </script>
 <style scoped lang="sass">
   li{
-    font-size: 24px;
+    font-size: 24/14+rem;
     text-align: center;
   }
   button{
