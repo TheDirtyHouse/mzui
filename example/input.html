@@ -15,6 +15,18 @@
         margin-bottom: 15px;
         margin-top:30px;
       }
+      .space{
+        margin-bottom:20px; 
+        background:white;
+      }
+      cell{
+        padding:2px 16px;
+        background:#eee;
+        color:black;
+        font-weight: bold;
+        font-size:14px;
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -22,55 +34,69 @@
 
       <div class="flex-col flex-main-center flex-cross-center">
         <div style="width:100%;">
-        	<mz-input placeholder="提示内容" 
-          @onclick="btnClick"
+
+          <cell>这是常规输入框</cell>
+          <mz-input placeholder="请输入手机号" 
+          label="手机号"
+          type="tel" 
+          v-model="phone" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          trace="input" 
+          need-length="11" 
+          max-length="11" 
+          ref="inputPhone"
+          >
+          </mz-input>
+
+          <cell>这是常规输入框+右下角带提示文字</cell>
+        	<mz-input placeholder="请输入纯数字" 
           mz-on-click="input-click"
           class="margin-small"
-          tip-right="右侧提示"
-          label="测试"
-          type="tel" 
-          v-model="phone" 
-          pattern="/^1[3456789]\d{9}$/" 
-          error-msg="手机号输入出错" 
+          tip-right="右侧友情提示"
+          v-model="phone2" 
+          pattern="/^\d+$/" 
+          error-msg="必须输入纯数字" 
           trace="input" 
-          need-length="1" 
-          max-length="11" 
-          ref="inputPhone">
+          need-length="1"
+          label="标题">
           </mz-input>
-          <mz-input placeholder="提示内容" 
-          label="测试"
+          
+
+          
+          <cell>模拟选择框</cell>
+          <mz-input placeholder="点击选择" 
+          label="模拟选择框"
           type="tel" 
-          v-model="phone" 
-          pattern="/^1[3456789]\d{9}$/" 
-          error-msg="手机号输入出错" 
-          trace="input" 
-          need-length="1" 
-          max-length="11" 
-          ref="inputPhone">
+          v-model="phone3" 
+          @onclick="btnCliclSelect"
+          :no-bottom-line="true" 
+          :select-btn="true"
+          :disabled="true" 
+          style="border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-top:10px;padding-bottom:10px;">
           </mz-input>
+
+          
+         
+          <cell>不带标题的输入框</cell>
           <mz-input placeholder="提示内容" 
           class="margin-small"
-          tip-right="右侧提示"
           type="tel" 
-          v-model="phone" 
-          pattern="/^1[3456789]\d{9}$/" 
-          error-msg="手机号输入出错" 
-          trace="input" 
-          need-length="1" 
-          max-length="11" 
+          v-model="phone4" 
           ref="inputPhone">
           </mz-input>
+          
+          <cell>获取验证码</cell>
           <mz-input placeholder="提示内容" 
           type="tel" 
-          v-model="phone" 
-          pattern="/^1[3456789]\d{9}$/" 
-          error-msg="手机号输入出错" 
-          trace="input" 
+          v-model="phone5" 
           need-length="1" 
           max-length="11" 
           ref="inputPhone">
-          <p>获取验证码</p>
+            <p>获取验证码</p>
           </mz-input>
+
+
         </div>
       </div>
     </div>
@@ -86,11 +112,18 @@
       el: '#app',
       data:{
         phone:"",
+        phone2:"",
+        phone3:"",
+        phone4:"",
+        phone5:""
       },
       methods:{
         btnClick:function(e){
-          debugger;
+        },
+        btnCliclSelect:function(e){
+          console.log("点击了选择框");
         }
+
       },
       components:{
           mzInput: window.mzui.input.default,

@@ -11,6 +11,8 @@ placeholder='XXX': input标签的placeholder值
 class='margin-small XXX': 自定义类名 默认：两边留白24px margin-small为16px
 tip-msg="XXX": 输入框左下侧的提示信息，可利用showTips方法动态修改该值
 tip-right="XXX": 输入框右下侧的提示信息，可利用showTips方法动态修改该值
+:disabled="true":是否禁止输入
+:select-btn="true":是否显示右侧选择箭头（结合disabled可以将Input变成一个选择框)
 
 校验属性
 maxlength='XXX': input的maxlength值 
@@ -54,6 +56,8 @@ mz-input
   need-length="11"
   maxlength="11"
   ref="inputName"
+  :select-btn="true"
+  :disabled="true"
 /mz-input
 
 */
@@ -61,7 +65,7 @@ mz-input
 <template>
   <section :class="{'nolabel':!label}">
     <div class="field">
-      <div class="border flex-row">
+      <div class="flex-row" :class="{'border':noBottomLine===false}">
         <label for="" v-if="label" v-html="label"></label>
         <div class="flex-auto" v-on:click="handleClick" v-bind:mz-mon-click="mzMonClick">
           <textarea v-if="wrap"
@@ -82,6 +86,7 @@ mz-input
             :mz-mon-input="mzMonInput"
           >
           <div class="icons flex-row flex-cross-center">
+            <i class="icon icon-click" v-if="selectBtn"></i>
             <i class="icon icon-clear" v-if="!wrap && isFocused && value" @mousedown="clear()"></i>
             <i class="icon icon-eye" 
               :class="{'icon-eye-close': innerType != 'password'}" 
@@ -160,6 +165,8 @@ module.exports = {
     tipRight: String,  //输入框右下侧的提示信息
     mzMonInput:{type:String,default:''},
     canRequired:{type:Boolean,default:false},
+    selectBtn:{type:Boolean,default:false},//是否显示右侧的选择按钮
+    noBottomLine:{type:Boolean,default:false},//是否不显示下划线
   },
   watch: {
     value: function(val, oldVal) {
@@ -325,6 +332,17 @@ section{
     }
     &.icon-eye-close {
       background: url(#{$imgRoot}icon-input.png) no-repeat -26px 0px;
+    }
+    &.icon-click {
+      margin:0;
+      padding:0;
+      width:.6rem;
+      height:.6rem;
+      border-bottom: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+      transform: rotateZ(315deg);
+      margin-top: -0.3rem;
+      margin-left:-0.3rem;
     }
   }
 }
