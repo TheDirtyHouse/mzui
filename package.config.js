@@ -22,6 +22,7 @@ var entryList={
  	loading:"./packages/loading/src/loading.js",
   addressPicker:"./packages/addressPicker/src/address-picker.js",
   actionSheet:"./packages/actionSheet/src/actionSheet.js",
+  picker:"./packages/picker/src/picker.js",
 
   logSystem:"./packages/logSystem/src/logSystem.js",
 
@@ -108,6 +109,10 @@ var htmlConfig={
 	logSystem:{
 		html_outname:"logSystem.html",
 		html_file:__dirname + "/example/logSystem.html",
+	},
+	picker:{
+		html_outname:"picker.html",
+		html_file:__dirname + "/example/picker.html",
 	},
 	// test:{
 	// 	html_outname:"test.html",

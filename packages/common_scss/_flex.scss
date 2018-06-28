@@ -29,6 +29,7 @@
 /**
  * 主轴为横向排列的
  */
+.flex-center,
 .flex-row {
     @extend .flexBox;
     -webkit-box-orient: horizontal;
@@ -67,6 +68,7 @@
 /**
  * 主轴元素排列为居中
  */
+.flex-center,
 .flex-main-center {
     -webkit-box-pack: center;
     -moz-flex-pack: center;
@@ -126,7 +128,7 @@
 /**
  * 以下为设定另外一个轴的对齐方式
  */
-
+.flex-center,
 .flex-cross-center {
     -webkit-box-align: center;
     -moz-flex-align: center;

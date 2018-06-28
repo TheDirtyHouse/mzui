@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>addressPicker</title>
+    <link rel="stylesheet" type="text/css" href="commonCss/style.css">
+    <style>
+    html,body{
+      height:100%;
+    }
+      *[mgb]{
+        margin-bottom: 15px;
+        margin-top:30px;
+      }
+      #app{
+        height:100%;width:100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='app'>
+
+      <div class="flex-col flex-main-center flex-cross-center">
+        <div style="width:80%;">
+        </div>
+      </div>
+       <picker :list-data="list" v-model="value" style="position: absolute;bottom:200px;"></picker>
+    </div>
+
+
+
+<script src="plugins/_vue.js"></script>
+<script>
+  let defaultFontSize = Math.floor(window.screen.width/26.785);
+  defaultFontSize = defaultFontSize > 16 ? 16 : defaultFontSize;
+  document.getElementsByTagName('html')[0].style.fontSize=defaultFontSize+'px';
+  document.getElementsByTagName('body')[0].style.fontSize=defaultFontSize+'px';
+
+  window.onload=function(){
+    var picker = mzui.picker.default;
+    var app = new Vue({
+      el: '#app',
+      data:{
+        value:"1",
+        list:["1","2","3"]
+      },
+      methods:{
+      },
+      components:{
+        picker
+      },
+    });
+  };
+      
+</script>
+  </body>
+</html>
