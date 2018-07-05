@@ -63,7 +63,7 @@ mz-input
 */
 
 <template>
-  <section :class="{'nolabel':!label,'tip-noauto-toggle':noAutoToggleTip}">
+  <section :class="{'nolabel':!label,'tip-noauto-toggle':autoToggleTip}">
     <div class="field">
       <div class="border flex-row flex-cross-center" :class="{'no-bottom-line':noBottomLine===true}">
         <label for="" v-if="label" v-html="label"></label>
@@ -169,7 +169,7 @@ module.exports = {
     canRequired:{type:Boolean,default:false},
     selectBtn:{type:Boolean,default:false},//是否显示右侧的选择按钮
     noBottomLine:{type:Boolean,default:false},//是否不显示下划线
-    noAutoToggleTip:{type:Boolean,default:false},//是否关闭自动伸缩的TIP
+    autoToggleTip:{type:Boolean,default:false},//是否关闭自动伸缩的TIP
   },
   watch: {
     value: function(val, oldVal) {
