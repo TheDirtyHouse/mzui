@@ -44,12 +44,12 @@
           error-msg="手机号输入出错" 
           trace="input" 
           need-length="11" 
-          max-length="11" 
+          maxlength="11" 
           ref="inputPhone"
           >
           </mz-input>
 
-          <cell>这是常规输入框+右下角带提示文字</cell>
+          <cell>这是常规输入框+右下角带提示文字+margin-small属性</cell>
         	<mz-input placeholder="请输入纯数字" 
           mz-on-click="input-click"
           class="margin-small"
@@ -81,8 +81,50 @@
           <mz-input placeholder="提示内容" 
           class="margin-small"
           type="tel" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="输入错误"
+          trace="input" 
+          need-length="1" 
+          maxlength="11" 
           v-model="phone4" 
-          ref="inputPhone">
+          >
+          </mz-input>
+          <mz-input placeholder="提示内容2" 
+          class="margin-small"
+          type="tel" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="输入错误"
+          trace="input" 
+          need-length="1" 
+          maxlength="11" 
+          v-model="phone6" 
+          >
+          </mz-input>
+
+          <cell>不带标题的输入框+自动伸缩错误提示</cell>
+          <mz-input placeholder="提示内容" 
+          class="margin-small"
+          type="tel" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="输入错误"
+          trace="input" 
+          need-length="1" 
+          maxlength="11" 
+          v-model="phone8" 
+          :no-auto-toggle-tip="true"
+          >
+          </mz-input>
+          <mz-input placeholder="提示内容2" 
+          class="margin-small"
+          type="tel" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="输入错误"
+          trace="input" 
+          need-length="1" 
+          maxlength="11" 
+          v-model="phone7"
+          :no-auto-toggle-tip="true" 
+          >
           </mz-input>
           
           <cell>获取验证码</cell>
@@ -90,7 +132,7 @@
           type="tel" 
           v-model="phone5" 
           need-length="1" 
-          max-length="11" 
+          maxlength="11" 
           ref="inputPhone">
             <p>获取验证码</p>
           </mz-input>
@@ -114,7 +156,10 @@
         phone2:"",
         phone3:"",
         phone4:"",
-        phone5:""
+        phone5:"",
+        phone6:"",
+        phone7:"",
+        phone8:""
       },
       methods:{
         btnClick:function(e){
