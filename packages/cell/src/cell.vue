@@ -8,7 +8,7 @@
  */
 <template>
 		<div v-on:click="handleClick" v-bind:mz-mon-click="mzMonClick" class="cell flex-row flex-main-center flex-cross-center">
-			<div class="icon-box flex-col flex-main-center">
+			<div class="icon-box flex-col flex-main-center" v-if="$slots.header">
 				<slot name="header"></slot>
 			</div>
 			<div class="title-box flex-auto flex-col flex-main-center">

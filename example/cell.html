@@ -51,7 +51,17 @@
             <p slot="title">标题2</p>
             <p slot="footer">标题3</p>
           </mz-cell>
+          
+          <mz-cell v-on:onclick="btnOk" mgb>
+            <p slot="title">这是没有icon的</p>
+            <p slot="footer">标题3</p>
+          </mz-cell>
 
+          <mz-cell v-on:onclick="btnOk" mgb>
+            <i slot="header"></i>
+            <p slot="title">假装有icon的</p>
+            <p slot="footer">标题3</p>
+          </mz-cell>
 
         </div>
       </div>

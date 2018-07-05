@@ -26,11 +26,7 @@
   <body>
     <div id='app'>
 
-      <div class="flex-col flex-main-center flex-cross-center">
-        <div style="width:80%;">
-        </div>
-      </div>
-       <picker :list-data="list" v-model="value" style="position: absolute;bottom:200px;"></picker>
+      <button v-on:click="btnTest">测试</button>
     </div>
 
 
@@ -47,15 +43,39 @@
     var app = new Vue({
       el: '#app',
       data:{
+        show:false,
         value:"1",
         list:["1","2","3"]
       },
       methods:{
+        btnTest:function(){
+          // this.$refs.picker.toIndex(10);
+          this.show=true;
+          var temp=[];
+          for( var i = 0 ; i < 20 ; i++ ){
+            temp.push("第"+i+"个");
+          }
+          picker.show({
+            btnOk:function(index,data){
+              console.log("btnOk:"+index+","+data.text);
+            },
+            btnCancel:function(index,data){
+              console.log("btnCancel:"+index+","+data.text);
+            },
+            list:temp,
+            title:"测试",
+            txtOk:"ok",
+            txtCancel:"cancel",
+            index:1,
+          });
+        }
       },
       components:{
-        picker
+        // picker
       },
     });
+
+
   };
       
 </script>
