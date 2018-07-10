@@ -1,6 +1,6 @@
 <template>
     <div class="flex-col" >
-      <div v-for="(item, index) in lists" class="carItem flex-row  flex-cross-center" @click="handleClick(index)">
+      <div v-for="(item, index) in lists" class="carItem flex-row  flex-cross-center" @click="handleClick(arguments[0],index)">
       <i class="sprite scale-half" :class="`${item.dataCode}`"></i>
       <div class="item-right flex-row flex-main-between flex-cross-center">
           <span :class="{'color-red ': showIcon==index}">{{item.dataValue}}</span>
@@ -14,9 +14,9 @@
 module.exports={
   name:'select-list',
   methods:{
-    handleClick:function(index){
+    handleClick:function(e,index){
       this.showIcon=index;
-      this.$emit('clickitem',index);
+      this.$emit('clickitem',index,e);
     },
   },
   data:function(){

@@ -21,7 +21,7 @@
     <div id='app'>
 
       <div class="flex-col flex-main-center flex-cross-center">
-        <div style="width:100%;">
+        <div style="width:100%;height:300px;overflow: scroll">
 
         	 <mz-select-list :lists="companyList" v-on:clickitem="clickItem"></mz-select-list>
 
@@ -40,7 +40,8 @@
     var app = new Vue({
       el: '#app',
       data:{
-        companyList:[{
+        companyList:[
+                {
                     "dataTypeCode": "rsbd_company",
                     "dataTypeName": "车险保单公司",
                     "dataCode": "picc",
@@ -50,7 +51,73 @@
                     "dataTypeName": "车险保单公司",
                     "dataCode": "taiping",
                     "dataValue": "这个是公司名称！",
-                }]
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }, {
+                    "dataTypeCode": "rsbd_company",
+                    "dataTypeName": "车险保单公司",
+                    "dataCode": "taiping",
+                    "dataValue": "这个是公司名称！",
+                }
+                ]
       },
       methods:{
         clickItem: function(index) {
