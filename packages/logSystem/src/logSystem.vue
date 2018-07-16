@@ -70,20 +70,19 @@ export default {
 	position: absolute;
 	z-index: 146;
 	left:0;top:0;
-}
-#log-group[open]{
-	width:100%;
+  width:100%;
 }
 #log-content[notouch]{
 	pointer-events: none;
-	opacity: .2;
+	opacity: .6;
 }
 #log-content{
+  display: none;
 	padding-top:40px;
 	position: absolute;
 	left:0;
 	top:4rem;
-	background: rgba(10,0,0,.7);
+	background: rgba(10,0,0,.9);
 	width:100%;height:360px;
 	overflow: scroll;
   -webkit-overflow-scrolling: touch;
@@ -96,6 +95,13 @@ export default {
 
   }
 }
+
+#log-group[open]{
+  #log-content{
+    display: block;
+  }
+}
+
 #log-menu{
 	position: absolute;
 	left:0;
