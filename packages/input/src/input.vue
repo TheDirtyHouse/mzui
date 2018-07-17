@@ -248,7 +248,12 @@ module.exports = {
       }
     },
     onblur: function(e) {
-      this.isFocused = false;
+      var self=this;
+      //由于删除ICON是在isFocused为true才显示，而当isFocused为false的时候则不会触发click事件，所以这里做一帧延迟
+      setTimeout(function(){
+        self.isFocused = false;
+      },100);
+      
       if (this.trace == 'blur' && this.pattern) {
         this.validateInput(this.pattern, e.target.value);
       }
