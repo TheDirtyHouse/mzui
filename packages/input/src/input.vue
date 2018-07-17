@@ -87,7 +87,7 @@ mz-input
           >
           <div class="icons flex-row flex-cross-center">
             <i class="icon icon-click" v-if="selectBtn"></i>
-            <i class="icon icon-clear" v-if="!wrap && isFocused && value" @mousedown="clear()"></i>
+            <i class="icon icon-clear" v-if="!wrap && isFocused && value" @click="clear()"></i>
             <i class="icon icon-eye" 
               :class="{'icon-eye-close': innerType != 'password'}" 
               v-if="isPassword" 
