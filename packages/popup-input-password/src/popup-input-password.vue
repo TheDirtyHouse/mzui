@@ -50,7 +50,7 @@ ref可调用方法
 						<ul class="flex-auto flex-row flex-cross-center" @click="onInput">
 							<li v-for="n in +inputLength" class="flex-auto">
 								<span class="input" :class="{'active': active == n - 1}">
-									{{(inputType=="password" && inputvalue[n-1]) ? "●" : inputvalue[n-1]}}
+									{{(inputType=="password" && inputvalue[n-1].length>0) ? "●" : inputvalue[n-1]}}
 								</span>
 							</li>
 						</ul>
