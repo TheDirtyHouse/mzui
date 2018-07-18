@@ -23,6 +23,11 @@ import messageboxComponent from './messagebox.vue';
       return options || {};
     }
 
+    const close=()=>{
+      instance = getInstance();
+      instance.shown=false;
+    }
+
     const show = (options) => {
       instance = getInstance();
       instance.message = options.message || '';
@@ -88,6 +93,7 @@ const pop = function(options) {
       alert: alert,
       confirm: confirm,
       pop:pop,
+      close:close,
     };
 
 
