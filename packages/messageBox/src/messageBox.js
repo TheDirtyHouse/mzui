@@ -59,6 +59,9 @@ import messageboxComponent from './messagebox.vue';
           instance.showCancelButton=true;
           instance.showConfirmButton=true;
           break;
+        case 'pop':{
+            instance.maskClose=options.maskClose||'1';
+          }break;
           default:;
       };
       instance.shown = true;

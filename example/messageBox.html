@@ -15,14 +15,22 @@
         margin-bottom: 15px;
         margin-top:30px;
       }
+      button{
+        margin-top:15px;
+        margin-bottom: 15px;
+        width:70%;height:40px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
     <div id='app'>
 
       <div class="flex-col flex-main-center flex-cross-center">
-        <div style="width:80%;">
-        </div>
+        <button @click="btnAlert">alert</button>
+        <button @click="btnConfirm">btnConfirm</button>
+        <button @click="btnPop">btnPop</button>
       </div>
     </div>
 
@@ -39,25 +47,51 @@
       data:{
       },
       methods:{
+        btnAlert:function(){
+           MessageBox.alert({
+            content:"info",
+            showDelete:true,
+            showTitle:true,
+            title:"这是标题",
+            message:"文章asdfasdfasdfasdfasdfasfa<br/>sdfasdfasdfasdfsdfasdfsa",
+            btnClose:function () {
+            }
+          });
+         },
+         btnConfirm:function(){
+          MessageBox.confirm({
+            content:"info",
+            showTitle:true,
+            confirmButtonText:"好的",
+            cancelButtonText:"我不要",
+            title:"这是标题",
+            message:"文章asdfasdfasdfasdfasdfasfa<br/>sdfasdfasdfasdfsdfasdfsa",
+            btnOk:function(){
+
+            },
+            btnCancel:function(){
+
+            }
+          });
+         },
+         btnPop:function(){
+          MessageBox.pop({
+            content:"info",
+            showTitle:true,
+            title:"这是标题",
+            message:"文章asdfasdfasdfasdfasdfasfa<br/>sdfasdfasdfasdfsdfasdfsa",
+            btnMaskClose:function(){
+
+            },
+            
+          });
+         }
       },
       components:{
       },
     });
     
-    MessageBox.alert({
-      content:"info",
-      showDelete:true,
-      showTitle:true,
-      title:"这是标题",
-      message:"文章asdfasdfasdfasdfasdfasfa<br/>sdfasdfasdfasdfsdfasdfsa",
-      btnClose:function () {
-        alert('btnClose')
-      }
-//      maskClose:"1",
-//      btnMaskClose:function () {
-//        alert('handleMaskClose')
-//      }
-    });
+   
 
     
 

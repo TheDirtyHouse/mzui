@@ -46,7 +46,7 @@
 .delete {display:inline-block; width:12px; height:2px; background:#BDBDBD; font-size:0; line-height:0;vertical-align:middle;-webkit-transform: rotate(45deg);position:absolute;right:22px;top:22px}
 .delete:after { content:'.'; display:block; width:12px; height:2px; background:#BDBDBD;-webkit-transform: rotate(-90deg);}
 .col-5{
-  display:inline-block;
+  display:block;
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     -ms-flex: 1;
