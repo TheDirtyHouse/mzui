@@ -62,6 +62,7 @@ ref可调用方法
 							<div v-show="type==='normal'" style="height:20px;width:100%;"></div>
 							<mz-input
 								ref="inputref"
+								:type="inputType"
 								v-on:input="onInput" 
 								v-model="inputvalue" 
 								:pattern="pattern" 
@@ -169,6 +170,7 @@ export default {
 		show:{default:false,type:Boolean},
 		tipRight: String,  //输入框右下侧的提示信息
 		mzMonInput:{type:String,default:''},
+		inputType:{default:"text",type:String},
 		
 	},
 };
