@@ -29,7 +29,7 @@ ref可调用方法
 	<transition name="mask" enter-active-class="">
 		<hgroup id="pop-bg" v-show="show" class="flex-row flex-main-center flex-cross-center">
 			<transition name="mask" >
-				<section id="mask" v-show="show"></section>
+				<section id="mask" v-show="show" @click="btnMask"></section>
 			</transition>
 			<transition name="alert">
 				<section id="pop-box" v-show="show" class="flex-col flex-main-center flex-cross-center">
@@ -95,6 +95,11 @@ export default {
 	  },
 	},
 	methods:{
+    btnMask:function(){
+      if(this.callkey){
+        this.closeKeyboard();
+      }
+    },
 		showTips:function(msg){
 			switch(typeof msg){
         case 'string':
