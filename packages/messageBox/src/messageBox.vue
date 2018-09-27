@@ -4,7 +4,9 @@
   <transition >
       <div v-show="shown" class="toast" :class="messageClass" >
        <div class="title " v-show="showTitle" v-html="title"></div>
-       <div class="delete" v-show="showDelete" @click="handleClose"></div>
+       <div v-show="showDelete" @click="handleClose" class="flex-center" style="position: absolute;right:2px;top:2px;width:40px;height:40px;z-index:1;">
+         <div class="delete"></div>
+       </div>
       <div class="message" v-html="message">
       </div>   
        <div class="btn-group" v-show="showCancelButton || showConfirmButton">
@@ -43,8 +45,21 @@
   box-shadow: 0 0 15px rgb(0,0,0); 
 }
 
-.delete {display:inline-block; width:12px; height:2px; background:#BDBDBD; font-size:0; line-height:0;vertical-align:middle;-webkit-transform: rotate(45deg);position:absolute;right:22px;top:22px}
-.delete:after { content:'.'; display:block; width:12px; height:2px; background:#BDBDBD;-webkit-transform: rotate(-90deg);}
+
+.delete{
+  width:14px;height:2px;
+  background:#BDBDBD; 
+  -webkit-transform: rotate(45deg);
+}
+.delete:after{
+  position:absolute;
+  left:0;top:0;
+  content:"";
+  width:14px;height:2px;
+  background:#BDBDBD; 
+  -webkit-transform: rotate(90deg);
+}
+
 .col-5{
   display:block;
     -webkit-box-flex: 1;
