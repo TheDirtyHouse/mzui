@@ -109,22 +109,41 @@
     -moz-align-items: center;
     align-items: center;
 	}
-	@-webkit-keyframes svg-loading {
+@-webkit-keyframes svg-loading {
+	0% { 
+    -webkit-transform: rotateZ(0); 
+  }
+	100% { 
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes svg-loading-circle {
 		0% { 
-      -webkit-transform: rotateZ(0); 
+      stroke-dashoffset: 0
     }
 		100% { 
+      stroke-dashoffset: -600;
+    }
+}
+
+
+@-webkit-keyframes svg-loading {
+    0% { 
+      -webkit-transform: rotateZ(0); 
+    }
+    100% { 
       -webkit-transform: rotateZ(360deg);
     }
-	}
-	@-webkit-keyframes svg-loading-circle {
-			0% { 
-	      stroke-dashoffset: 0
-	    }
-			100% { 
-	      stroke-dashoffset: -600;
-	    }
-	}
+}
+@-webkit-keyframes svg-loading-circle {
+    0% { 
+      stroke-dashoffset: 0
+    }
+    100%{
+      stroke-dashoffset: -600;
+    }
+}
+
 
 	#svg-loading {
     -webkit-animation: svg-loading 2s linear infinite;
