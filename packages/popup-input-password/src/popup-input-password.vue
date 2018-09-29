@@ -382,7 +382,7 @@ $errorColor: #dd191d;
   animation: errorOut .3s ease;
   -webkit-animation: errorOut .3s ease;
 }
-@-webkit-keyframes errorIn{
+@keyframes errorIn{
   0%{
     opacity: 0;
     max-height: 0;
@@ -392,7 +392,7 @@ $errorColor: #dd191d;
     max-height: 1000px;
   }
 }
-@-webkit-keyframes errorOut{
+@keyframes errorOut{
   0%{
     opacity: 1;
     max-height: 1000px;
@@ -411,7 +411,7 @@ $errorColor: #dd191d;
 .mask-leave {
   opacity:1;
 }
-@-webkit-keyframes mask-in {
+@keyframes mask-in {
   0% {
   	opacity:0;
   }
@@ -419,7 +419,7 @@ $errorColor: #dd191d;
     opacity:1;
   }
 }
-@-webkit-keyframes mask-out {
+@keyframes mask-out {
   0% {
   	opacity:1;
   }
@@ -437,7 +437,7 @@ $errorColor: #dd191d;
 .alert-leave {
   opacity:1;
 }
-@-webkit-keyframes alert-in {
+@keyframes alert-in {
   0% {
   	opacity:0;
     -webkit-transform: translate3d(0,20px,0);
@@ -447,7 +447,7 @@ $errorColor: #dd191d;
     -webkit-transform: translate3d(0,0,0);
   }
 }
-@-webkit-keyframes alert-out {
+@keyframes alert-out {
   0% {
   	opacity:1;
   }
@@ -463,7 +463,7 @@ $errorColor: #dd191d;
     background-color: #fff; 
   }
 }
-@-webkit-keyframes blink {
+@keyframes blink {
   0%, 100% {
     background-color: #ff6261;
   }

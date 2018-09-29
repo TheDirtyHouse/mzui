@@ -209,7 +209,7 @@ module.exports = {
     animation: upout .3s ease;
     -webkit-animation: upout .3s ease;
   }
-  @-webkit-keyframes upin {
+  @keyframes upin {
     0% {
       opacity: 0;
       transform: translate3d(0, 216px, 0);
@@ -233,7 +233,7 @@ module.exports = {
       -webkit-transform: translate3d(0, 0, 0);
     }
   }
-  @-webkit-keyframes upout {
+  @keyframes upout {
     0% {
       transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
@@ -253,7 +253,7 @@ module.exports = {
       -webkit-transform: translate3d(0, 216px, 0);
     }
   }
-  @-webkit-keyframes pressout {
+  @keyframes pressout {
     0% {
       background: #eee;
     }

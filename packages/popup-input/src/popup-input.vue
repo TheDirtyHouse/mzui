@@ -248,7 +248,7 @@ $maskAlpha:.7;
   opacity:1;
 }
 
-@-webkit-keyframes mask-in {
+@keyframes mask-in {
   0% {
   	opacity:0;
   }
@@ -258,7 +258,7 @@ $maskAlpha:.7;
 }
 
 
-@-webkit-keyframes mask-out {
+@keyframes mask-out {
   0% {
   	opacity:1;
   }
@@ -278,7 +278,7 @@ $maskAlpha:.7;
   opacity:1;
 }
 
-@-webkit-keyframes alert-in {
+@keyframes alert-in {
   0% {
   	opacity:0;
     -webkit-transform: translate3d(0,20px,0);
@@ -290,7 +290,7 @@ $maskAlpha:.7;
 }
 
 
-@-webkit-keyframes alert-out {
+@keyframes alert-out {
   0% {
   	opacity:1;
   }

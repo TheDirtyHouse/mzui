@@ -282,7 +282,7 @@ i {
 section{
   width: 100%;
 }
-@-webkit-keyframes errorIn{
+@keyframes errorIn{
   0%{
     opacity: 0;
     max-height: 0;
@@ -292,7 +292,7 @@ section{
     max-height: 1000px;
   }
 }
-@-webkit-keyframes errorOut{
+@keyframes errorOut{
   0%{
     opacity: 1;
     max-height: 1000px;

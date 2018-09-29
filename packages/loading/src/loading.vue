@@ -109,7 +109,8 @@
     -moz-align-items: center;
     align-items: center;
 	}
-@-webkit-keyframes svg-loading {
+
+@keyframes svg-loading {
 	0% { 
     -webkit-transform: rotateZ(0); 
   }
@@ -117,7 +118,7 @@
     -webkit-transform: rotateZ(360deg);
   }
 }
-@-webkit-keyframes svg-loading-circle {
+@keyframes svg-loading-circle {
 		0% { 
       stroke-dashoffset: 0
     }
@@ -126,23 +127,6 @@
     }
 }
 
-
-@-webkit-keyframes svg-loading {
-    0% { 
-      -webkit-transform: rotateZ(0); 
-    }
-    100% { 
-      -webkit-transform: rotateZ(360deg);
-    }
-}
-@-webkit-keyframes svg-loading-circle {
-    0% { 
-      stroke-dashoffset: 0
-    }
-    100%{
-      stroke-dashoffset: -600;
-    }
-}
 
 
 	#svg-loading {
