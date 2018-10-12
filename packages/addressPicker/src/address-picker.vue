@@ -18,93 +18,90 @@
  </transition >
 </template>
 <script>
-import picker from './picker.vue'
-import dataAddress from './address.js'
+import picker from './picker.vue';
+import dataAddress from './address.js';
 
 export default {
-   name: 'address-picker',
+  name: 'address-picker',
 
   data() {
-      return {
-        shown: false,
-        options: {
-          title: "选择城市",
-          cancelText:"取消",
-          sureText:"确认",
-        },
-        province:  [],
-        city:[],
-        provinceList:dataAddress.area,
-        cityList: [
-          {
-            "areaCode": "",
-            "parentCode": "",
-            "areaName": "",
-            "level":""
-          }
-        ],
-      }
-    },
-    computed: {
-      cityList:function  () {     
-        return this.province;
-      }
-    },
-    watch:{
-        province: function(val, oldVal) {
-                   this.cityList = val.city;
-                   this.city = this.cityList[0];
-                },
-    },
-    methods:{
-      setOpts: function(opts){
-        switch(typeof opts){
-          case 'string':
-            this.options.title = opts;
-            break;
-          case 'object':
-            if(Object.assign){Object.assign(this.options, opts);}
-            else{
-              for( var key in opts ){
-                this.options[key] = opts[key];
-              }
-            }
-            break;      
+    return {
+      shown: false,
+      options: {
+        title: '选择城市',
+        cancelText: '取消',
+        sureText: '确认'
+      },
+      province: [],
+      city: [],
+      provinceList: dataAddress.area,
+      cityList: [
+        {
+          areaCode: '',
+          parentCode: '',
+          areaName: '',
+          level: ''
         }
-      },
-      show:function(opts){
-       this.shown = true; 
-       this.setOpts (opts);  
-      },
-      hide:function(opts){
-       this.shown = false; 
-      },
-
-      btnCancel: function() {
-       var action=this.options.btnCancel;
-        action(this.province,this.city);
-        this.shown=false;
-
-      },
-      btnSure: function() {
-        var action=this.options.btnSure;
-        action(this.province,this.city);
-        this.shown=false;
-
-      },
-        closeOnClickModal: function(e) {
-
-        var target=e.target.className;
-         if(target=='actionSheet-mask'){
-          this.shown=false;
-         }
-
-      },
+      ]
+    };
+  },
+  computed: {
+    cityList: function() {
+      return this.province;
+    }
+  },
+  watch: {
+    province: function(val, oldVal) {
+      this.cityList = val.city || [];
+      this.city = this.cityList[0];
+    }
+  },
+  methods: {
+    setOpts: function(opts) {
+      switch (typeof opts) {
+        case 'string':
+          this.options.title = opts;
+          break;
+        case 'object':
+          if (Object.assign) {
+            Object.assign(this.options, opts);
+          } else {
+            for (var key in opts) {
+              this.options[key] = opts[key];
+            }
+          }
+          break;
+      }
     },
+    show: function(opts) {
+      this.shown = true;
+      this.setOpts(opts);
+    },
+    hide: function(opts) {
+      this.shown = false;
+    },
+
+    btnCancel: function() {
+      var action = this.options.btnCancel;
+      action(this.province, this.city);
+      this.shown = false;
+    },
+    btnSure: function() {
+      var action = this.options.btnSure;
+      action(this.province, this.city);
+      this.shown = false;
+    },
+    closeOnClickModal: function(e) {
+      var target = e.target.className;
+      if (target == 'actionSheet-mask') {
+        this.shown = false;
+      }
+    }
+  },
 
   components: {
-      picker,
-    }
+    picker
+  }
 };
 </script>
 
@@ -113,46 +110,46 @@ export default {
 * {
   box-sizing: border-box;
 }
-.flex-row{
-   display: -webkit-box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction:row;
+.flex-row {
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
 }
 .flex-main-between {
-     -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    
-    -moz-flex-pack: space-between;
-    -ms-flex-pack: space-between;
-    -webkit-justify-content: space-between;
-    -moz-justify-content: space-between;
-    justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+
+  -moz-flex-pack: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 /**
  * 主轴为竖向排列的
  */
 .flex-col {
-   display: -webkit-box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 .address {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    display: flex;
-    z-index: 300;
-    background:#fff;
-    height:200px
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  z-index: 300;
+  background: #fff;
+  height: 200px;
 }
 .actionSheet-mask {
   position: absolute;
@@ -160,23 +157,21 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color:rgba(0,0,0,.7) ;
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 140;
-
-
 }
-.pickerContent{
-  height:200px
+.pickerContent {
+  height: 200px;
 }
 .toast {
   position: absolute;
   left: 50%;
   bottom: 10px;
-  width:95%;
-  opacity:1;
-  transform: translate3d(-50%,0, 0);
+  width: 95%;
+  opacity: 1;
+  transform: translate3d(-50%, 0, 0);
   border-radius: 4px;
-  background: #EFEDED;
+  background: #efeded;
   color: #000;
   box-sizing: border-box;
   text-align: center;
@@ -184,19 +179,19 @@ export default {
   white-space: nowrap;
   overflow: hidden;
 }
-.action div{
-  color:#009ae8;
-  font-size:18/14+rem;
-  border-top:1px solid #DDD;
-  background-color:#fff;
-  padding:17px 0px;
+.action div {
+  color: #009ae8;
+  font-size: 18/14 + rem;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  padding: 17px 0px;
 }
-.cancel{
-  color:#c1abab;
-  font-size:16/14+rem;
-  border-top:1px solid #DDD;
-  background-color:#fff;
-  padding:17px 0px;
+.cancel {
+  color: #c1abab;
+  font-size: 16/14 + rem;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  padding: 17px 0px;
   margin-top: 10px;
 }
 .toast-top {
@@ -210,44 +205,41 @@ export default {
 }
 
 .v-enter-active {
-  transition: all .3s ;
+  transition: all 0.3s;
 }
-.fade-enter{
-    background-color:rgba(0,0,0,0) ;
+.fade-enter {
+  background-color: rgba(0, 0, 0, 0);
 }
-.fade-enter-active{
-     transition: all .3s ;
-}
-
-
-.v-leave-to{
-    transform: translate3d(-50%, 250px, 0);
-}
-.v-leave{
-    transform: translate3d(-50%, 10px, 0);
-}
-.v-leave-active{   
-     transition: all .3s ease;
+.fade-enter-active {
+  transition: all 0.3s;
 }
 
-
-.fade-leave-to{
-    background-color:rgba(0,0,0,0) ;
+.v-leave-to {
+  transform: translate3d(-50%, 250px, 0);
 }
-.fade-leave{
-    background-color:rgba(0,0,0,.7) ;
+.v-leave {
+  transform: translate3d(-50%, 10px, 0);
 }
-.fade-leave-active{   
-     transition: all .3s ease;
+.v-leave-active {
+  transition: all 0.3s ease;
 }
 
+.fade-leave-to {
+  background-color: rgba(0, 0, 0, 0);
+}
+.fade-leave {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.fade-leave-active {
+  transition: all 0.3s ease;
+}
 
-.title{
-  background-color:#fff;
+.title {
+  background-color: #fff;
   font-size: 1rem;
   text-align: middle;
-  color:#9B9B9B;
-  padding:7px 0px 
+  color: #9b9b9b;
+  padding: 7px 0px;
 }
 .toast-icon {
   display: inline-block;
@@ -257,9 +249,9 @@ export default {
   vertical-align: middle;
 }
 .toorbar {
-    height: 56px;
-    line-height: 56px;
-    padding: 0px 16px;
-    width:100%
+  height: 56px;
+  line-height: 56px;
+  padding: 0px 16px;
+  width: 100%;
 }
 </style>

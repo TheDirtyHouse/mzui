@@ -1,6 +1,3 @@
-/**
- * webpack babel插件的配置文件
- */
 {
   "presets": ["es2015"],
   "compact": false
