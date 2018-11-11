@@ -66,6 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../common_scss/mixin";
 #log-group{
 	position: absolute;
 	z-index: 146;
@@ -78,20 +79,20 @@ export default {
 }
 #log-content{
   display: none;
-	padding-top:40px;
+	padding-top:pxToRem(40);
 	position: absolute;
 	left:0;
-	top:4rem;
+	top:pxToRem(56);
 	background: rgba(10,0,0,.9);
-	width:100%;height:360px;
+	width:100%;height:pxToRem(360);
 	overflow: scroll;
   -webkit-overflow-scrolling: touch;
   p{
-    font-size:1rem;
+    @include fontPxToRem(14);
   	color:white;
   	white-space:nowrap;
-  	line-height:2.2rem;
-  	div,p,span{font-size:inherit;line-height:1.2rem;color:white;}
+  	line-height:pxToRem(30);
+  	div,p,span{font-size:inherit;line-height:pxToRem(17);color:white;}
 
   }
 }
@@ -106,31 +107,34 @@ export default {
 	position: absolute;
 	left:0;
 	top:0;
-	padding:2px 2px;
-	width:100%;height:35px;
+	padding:pxToRem(2) pxToRem(2);
+	width:100%;height:pxToRem(35);
 	border-bottom:1px solid white;
 }
 #log-btn-clear{
 
 	border:2px solid white;
-	width:80px;height:30px;
+	width:pxToRem(80);
+  height:pxToRem(30);
 	text-align: center;
-  line-height:2rem;
+  line-height:pxToRem(28);
   color:white;
   float: left;
-  margin-right:10px;
+  margin-right:pxToRem(10);
 }
 #log-btn{
 	position: absolute;
-  top: .7rem;
-  left: 5rem;
+  top: pxToRem(9.8);
+  left: pxToRem(70);
   color:red;
   background: rgba(255,255,255,.8);
-  width:40px;height:30px;
+  width:pxToRem(40);
+  height:pxToRem(30);
   border-radius: 100%;
   text-align: center;
-  line-height:2rem;
-  font-size:1rem;
+  
+  @include fontPxToRem(14);
+  line-height:pxToRem(28);
   border:1px solid red;
   opacity: .8;
 }

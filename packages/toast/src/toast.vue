@@ -1,5 +1,5 @@
 <template>
-    <div v-show="shown" class="toast-mask" :class="{'from-top': position=='top'}">
+    <div v-show="shown" class="toast-mask flex-col flex-main-center flex-cross-center" :class="{'from-top': position=='top'}">
         <transition>
             <div v-show="shown && position=='middle'" class="toast" :class="toastClass">
                 <i :class="['toast-icon','icon-'+type]" v-if="type!='info'"></i>
@@ -15,9 +15,8 @@
     </div>
 </template>
 <style scoped lang="scss">
-* {
-    box-sizing: border-box;
-}
+@import "../../common_scss/mixin";
+
 
 .toast-mask {
     position: fixed;
@@ -27,21 +26,7 @@
     bottom: 0;
     background-color: transparent;
     z-index: 210;
-    display: -webkit-box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -moz-flex-pack: center;
-    -ms-flex-pack: center;
-    -moz-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -moz-flex-align: center;
-    -ms-flex-align: center;
-    -moz-align-items: center;
-    align-items: center;
+    
     &.from-top {
         -webkit-box-pack: start;
         -moz-flex-pack: start;
@@ -54,18 +39,17 @@
 .toast {
     position: relative;
     max-width: 80%;
-    padding: 12px 20px;
-    border-radius: 4px;
+    padding: pxToRem(12) pxToRem(20);
+    border-radius: pxToRem(4);
     background: rgba(62, 62, 77, .9);
     color: #fff;
-    box-sizing: border-box;
     text-align: center;
 }
 
 .toast-top {
     position: relative;
-    top: 44px;
-    transform: translate3d(0, 20px, 0);
+    top: pxToRem(44);
+    transform: translate3d(0, pxToRem(20), 0);
 }
 
 .toast-top-enter {
@@ -79,7 +63,7 @@
 
 .v-enter {
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, pxToRem(20), 0);
 }
 
 .v-enter-active {
@@ -96,7 +80,7 @@
 }
 
 .toast-message {
-    font-size: 1rem;
+    @include fontPxToRem(14);
     text-align: left;
     word-break: break-all;
 }
@@ -104,10 +88,10 @@
 .toast-icon {
     display: block;
     position: absolute;
-    top: 12px;
-    left: 20px;
-    width: 22px;
-    height: 22px;
+    top: pxToRem(12);
+    left: pxToRem(20);
+    width: pxToRem(22);
+    height: pxToRem(22);
     vertical-align: middle;
 }
 
@@ -123,7 +107,7 @@
     }
     100% {
         opacity: 1;
-        transform: translate3d(0, 20px, 0);
+        transform: translate3d(0, pxToRem(20), 0);
     }
 }
 

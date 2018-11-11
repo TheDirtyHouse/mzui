@@ -211,6 +211,7 @@ module.exports = {
 };
 </script>
 <style scoped lang="scss">
+@import "../../common_scss/mixin";
 html {
   font-family: 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light',
     'Arial', sans-serif;
@@ -288,8 +289,8 @@ $color-text-second: #a8a8a8;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      @include fontPxToRem(18);
       line-height: 43px;
-      font-size: 18/14 + rem;
       color: $color-text-main;
       &.hidden {
         visibility: hidden;

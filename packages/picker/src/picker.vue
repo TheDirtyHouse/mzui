@@ -4,9 +4,9 @@
             <div id="mzui-picker-screen-mask"></div>
             <hgroup style="position: absolute;bottom:0;left:0;width:100%;">
                 <div id="mzui-picker-header" class="flex-row flex-corss-center flex-main-between">
-                    <div style="min-width:6rem" @click="btnCancel">{{txtCancel||"取消"}}</div>
-                    <span>{{title||""}}</span>
-                    <div style="min-width:6rem;text-align: right" @click="btnOk">{{txtOk||"确认"}}</div>
+                    <div class="btn-cancel flex-row flex-cross-center" @click="btnCancel">{{txtCancel||"取消"}}</div>
+                    <span class="flex-center">{{title||""}}</span>
+                    <div class="btn-ok flex-row flex-main-end flex-cross-center" @click="btnOk">{{txtOk||"确认"}}</div>
                 </div>
                 <div id="mzui-picker-body">
                     <div id="mzui-picker-data" style="overflow: hidden;">
@@ -216,10 +216,18 @@ module.exports = {
 }
 </script>
 <style scoped lang="scss">
+@import "../../common_scss/mixin";
 $pickerHeight:180;
 $itemHeight:45;
 $maskHeight:(180-45)/2;
 
+.btn-cancel{
+    min-width:pxToRem(84);
+}
+.btn-ok{
+    min-width:pxToRem(84);
+    text-align: right
+}
 #mzui-picker {
     width: 100%;
     height: 100%;
@@ -241,9 +249,9 @@ $maskHeight:(180-45)/2;
 
 #mzui-picker-header {
     width: 100%;
-    height: 56px;
-    line-height: 56px;
-    padding: 0 16px;
+    height: pxToRem(56);
+    line-height: pxToRem(56);
+    padding: 0 pxToRem(16);
     background: white;
 }
 

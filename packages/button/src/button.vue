@@ -20,7 +20,7 @@
 			<p v-show="!btnLoading"><slot></slot></p>
 			
 			<div v-show="btnLoading">
-				<img src="../../../resource/loading-white.svg" style="width:30px;height:30px;display:inline-block;">
+				<img class="btn-loading" src="../../../resource/loading-white.svg">
  			</div>
 
 		</button>
@@ -49,12 +49,19 @@ module.exports={
 </script>
 
 <style scoped lang="sass">
+@import "../../common_scss/mixin";
 
 $btnColor:rgb(255,99,97);
 $btnColorLoading:#ccc;
 $btnColorDisabled:#ccc;
 $btnHeight:44;
 
+.btn-loading{
+
+	width:pxToRem(30);
+	height:pxToRem(30);
+	display:inline-block;
+}
 
 button[loading]{
 	opacity:.5;
@@ -68,13 +75,13 @@ button{
 	line-height:0;
 	background: $btnColor;
 	background:  -webkit-linear-gradient(right, rgb(255,99,97), rgb(255,160,109)); 
-	box-shadow: 0 4px 9px rgba(255,81,99,.3);
+	box-shadow: 0 pxToRem(4) pxToRem(9) rgba(255,81,99,.3);
 
-	border-radius:$btnHeight/2+px;
+	border-radius:pxToRem($btnHeight/2);
 	width:100%;
-	height:$btnHeight+px;
+	height:pxToRem($btnHeight);
 	p{
-		font-size:1.29rem;
+		@include fontPxToRem(18);
 		color:white;
 	}
 }
@@ -100,7 +107,7 @@ button[btnStyle="hollow"]{
 	background:transparent;
 	p{
 		color:#ff6361;
-		font-size:1.28rem;
+		@include fontPxToRem(18);
 	}
 }
 

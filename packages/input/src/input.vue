@@ -273,6 +273,8 @@ module.exports = {
 </script>
 
 <style scoped lang="sass">
+@import "../../common_scss/mixin";
+
 $errorColor: #dd191d;
 $imgRoot: '../../../resource/';
 $gray: #f3f0f0;
@@ -289,13 +291,13 @@ section{
   }
   100%{
     opacity: 1;
-    max-height: 1000px;
+    max-height: pxToRem(1000);
   }
 }
 @keyframes errorOut{
   0%{
     opacity: 1;
-    max-height: 1000px;
+    max-height: pxToRem(1000);
   }
   100%{
     opacity: 0;
@@ -307,17 +309,17 @@ section{
 }
 .field {
   color: #424242;
-  padding: 0 24px;
+  padding: 0 pxToRem(24);
   background: #fff;
   .border{
     width: 100%;
-    min-height: 56px;
-    padding: 12px 0;
+    min-height: pxToRem(56);
+    padding: pxToRem(12) 0;
   }
   textarea, input {
     width: 100%;
-    line-height: 30px;
-    font-size: 1.14rem;
+    line-height: pxToRem(30);
+    font-size: pxToRem(15.96);
   }
   .icons{
     position: absolute;
@@ -328,38 +330,38 @@ section{
   }
   .icon {
     display: block;
-    width: 24px;
-    height: 24px;
-    margin-left: 16px;
+    width: pxToRem(24);
+    height: pxToRem(24);
+    margin-left: pxToRem(16);
     background-size: auto 100% !important;
     &.icon-clear {
       background: url(#{$imgRoot}icon-input.png) no-repeat 0px 0px;
     }
     &.icon-eye {
-      background: url(#{$imgRoot}icon-input.png) no-repeat -53px 0px;
+      background: url(#{$imgRoot}icon-input.png) no-repeat pxToRem(-53) 0px;
       
     }
     &.icon-eye-close {
-      background: url(#{$imgRoot}icon-input.png) no-repeat -26px 0px;
+      background: url(#{$imgRoot}icon-input.png) no-repeat pxToRem(-26) 0px;
     }
     &.icon-click {
       margin:0;
       padding:0;
-      width:.6rem;
-      height:.6rem;
+      width:pxToRem(8.4);
+      height:pxToRem(8.4);
       border-bottom: 1px solid #ccc;
       border-left: 1px solid #ccc;
       transform: rotateZ(315deg);
-      margin-top: -0.3rem;
-      margin-left:-0.3rem;
+      margin-top: pxToRem(-4.2);
+      margin-left:pxToRem(-4.2);
     }
   }
 }
 label {
-  width: 6+16/14+rem;
+  width: pxToRem(96);
   text-align: left;
-  line-height: 32px;
-  font-size: 1.14rem;
+  line-height: pxToRem(32);
+  font-size: pxToRem(16);
 }
 .v-enter-active{
   animation: errorIn .3s ease;
@@ -370,29 +372,29 @@ label {
   -webkit-animation: errorOut .3s ease;
 }
 .tips {
-  font-size: 1rem;
-  line-height: 16px;
+  font-size: pxToRem(14);
+  line-height: pxToRem(16);
   color: $errorColor;
-  padding: 14px 24px;
+  padding: pxToRem(14) pxToRem(24);
   &.flex-main-between{
     background-color: $gray;
     &::before {
       position: absolute;
-      top: -7px;
-      left: 16px;
+      top: pxToRem(-7);
+      left: pxToRem(16);
       content: '';
       width: 0;
       height: 0;
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent;
-      border-bottom: 7px solid $gray;
+      border-left: pxToRem(7) solid transparent;
+      border-right: pxToRem(7) solid transparent;
+      border-bottom: pxToRem(7) solid $gray;
     }
   }
   >.flex-row{
     color: inherit;
     font-size: inherit;
     .msg {
-      padding-left: 4px;
+      padding-left: pxToRem(4);
       color: inherit;
       font-size: inherit;
     }
@@ -402,22 +404,22 @@ label {
   }
   i {
     display: block;
-    width: 12px;
-    height: 12px;
-    margin-top: 2px;
+    width: pxToRem(12);
+    height: pxToRem(12);
+    margin-top: pxToRem(2);
     background-color: $errorColor;
     color: #fff;
-    line-height: 12px;
+    line-height: pxToRem(12);
     border-radius: 50%;
     text-align: center;
   }
 }
 .nolabel{
-  padding-bottom: 44px;
+  padding-bottom: pxToRem(44);
   .tips{
     position: absolute;
     width: 100%;
-    padding: 14px 24px;
+    padding: pxToRem(14) pxToRem(24);
     &.flex-main-between{
       background-color: #fff;
       &::before{
@@ -437,20 +439,20 @@ label {
   }
 }
 .tips-right{
-  font-size: .86rem;
+  font-size: pxToRem(12);
   color: #757575;
   text-align: right;
-  min-width: 50px;
+  min-width: pxToRem(50);
 }
 .margin-small{
   .field{
-    padding: 0 16px;
+    padding: 0 pxToRem(16);
   }
   .tips{
-    padding: 14px 16px;
+    padding: pxToRem(14) pxToRem(16);
     &.flex-main-between{
       &::before {
-        left: 10px;
+        left: pxToRem(10);
       }
     }
   }

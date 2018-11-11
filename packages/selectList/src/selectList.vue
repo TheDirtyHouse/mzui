@@ -35,37 +35,38 @@ module.exports={
 </script>
 
 <style scoped lang="sass">
+@import "../../common_scss/mixin";
 $imgRoot: '../../../resource/';
 p{
-  font-size:20/14+rem;
+  @include fontPxToRem(20);
   color:Red;
 }
 .item-right{
   width:100%;
   height:100%;
   border-bottom: 1px solid #e0e0e0;
-  margin-left: 8px;
+  margin-left: pxToRem(8);
 }
   .icon {
     display: block;
-    width: 24px;
-    height: 24px;
-    margin-left: 16px;
+    width: pxToRem(24);
+    height: pxToRem(24);
+    margin-left: pxToRem(16);
  
     &.icon-selected {
-      background-size: 14px 10px!important;
+      background-size: pxToRem(14) pxToRem(10) !important;
       background: url(#{$imgRoot}icon-selected.png) no-repeat center center;
     }
   }
 
 .logo{
   background: rgba(216, 216, 216, 1);
-  margin-right: 16px
+  margin-right: pxToRem(16)
 }
 
 .carItem{
-  height: 64px;
-  padding:0px 16px;
+  height: pxToRem(64);
+  padding:0px pxToRem(16);
 
 }
 </style>

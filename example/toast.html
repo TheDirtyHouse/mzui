@@ -21,20 +21,18 @@
     <div id='app'>
 
       <div class="flex-col flex-main-center flex-cross-center">
-        <div style="width:80%;">
-        	test
-
-         
-        </div>
+      
+          <button @click="btnSuccess" mgb>成功</button>
+          <button @click="btnFail" mgb>失败</button>
+          <button @click="btnInfo" mgb>其他</button>
+ 
       </div>
     </div>
 
 <script src="plugins/_vue.js"></script>
 <script>
-      let defaultFontSize = Math.floor(window.screen.width/26.785);
-  defaultFontSize = defaultFontSize > 16 ? 16 : defaultFontSize;
-  document.getElementsByTagName('html')[0].style.fontSize=defaultFontSize+'px';
-  document.getElementsByTagName('body')[0].style.fontSize=defaultFontSize+'px';
+  document.getElementsByTagName('html')[0].style.fontSize = window.screen.width*100/375 + 'px';
+
   window.onload=function(){
     var Toast = mzui.toast.default;
     var app = new Vue({
@@ -42,15 +40,31 @@
       data:{
       },
       methods:{
+        btnSuccess(){
+           Toast.success({
+            message: '成功',
+            duration: 2000,
+          });
+         },
+        btnFail(){
+           Toast.error({
+            message: '失败',
+            duration: 2000,
+          });
+         },
+        btnInfo(){
+           Toast.info({
+            message: 'test',
+            duration: 2000,
+          });
+         },
+
       },
       components:{
       },
     });
     
-    Toast.success({
-      message: 'test',
-      duration: 20000,
-    });
+   
 
     
 

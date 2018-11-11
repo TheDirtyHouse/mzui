@@ -107,41 +107,40 @@ export default {
 
 
 <style scoped lang="scss">
-* {
-  box-sizing: border-box;
-}
-.flex-row {
-  display: -webkit-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: row;
-}
-.flex-main-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
+@import "../../common_scss/mixin";
 
-  -moz-flex-pack: space-between;
-  -ms-flex-pack: space-between;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between;
-}
-/**
- * 主轴为竖向排列的
- */
-.flex-col {
-  display: -webkit-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
+// .flex-row {
+//   display: -webkit-box;
+//   display: -moz-flex;
+//   display: -ms-flexbox;
+//   display: flex;
+//   flex-direction: row;
+// }
+// .flex-main-between {
+//   -webkit-box-pack: justify;
+//   -ms-flex-pack: justify;
+
+//   -moz-flex-pack: space-between;
+//   -ms-flex-pack: space-between;
+//   -webkit-justify-content: space-between;
+//   -moz-justify-content: space-between;
+//   justify-content: space-between;
+// }
+// /**
+//  * 主轴为竖向排列的
+//  */
+// .flex-col {
+//   display: -webkit-box;
+//   display: -moz-flex;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-orient: vertical;
+//   -webkit-box-direction: normal;
+//   -webkit-flex-direction: column;
+//   -moz-flex-direction: column;
+//   -ms-flex-direction: column;
+//   flex-direction: column;
+// }
 .address {
   position: fixed;
   bottom: 0px;
@@ -149,7 +148,7 @@ export default {
   display: flex;
   z-index: 300;
   background: #fff;
-  height: 200px;
+  height: pxToRem(200);
 }
 .actionSheet-mask {
   position: absolute;
@@ -161,16 +160,16 @@ export default {
   z-index: 140;
 }
 .pickerContent {
-  height: 200px;
+  height: pxToRem(200);
 }
 .toast {
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: pxToRem(10);
   width: 95%;
   opacity: 1;
   transform: translate3d(-50%, 0, 0);
-  border-radius: 4px;
+  border-radius: pxToRem(4);
   background: #efeded;
   color: #000;
   box-sizing: border-box;
@@ -181,27 +180,27 @@ export default {
 }
 .action div {
   color: #009ae8;
-  font-size: 18/14 + rem;
+  @include fontPxToRem(18);
   border-top: 1px solid #ddd;
   background-color: #fff;
-  padding: 17px 0px;
+  padding: pxToRem(17) 0px;
 }
 .cancel {
   color: #c1abab;
-  font-size: 16/14 + rem;
+  @include fontPxToRem(16);
   border-top: 1px solid #ddd;
   background-color: #fff;
-  padding: 17px 0px;
-  margin-top: 10px;
+  padding: pxToRem(17) 0px;
+  margin-top: pxToRem(10);
 }
 .toast-top {
   top: 44px;
   left: 50%;
-  transform: translate3d(-50%, 20px, 0);
+  transform: translate3d(-50%, pxToRem(20), 0);
 }
 
 .v-enter {
-  transform: translate3d(-50%, 200px, 0);
+  transform: translate3d(-50%, pxToRem(200), 0);
 }
 
 .v-enter-active {
@@ -215,10 +214,10 @@ export default {
 }
 
 .v-leave-to {
-  transform: translate3d(-50%, 250px, 0);
+  transform: translate3d(-50%, pxToRem(250), 0);
 }
 .v-leave {
-  transform: translate3d(-50%, 10px, 0);
+  transform: translate3d(-50%, pxToRem(10), 0);
 }
 .v-leave-active {
   transition: all 0.3s ease;
@@ -236,22 +235,22 @@ export default {
 
 .title {
   background-color: #fff;
-  font-size: 1rem;
+  @include fontPxToRem(14);
   text-align: middle;
   color: #9b9b9b;
-  padding: 7px 0px;
+  padding: pxToRem(7) 0px;
 }
 .toast-icon {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: pxToRem(20);
+  height: pxToRem(20);
   border: 1px solid;
   vertical-align: middle;
 }
 .toorbar {
-  height: 56px;
-  line-height: 56px;
-  padding: 0px 16px;
+  height: pxToRem(56);
+  line-height: pxToRem(56);
+  padding: 0px pxToRem(16);
   width: 100%;
 }
 </style>

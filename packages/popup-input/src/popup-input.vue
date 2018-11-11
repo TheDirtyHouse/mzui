@@ -59,7 +59,7 @@ ref可调用方法
 
 						<hgroup class="group-input flex-auto flex-col flex-cross-center">
 							<div id="imgCode" v-on:click="handleClickImgCode" :mz-mon-click="mzMonClickImgCode" v-show="type==='imgcode'"><img :src="imgSrc" /></div>
-							<div v-show="type==='normal'" style="height:20px;width:100%;"></div>
+							<div v-show="type==='normal'" style="height:0.2rem;width:100%;"></div>
 							<mz-input
 								ref="inputref"
 								:type="inputType"
@@ -177,6 +177,8 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import "../../common_scss/mixin";
+
 $colorTitlePop:#616161;
 $maskAlpha:.7;
 #mask{
@@ -188,9 +190,9 @@ $maskAlpha:.7;
   display:block;
 }
 #imgCode{
-	margin-top:16px;
-	width:120px;
-	height:34px;
+	margin-top:pxToRem(16);
+	width:pxToRem(120);
+	height:pxToRem(34);
 	img{
 		width:100%;
 		height:100%;
@@ -202,18 +204,20 @@ $maskAlpha:.7;
 	width:100%;
 	height:100%;
 	z-index:100;
-	padding:0 16px;
+	padding:0 pxToRem(16);
 	
 	#pop-box{
 		.group-close{
-			position: absolute;right:14px;top:18px;z-index:103;
+			position: absolute;right:pxToRem(14);
+			top:pxToRem(18);
+			z-index:103;
 		}
 		.group-title{
-			padding-top:15px;
+			padding-top:pxToRem(15);
 			width:100%;
-			height:40px;
+			height:pxToRem(40);
 			#title{
-				font-size:1.28rem;
+				@include fontPxToRem(18)
 				color:$colorTitlePop;
 			}
 		}
@@ -222,14 +226,14 @@ $maskAlpha:.7;
 		}
 		.group-btn{
 			width:100%;
-			height:61px;
-			padding:0 49px;
+			height:pxToRem(60);
+			padding:0 pxToRem(40);
 		}
-		border-radius:6px;
-		box-shadow: 0 0 24px rgba(0, 0, 255, .22), 0px 24px 24px rgba(0, 0, 0, .3);
+		border-radius:pxToRem(6);
+		box-shadow: 0 0 pxToRem(24) rgba(0, 0, 255, .22), 0px pxToRem(24) pxToRem(24) rgba(0, 0, 0, .3);
 		width:100%;
-		max-width:343px;
-		min-height:228px;
+		max-width:pxToRem(303);
+		min-height:pxToRem(228);
 		background: white;
 		z-index:102;
 		
@@ -269,10 +273,10 @@ $maskAlpha:.7;
 
 
 .alert-enter-active {
-  -webkit-animation: alert-in .3s ease;
+  animation: alert-in .3s ease;
 }
 .alert-leave-active {
-   -webkit-animation: alert-out .3s ease;
+  animation: alert-out .3s ease;
 }
 .alert-leave {
   opacity:1;
@@ -281,11 +285,11 @@ $maskAlpha:.7;
 @keyframes alert-in {
   0% {
   	opacity:0;
-    -webkit-transform: translate3d(0,20px,0);
+    transform: translate3d(0,pxToRem(20),0);
   }
   100% {
   	opacity:1;
-    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
   }
 }
 

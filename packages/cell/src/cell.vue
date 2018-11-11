@@ -42,29 +42,30 @@ module.exports={
 </script>
 
 <style scoped lang="sass">
+@import "../../common_scss/mixin";
 $colorTitle:#424242;
 $colorBorderLine:rgba(238,238,238,.5);
 
 
 .cell{
 	background:white;
-	height:64px;
+	height:pxToRem(64);
 	width:100%;
-	padding:0 16px;
+	padding:0 pxToRem(16);
 
 	.icon-box{
 		height:100%;
-		padding-right:16px;
+		padding-right:pxToRem(16);
 	}
 
 	.title-box{
 		height:100%;
-		font-size:1.14rem;
+		@include fontPxToRem(16);
 		color:$colorTitle;
 	}
 	.end-box{
 		height:100%;
-		padding-right:9px;
+		padding-right:pxToRem(9);
 	}
 	.footer-box{
 		height:100%;

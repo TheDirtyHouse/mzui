@@ -1,7 +1,7 @@
 <template>
 	<section class="mask flex-row flex-main-center flex-cross-center" :class="options.className" v-show='showTimes'>
 		<div class='pop flex-col flex-main-center flex-cross-center'>
-			<svg id="svg-loading" x="0px" y="0px" viewBox="0 0 150 150" width="30px" height="30px">
+			<svg id="svg-loading" x="0px" y="0px" viewBox="0 0 150 150" width="0.3rem" height="0.3rem">
     		<circle id="svg-loading-inner" cx="75" cy="75" r="60" border="10px"/>
  			</svg>
 			<span class='text'>{{options.text}}</span>
@@ -67,55 +67,14 @@
 	};
 </script>
 <style scoped lang="scss">
-	.flexBox {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-	}
-	.flex-row {
-		@extend .flexBox;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-	}
-	.flex-col {
-    @extend .flexBox;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-	.flex-main-center {
-		-webkit-box-pack: center;
-    -moz-flex-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    justify-content: center;
-	}
-	.flex-cross-center {
-		-webkit-box-align: center;
-    -moz-flex-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
-	}
+@import "../../common_scss/mixin";
 
 @keyframes svg-loading {
 	0% { 
-    -webkit-transform: rotateZ(0); 
+    transform: rotateZ(0); 
   }
 	100% { 
-    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
   }
 }
 @keyframes svg-loading-circle {
@@ -130,7 +89,7 @@
 
 
 	#svg-loading {
-    -webkit-animation: svg-loading 2s linear infinite;
+    animation: svg-loading 2s linear infinite;
     #svg-loading-inner {
 		  stroke: {
         dashoffset: 0;
@@ -152,16 +111,16 @@
 		bottom:0;
 		z-index: 200;
 		.pop{
-			min-width: 160px;
-			min-height: 115px;
+			min-width: pxToRem(160);
+			min-height: pxToRem(115);
 			max-width: 66%;
 			background-color: rgba(#000, .52);
-			border-radius: 8px;
+			border-radius: pxToRem(8);
 		}
 		.text{
 			color: #fff;
-			font-size: 1rem;
-			padding: 16px 0 0;
+			@include fontPxToRem(14);
+			padding: pxToRem(16) 0 0;
 		}
 	}
 	.loading-full{

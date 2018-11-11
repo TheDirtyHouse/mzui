@@ -1,18 +1,21 @@
 @charset "utf-8";
 
+@import "mixin";
+@import "variable";
 // @font-face{
 // 	font-family:myDefault;
 // 	src:url("../resource/PingFang.ttc");
 // }
-html,body{
-	font-size:14px;
+html{
+	font-size: 14px;
+	font-size:$baseFontRemSize+px;
 }
 *{
 		// font-family: "Helvetica","PingFang SC","微软雅黑",arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
 		// font-family:myDefault;
 		font-family:"PingFangSC-Regular";
 		
-		font-size: 1rem;//=12px
+		@include pxToRem($defaultFontSize);
 		// font-weight:lighter;
 		
 		position: relative;

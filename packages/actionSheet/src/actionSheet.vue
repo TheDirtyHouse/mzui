@@ -16,6 +16,7 @@
  </transition >
 </template>
 <style scoped lang="scss">
+@import "../../common_scss/mixin";
 .actionSheet-mask {
   position: absolute;
   top: 0;
@@ -24,20 +25,19 @@
   bottom: 0;
   background-color:rgba(0,0,0,.7) ;
   z-index: 140;
-  min-height:480px;
+  min-height:pxToRem(480);
 }
 
 .toast {
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: pxToRem(10);
   width:95%;
   opacity:1;
   transform: translate3d(-50%,0, 0);
-  border-radius: 4px;
+  border-radius: pxToRem(4);
   background: #EFEDED;
   color: #000;
-  box-sizing: border-box;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -45,27 +45,27 @@
 }
 .action div{
   color:#009ae8;
-  font-size:18/14+rem;
+  @include fontPxToRem(18);
   border-top:1px solid #DDD;
   background-color:#fff;
-  padding:17px 0px;
+  padding:pxToRem(17) 0px;
 }
 .cancel{
   color:#c1abab;
-  font-size:16/14+rem;
+  @include fontPxToRem(16);
   border-top:1px solid #DDD;
   background-color:#fff;
-  padding:17px 0px;
-  margin-top: 10px;
+  padding:pxToRem(17) 0px;
+  margin-top: pxToRem(10);
 }
 .toast-top {
-  top: 44px;
+  top: pxToRem(44);
   left: 50%;
-  transform: translate3d(-50%, 20px, 0);
+  transform: translate3d(-50%, pxToRem(20), 0);
 }
 
 .v-enter {
-  transform: translate3d(-50%, 200px, 0);
+  transform: translate3d(-50%, pxToRem(200), 0);
 }
 
 .v-enter-active {
@@ -80,10 +80,10 @@
 
 
 .v-leave-to{
-    transform: translate3d(-50%, 250px, 0);
+    transform: translate3d(-50%, pxToRem(250), 0);
 }
 .v-leave{
-    transform: translate3d(-50%, 10px, 0);
+    transform: translate3d(-50%, pxToRem(10), 0);
 }
 .v-leave-active{   
      transition: all .3s ease;
@@ -103,15 +103,15 @@
 
 .title{
   background-color:#fff;
-  font-size: 1rem;
+  @include fontPxToRem(14);
   text-align: middle;
   color:#9B9B9B;
-  padding:7px 0px 
+  padding:pxToRem(7) 0px 
 }
 .toast-icon {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: pxToRem(20);
+  height: pxToRem(20);
   border: 1px solid;
   vertical-align: middle;
 }

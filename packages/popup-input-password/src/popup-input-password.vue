@@ -257,6 +257,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import "../../common_scss/mixin";
 $colorTitlePop:#616161;
 $maskAlpha:.7;
 $errorColor: #dd191d;
@@ -274,34 +275,34 @@ $errorColor: #dd191d;
 	width:100%;
 	height:100%;
 	z-index:100;
-	padding:0 16px;
+	padding:0 pxToRem(16);
 	
 	#pop-box{
-		padding: 15px 24px 0;
+		padding: pxToRem(15) pxToRem(24) 0;
 		.group-close{
 			position: absolute;
-			right:14px;
-			top:18px;
+			right:pxToRem(14);
+			top:pxToRem(18);
 			z-index:103;
 		}
 		.group-title{
 			width:100%;
-			height:40px;
+			height:pxToRem(40);
 			.title{
-				font-size:1.28rem;
+        @include fontPxToRem(18);
 				color:$colorTitlePop;
 			}
 		}
 		.group-btn{
 			width:100%;
-			height:61px;
+			height:pxToRem(61);
 			//padding:0 49px;
 		}
-		border-radius:6px;
-		box-shadow: 0 0 24px rgba(0, 0, 255, .22), 0px 24px 24px rgba(0, 0, 0, .3);
+		border-radius:pxToRem(6);
+		box-shadow: 0 0 pxToRem(24) rgba(0, 0, 255, .22), 0px pxToRem(24) pxToRem(24) rgba(0, 0, 0, .3);
 		width:100%;
-		max-width:343px;
-		min-height:228px;
+		max-width:pxToRem(343);
+		min-height:pxToRem(228);
 		background: white;
 		z-index:102;
 	}
@@ -311,9 +312,9 @@ $errorColor: #dd191d;
 	li{
 		position: relative;
 		overflow-x: hidden;
-		height: 34px;
-		border-bottom: 2px solid #d8d8d8;
-		margin-right: 5px;
+		height: pxToRem(34);
+		border-bottom: pxToRem(2) solid #d8d8d8;
+		margin-right: pxToRem(5);
 		text-align: center;
 		&:last-child{
 			margin-right: 0;
@@ -325,17 +326,18 @@ $errorColor: #dd191d;
 			display: block;
 			width: 100%;
 			height: 100%;
-			font-size: 1.71rem;
+      @include fontPxToRem(23);
+			// font-size: 1.71rem;
 			text-align: center;
-			line-height: 34px;
+			// line-height: 34px;
 			&.active{
 				&:after{
 					content: '';
 					display: inline-block;
 					position: absolute;
-    			top: 3px;
-					width: 2px;
-					height: 28px;
+    			top: pxToRem(3);
+					width: pxToRem(2);
+					height: pxToRem(28);
 					background-color: #b7a689;
 					animation: blink 1s infinite steps(1, start);
 					-webkit-animation: blink 1s infinite steps(1, start);
@@ -349,29 +351,28 @@ $errorColor: #dd191d;
 	color: #757575;
 	.reset{
 		color: #009ae8;
-		margin-left: 15px;
+		margin-left: pxToRem(15);
 	}
 }
 .tips{
 	position: absolute;
-  bottom: 7px;
+  bottom: pxToRem(7);
   left: 0;
-	font-size: 1rem;
-  line-height: 16px;
+	@include fontPxToRem(14);
   color: $errorColor;
   i {
     display: block;
-    width: 12px;
-    height: 12px;
-    margin-top: 2px;
+    width: pxToRem(12);
+    height: pxToRem(12);
+    margin-top: pxToRem(2);
     background-color: $errorColor;
     color: #fff;
-    line-height: 12px;
+    line-height: pxToRem(12);
     border-radius: 50%;
     text-align: center;
   }
   .msg {
-    padding-left: 4px;
+    padding-left: pxToRem(4);
   }
 }
 .error-enter-active{
@@ -389,13 +390,13 @@ $errorColor: #dd191d;
   }
   100%{
     opacity: 1;
-    max-height: 1000px;
+    max-height: pxToRem(1000);
   }
 }
 @keyframes errorOut{
   0%{
     opacity: 1;
-    max-height: 1000px;
+    max-height: pxToRem(1000);
   }
   100%{
     opacity: 0;
@@ -429,10 +430,10 @@ $errorColor: #dd191d;
 }
 
 .alert-enter-active {
-  -webkit-animation: alert-in .3s ease;
+  animation: alert-in .3s ease;
 }
 .alert-leave-active {
-   -webkit-animation: alert-out .3s ease;
+   animation: alert-out .3s ease;
 }
 .alert-leave {
   opacity:1;
@@ -440,11 +441,11 @@ $errorColor: #dd191d;
 @keyframes alert-in {
   0% {
   	opacity:0;
-    -webkit-transform: translate3d(0,20px,0);
+    transform: translate3d(0,pxToRem(20),0);
   }
   100% {
   	opacity:1;
-    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
   }
 }
 @keyframes alert-out {

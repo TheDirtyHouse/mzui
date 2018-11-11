@@ -121,8 +121,9 @@ module.exports = {
 };
 </script>
 <style scoped lang="sass">
+@import "../../common_scss/mixin";
   li{
-    font-size: 24/14+rem;
+    @include fontPxToRem(24);
     text-align: center;
   }
   button{
@@ -140,7 +141,7 @@ module.exports = {
   .number{
     ul{
       width: 100%;
-      height: 54px;
+      height: pxToRem(54);
       border-bottom: 1px solid #bdc3c7;
       &:last-child{
         border-bottom: none;
@@ -148,7 +149,7 @@ module.exports = {
       li{
         border-right: 1px solid #bdc3c7;
         width: 33%;
-        line-height: 53px;
+        line-height: pxToRem(53);
         color: rgba(52, 73, 94, 1);
         transition: background .3s ease-out;
         &:last-child{
@@ -186,19 +187,19 @@ module.exports = {
   }
   .icon-close{
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: pxToRem(20);
+    height: pxToRem(20);
     background-color: rgba(#37484e, .7);
-    border-radius: 0 2px 2px 0; 
+    border-radius: 0 pxToRem(2) pxToRem(2) 0; 
     &:before{
       content: '';
       position: absolute;
-      left: -8px;
+      left: pxToRem(-8);
       width: 0;
       height: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 8px solid rgba(#37484e, .7);
+      border-top: pxToRem(10) solid transparent;
+      border-bottom: pxToRem(10) solid transparent;
+      border-right: pxToRem(8) solid rgba(#37484e, .7);
     }
   }
   .up-enter-active {
@@ -212,45 +213,37 @@ module.exports = {
   @keyframes upin {
     0% {
       opacity: 0;
-      transform: translate3d(0, 216px, 0);
-      -webkit-transform: translate3d(0, 216px, 0);
+      -webkit-transform: translate3d(0, pxToRem(216), 0);
     }
     100% {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
     }
   }
   @keyframes upin {
     0% {
       opacity: 0;
-      transform: translate3d(0, 216px, 0);
-      -webkit-transform: translate3d(0, 216px, 0);
+      transform: translate3d(0, pxToRem(216), 0);
     }
     100% {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
     }
   }
   @keyframes upout {
     0% {
       transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translate3d(0, 216px, 0);
-      -webkit-transform: translate3d(0, 216px, 0);
+      transform: translate3d(0, pxToRem(216), 0);
     }
   }
   @keyframes upout {
     0% {
       transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translate3d(0, 216px, 0);
-      -webkit-transform: translate3d(0, 216px, 0);
+      transform: translate3d(0, pxToRem(216), 0);
     }
   }
   @keyframes pressout {

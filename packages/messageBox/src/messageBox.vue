@@ -4,14 +4,14 @@
   <transition >
       <div v-show="shown" class="toast" :class="messageClass" >
        <div class="title " v-show="showTitle" v-html="title"></div>
-       <div v-show="showDelete" @click="handleClose" class="flex-center" style="position: absolute;right:2px;top:2px;width:40px;height:40px;z-index:1;">
+       <div v-show="showDelete" @click="handleClose" class="flex-center btn-close" >
          <div class="delete"></div>
        </div>
       <div class="message" v-html="message">
       </div>   
-       <div class="btn-group" v-show="showCancelButton || showConfirmButton">
-         <div class="cancel col-5"  v-show="showCancelButton" @click="handleCancel">{{cancelButtonText}}</div>
-         <div class="sure col-5"   v-show="showConfirmButton" @click="handleConfirm" >{{confirmButtonText}}</div>
+       <div class="btn-group flex-center" v-show="showCancelButton || showConfirmButton">
+         <div class="cancel flex-auto"  v-show="showCancelButton" @click="handleCancel">{{cancelButtonText}}</div>
+         <div class="sure flex-auto"   v-show="showConfirmButton" @click="handleConfirm" >{{confirmButtonText}}</div>
       </div> 
       </div>
       </transition>
@@ -19,6 +19,7 @@
   </transition>
 </template>
 <style scoped lang="scss">
+@import "../../common_scss/mixin";
 .messagebox-mask {
   position: fixed;
   top: 0;
@@ -28,26 +29,33 @@
   background:rgba(0,0,0,0.7);
   z-index: 145;
 }
-
+.btn-close{
+  position: absolute;
+  right:pxToRem(2);
+  top:pxToRem(2);
+  width:pxToRem(40);
+  height:pxToRem(40);
+  z-index:1;
+}
 .toast {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   width: 80%;
-  border-radius: 6px;
+  border-radius: pxToRem(6);
   background: #fff;
-  box-sizing: border-box;
+
   text-align: center;
   overflow: hidden;
   color:#757575;
-  font-size: 18/14+rem;
-  box-shadow: 0 0 15px rgb(0,0,0); 
+  @include fontPxToRem(18);
+  box-shadow: 0 0 pxToRem(15) rgb(0,0,0); 
 }
 
 
 .delete{
-  width:14px;height:2px;
+  width:pxToRem(14);height:pxToRem(2);
   background:#BDBDBD; 
   -webkit-transform: rotate(45deg);
 }
@@ -55,46 +63,35 @@
   position:absolute;
   left:0;top:0;
   content:"";
-  width:14px;height:2px;
+  width:pxToRem(14);height:pxToRem(2);
   background:#BDBDBD; 
   -webkit-transform: rotate(90deg);
 }
 
-.col-5{
-  display:block;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    -ms-flex: 1;
-    flex-grow: 1;
-}
+
 .title{
-   margin:16px;
+   margin:pxToRem(16);
    color:#757575;
 
 }
 .message{
-margin:14px 0px 20px;
-padding:0px 20px;
+margin:pxToRem(14) 0px pxToRem(20);
+padding:0px pxToRem(20);
 word-break: break-all;
 
 }
 .sure{
   color:#009ae8;
-   padding:17px 0px;
+   padding:pxToRem(17) 0px;
   // border-top:1px solid #eee;
   // padding:17px 0px;
 }
 .cancel{
  border-right:1px solid #eee;
-  padding:17px 0px;
+  padding:pxToRem(17) 0px;
 }
 .btn-group{
-   border-top:1px solid #eee;
-     display: -webkit-box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
- 
+   border-top:1px solid #eee; 
 }
 .v-enter{
      opacity: 0;

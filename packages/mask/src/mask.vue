@@ -38,6 +38,7 @@ module.exports={
 </script>
 
 <style scoped lang="sass">
+
 #no-touch{
 	left:0;top:0;
   position:absolute;
