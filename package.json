@@ -1,6 +1,6 @@
 {
-  "name": "vue-mzui-rem",
-  "version": "1.0.75",
+  "name": "vue-mzui",
+  "version": "2.0.0",
   "description": "",
   "main": "lib/bundle/index.js",
   "scripts": {
