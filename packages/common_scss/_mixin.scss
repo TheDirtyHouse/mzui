@@ -1,0 +1,85 @@
+@charset "utf-8";
+@import "variable";
+
+@function pxToRem($px) {
+  @return $px/$baseFontRemSize+rem;
+}
+
+@mixin fontPxToRem($px) {
+  $px:$px*$fontRemBase;
+  font-size:$px/$defaultFontSize+rem;
+  line-height:$px*1.375/$defaultFontSize+rem;//line-height为字体大小的1.38倍
+}
+@mixin pxToRem($px) {
+  $px:$px*$fontRemBase;
+  font-size:$px/$defaultFontSize+rem;
+  line-height:$px*1.375/$defaultFontSize+rem;//line-height为字体大小的1.38倍
+}
+
+@mixin pxToRemNormal($px) {
+  $px:$px*$fontRemBase;
+  font-size:$px/$defaultFontSize+rem;
+}
+
+@mixin create-padding($value,$name:"null") {
+  @if $name!="null" {
+    *[padding-top-#{$name}]{padding-top:$value/$baseFontRemSize+rem;}
+    *[padding-bottom-#{$name}]{padding-bottom:$value/$baseFontRemSize+rem;}
+    *[padding-left-#{$name}]{padding-left:$value/$baseFontRemSize+rem;}
+    *[padding-right-#{$name}]{padding-right:$value/$baseFontRemSize+rem;}
+    *[padding-w-#{$name}]{padding-left:$value/$baseFontRemSize+rem;padding-right:$value/$baseFontRemSize+rem;}
+    *[padding-h-#{$name}]{padding-top:$value/$baseFontRemSize+rem;padding-bottom:$value/$baseFontRemSize+rem;}
+    *[padding-wh-#{$name}]{padding:$value/$baseFontRemSize+rem;}
+  }
+  @else{
+    *[padding-top]{padding-top:$value/$baseFontRemSize+rem;}
+    *[padding-bottom]{padding-bottom:$value/$baseFontRemSize+rem;}
+    *[padding-left]{padding-left:$value/$baseFontRemSize+rem;}
+    *[padding-right]{padding-right:$value/$baseFontRemSize+rem;}
+    *[padding-w]{padding-left:$value/$baseFontRemSize+rem;padding-right:$value/$baseFontRemSize+rem;}
+    *[padding-h]{padding-top:$value/$baseFontRemSize+rem;padding-bottom:$value/$baseFontRemSize+rem;}
+    *[padding-wh]{padding:$value/$baseFontRemSize+rem;}
+  }
+}
+
+
+@mixin create-margin($value,$name:"null") {
+  @if $name!="null" {
+    *[margin-top-#{$name}]{margin-top:$value/$baseFontRemSize+rem;}
+    *[margin-bottom-#{$name}]{margin-bottom:$value/$baseFontRemSize+rem;}
+    *[margin-left-#{$name}]{margin-left:$value/$baseFontRemSize+rem;}
+    *[margin-right-#{$name}]{margin-right:$value/$baseFontRemSize+rem;}
+    *[margin-w-#{$name}]{margin-left:$value/$baseFontRemSize+rem;margin-right:$value/$baseFontRemSize+rem;}
+    *[margin-h-#{$name}]{margin-top:$value/$baseFontRemSize+rem;margin-bottom:$value/$baseFontRemSize+rem;}
+    *[margin-wh-#{$name}]{margin:$value/$baseFontRemSize+rem;}
+  }
+  @else{
+    *[margin-top]{margin-top:$value/$baseFontRemSize+rem;}
+    *[margin-bottom]{margin-bottom:$value/$baseFontRemSize+rem;}
+    *[margin-left]{margin-left:$value/$baseFontRemSize+rem;}
+    *[margin-right]{margin-right:$value/$baseFontRemSize+rem;}
+    *[margin-w]{margin-left:$value/$baseFontRemSize+rem;margin-right:$value/$baseFontRemSize+rem;}
+    *[margin-h]{margin-top:$value/$baseFontRemSize+rem;margin-bottom:$value/$baseFontRemSize+rem;}
+    *[margin-wh]{margin:$value/$baseFontRemSize+rem;}
+  }
+}
+
+
+
+@mixin create-background($colorName) {
+  div[#{$colorName}],section[#{$colorName}],
+  hgroup[#{$colorName}]{
+    @content;
+  }
+}
+
+
+
+@mixin create-color($colorName) {
+  span[#{$colorName}],p[#{$colorName}],
+  h1[#{$colorName}],h2[#{$colorName}],h3[#{$colorName}],
+  h4[#{$colorName}],h5[#{$colorName}],
+  h6[#{$colorName}] {
+    @content;
+  }
+}

@@ -1,0 +1,33 @@
+
+@charset "utf-8";
+@import "mixin";
+
+
+h1,.font-h1{
+  @include fontPxToRem(24);
+}
+h2,.font-h2{
+  @include fontPxToRem(20);
+}
+h3,.font-h3{
+  @include fontPxToRem(18);
+}
+h4,.font-h4{
+  @include fontPxToRem(16);
+}
+h4[small]{
+  @include fontPxToRem(15); 
+}
+h5,.font-h5{
+  @include fontPxToRem(14);
+}
+h5[small]{
+  @include fontPxToRem(13);
+}
+h6,.font-h6{
+  @include fontPxToRem(12);
+}
+
+
+
+
