@@ -4,9 +4,9 @@
             <div id="mzui-picker-screen-mask"></div>
             <hgroup style="position: absolute;bottom:0;left:0;width:100%;">
                 <div id="mzui-picker-header" class="flex-row flex-corss-center flex-main-between">
-                    <div class="btn-cancel flex-row flex-cross-center" @click="btnCancel">{{txtCancel||"取消"}}</div>
-                    <span class="flex-center">{{title||""}}</span>
-                    <div class="btn-ok flex-row flex-main-end flex-cross-center" @click="btnOk">{{txtOk||"确认"}}</div>
+                    <div class="btn-cancel flex-row flex-cross-center" @click="btnCancel" v-html="txtCancel"></div>
+                    <span class="flex-center" v-html="title"></span>
+                    <div class="btn-ok flex-row flex-main-end flex-cross-center" @click="btnOk" v-html="txtOk"></div>
                 </div>
                 <div id="mzui-picker-body">
                     <div id="mzui-picker-data" style="overflow: hidden;">

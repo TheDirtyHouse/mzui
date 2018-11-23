@@ -84,17 +84,18 @@ mz-input
             v-focus="focused"
             :disabled="disabled"
             :mz-mon-input="mzMonInput"
+            :class="inputStyle"
           >
-          <div class="icons flex-row flex-cross-center">
-            <i class="icon icon-click" v-if="selectBtn"></i>
-            <i class="icon icon-clear" v-if="!wrap && isFocused && value" @click="clear()"></i>
-            <i class="icon icon-eye" 
-              :class="{'icon-eye-close': innerType != 'password'}" 
-              v-if="isPassword" 
-              @click="toggleType()">
-            </i>
-            <slot></slot>
-          </div>
+        </div>
+        <div class=" flex-row flex-cross-center">
+          <i class="icon icon-click" v-if="selectBtn"></i>
+          <i class="icon icon-clear" v-if="!wrap && isFocused && value" @click="clear()"></i>
+          <i class="icon icon-eye" 
+            :class="{'icon-eye-close': innerType != 'password'}" 
+            v-if="isPassword" 
+            @click="toggleType()">
+          </i>
+          <slot></slot>
         </div>
       </div>
     </div>
@@ -170,6 +171,7 @@ module.exports = {
     selectBtn:{type:Boolean,default:false},//是否显示右侧的选择按钮
     noBottomLine:{type:Boolean,default:false},//是否不显示下划线
     autoToggleTip:{type:Boolean,default:false},//是否关闭自动伸缩的TIP
+    inputStyle:{type:String,default:''},//外部传入的Input输入框样式
   },
   watch: {
     value: function(val, oldVal) {
@@ -455,6 +457,11 @@ label {
         left: pxToRem(10);
       }
     }
+  }
+}
+.no-padding{
+  .field{
+    padding: 0 0;
   }
 }
 .no-bottom-line{

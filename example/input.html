@@ -27,6 +27,9 @@
         font-size:14px;
         display: block;
       }
+      .my-input{
+        text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -39,6 +42,20 @@
           <mz-input placeholder="请输入手机号" 
           label="手机号"
           type="tel" 
+          v-model="phone" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          trace="input" 
+          need-length="11" 
+          maxlength="11" 
+          ref="inputPhone"
+          >
+          </mz-input>
+
+          <cell>密码输入框</cell>
+          <mz-input placeholder="请输入手机号" 
+          label="手机号"
+          type="password" 
           v-model="phone" 
           pattern="/^1[3456789]\d{9}$/" 
           error-msg="手机号输入出错" 
@@ -127,7 +144,7 @@
           >
           </mz-input>
           
-          <cell>获取验证码</cell>
+          <cell>插口方法自定义右侧功能按键</cell>
           <mz-input placeholder="提示内容" 
           type="tel" 
           v-model="phone5" 
@@ -137,6 +154,51 @@
             <p>获取验证码</p>
           </mz-input>
 
+          <cell>插口方法自定义右侧功能按键</cell>
+          <mz-input placeholder="提示内容" 
+          type="tel" 
+          v-model="phone5" 
+          need-length="1" 
+          maxlength="110" 
+          ref="inputPhone">
+            <div style="width:10px;height:10px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;transform: rotateZ(225deg);"></div>
+          </mz-input>
+
+
+
+          <cell>没有padding的</cell>
+          <mz-input placeholder="请输入手机号" 
+          class="no-padding"
+          label="手机号"
+          type="tel" 
+          v-model="phone" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          trace="input" 
+          need-length="11" 
+          maxlength="11" 
+          ref="inputPhone"
+          >
+          </mz-input>
+
+          <cell>自定义Input部分类</cell>
+          <mz-input placeholder="请输入手机号" 
+          class="no-padding"
+          label="手机号"
+          type="tel" 
+          v-model="phone" 
+          pattern="/^1[3456789]\d{9}$/" 
+          error-msg="手机号输入出错" 
+          trace="input" 
+          need-length="11" 
+          maxlength="11" 
+          ref="inputPhone"
+          input-style="my-input"
+          >
+          </mz-input>
+
+
+          <div style="margin-top:100px;background: black;"></div>
 
         </div>
       </div>
